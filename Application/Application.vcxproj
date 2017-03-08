@@ -175,6 +175,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\application.cpp" />
     <ClCompile Include="src\Objects\baseObject.cpp" />
+    <ClCompile Include="src\Objects\Object2d\Cursor\cursor.cpp" />
     <ClCompile Include="src\Objects\Object2d\image.cpp" />
     <ClCompile Include="src\Objects\Object2d\lemniscateProceduralImage.cpp" />
     <ClCompile Include="src\Objects\Object3d\base3dObject.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\application.h" />
     <ClInclude Include="src\Objects\baseObject.h" />
+    <ClInclude Include="src\Objects\Object2d\Cursor\cursor.h" />
     <ClInclude Include="src\Objects\Object2d\image.h" />
     <ClInclude Include="src\Objects\Object2d\lemniscateProceduralImage.h" />
     <ClInclude Include="src\Objects\Object3d\base3dObject.h" />

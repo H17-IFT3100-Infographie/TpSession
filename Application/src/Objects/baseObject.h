@@ -24,6 +24,8 @@ public:
 	virtual bool IsHovered(float x, float y);
 
 	ofVec3f pos;
+	ofVec3f rot;
+	ofVec3f scale;
 protected:
 
 private:

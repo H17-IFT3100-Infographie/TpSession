@@ -12,6 +12,8 @@
 #include "Objects/Object2d/Image.h"
 #include "Objects/Object2d/lemniscateProceduralImage.h"
 
+#include "Objects/Object2d/Cursor/cursor.h"
+
 class Renderer
 {
 public:
@@ -26,20 +28,28 @@ public:
   void MousePressed(int x, int y, int button);
   void MouseDragged(int x, int y, int button);
   void MouseScrolled(int x, int y, float scrollX, float scrollY);
+  void MouseRelease(int x, int y, int button);
   void KeyPressed(int key);
+  void keyReleased(int key);
 
   ~Renderer();
 
 private:
 	void DrawCursor(float x, float y, float z) const;
 
-	std::vector<BaseObject*> m_ObjectsList;
+	std::vector<BaseObject*> objectsList;
 
-	BaseObject* m_SelectedObject;
+	BaseObject* selectedObject;
 
 	ofVec2f screenPosition;
 	ofVec2f screenScale;
 	ofVec2f screenRotation;
 
 	ofVec2f previousMousePosition;
+
+	Cursor* moveCursor;
+	Cursor* rotationCursor;
+	Cursor* scaleCursor;
+
+	bool ctrlPressed;
 };

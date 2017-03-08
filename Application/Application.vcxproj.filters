@@ -70,6 +70,9 @@
     <ClCompile Include="src\Objects\Object3d\sphere.cpp">
       <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Object2d\Cursor\cursor.cpp">
+      <Filter>src\Objects\Object2d\Cursor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -113,6 +116,9 @@
     </Filter>
     <Filter Include="src\Objects\Object3d">
       <UniqueIdentifier>{406d7d82-c402-4d48-be97-0e1da088cd66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Objects\Object2d\Cursor">
+      <UniqueIdentifier>{d0c4a225-90bd-49b9-af83-063dbd609d7f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +298,9 @@
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\sphere.h">
       <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object2d\Cursor\cursor.h">
+      <Filter>src\Objects\Object2d\Cursor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

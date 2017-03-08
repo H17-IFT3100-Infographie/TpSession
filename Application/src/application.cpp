@@ -50,6 +50,11 @@ void Application::mouseScrolled(int x, int y, float scrollX, float scrollY)
 	renderer->MouseScrolled(x, y, scrollX, scrollY);
 }
 
+void Application::mouseReleased(int x, int y, int button)
+{
+	renderer->MouseRelease(x, y, button);
+}
+
 void Application::keyPressed(int key)
 {
 	if (key == 'x')
@@ -65,6 +70,11 @@ void Application::keyPressed(int key)
 	}
 
 	renderer->KeyPressed(key);
+}
+
+void Application::keyReleased(int key)
+{
+	renderer->keyReleased(key);
 }
 
 void Application::exit()
