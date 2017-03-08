@@ -5,8 +5,9 @@
 
 #include "ofMain.h"
 #include "Objects/baseObject.h"
-#include "Objects/Cube.h"
+#include "Objects/Box.h"
 #include "Objects/Sphere.h"
+#include "Objects/Image.h"
 
 class Renderer
 {
@@ -21,13 +22,14 @@ public:
   void MouseDragged(int x, int y, int button);
   void MouseScrolled(int x, int y, float scrollX, float scrollY);
 
-  void LeftArrowPressed();
-  void RightArrowPressed();
-
   ~Renderer();
 
 private:
+	void DrawCursor(float x, float y, float z) const;
+
 	std::vector<BaseObject*> m_ObjectsList;
+
+	BaseObject* m_SelectedObject;
 
 	ofVec2f screenPosition;
 	ofVec2f screenScale;

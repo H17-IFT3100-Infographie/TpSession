@@ -1,9 +1,9 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
-#include "baseObject.h"
+#include "base3DObject.h"
 
-class Sphere : public BaseObject
+class Sphere : public Base3DObject
 {
 public:
 	Sphere(int x, int y, int z, float radius);

@@ -13,9 +13,6 @@
     <ClCompile Include="src\Objects\baseObject.cpp">
       <Filter>src\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\cube.cpp">
-      <Filter>src\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\Objects\sphere.cpp">
       <Filter>src\Objects</Filter>
     </ClCompile>
@@ -61,6 +58,15 @@
     <ClCompile Include="src\gui.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\image.cpp">
+      <Filter>src\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\base3dObject.cpp">
+      <Filter>src\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\box.cpp">
+      <Filter>src\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -105,9 +111,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\baseObject.h">
-      <Filter>src\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\cube.h">
       <Filter>src\Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\sphere.h">
@@ -268,6 +271,15 @@
     </ClInclude>
     <ClInclude Include="src\gui.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\image.h">
+      <Filter>src\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\base3dObject.h">
+      <Filter>src\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\box.h">
+      <Filter>src\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

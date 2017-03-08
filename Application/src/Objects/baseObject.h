@@ -6,8 +6,8 @@
 class BaseObject : public of3dPrimitive
 {
 public:
-	BaseObject();
 	BaseObject(float x, float y, float z);
+	BaseObject(const ofVec3f& pos);
 	~BaseObject();
 
 	virtual void Draw();
@@ -17,23 +17,21 @@ public:
 
 	virtual bool IsHovered(float x, float y);
 
+	ofVec3f pos;
 protected:
-	of3dPrimitive* m_3dPrimitive;
-	ofVec3f position;
+
 private:
 	
 };
 
 void BaseObject::SetPosition(float x, float y, float z)
 {
-	position.x = x;
-	position.y = y;
-	position.z = z;
+	pos = ofVec3f(x, y, z);
 }
 
 void BaseObject::Translate(const ofVec3f& translateBy)
 {
-	position += translateBy;
+	//m_3dPrimitive->setPosition(m_3dPrimitive->getPosition() + translateBy);
 }
 
 
