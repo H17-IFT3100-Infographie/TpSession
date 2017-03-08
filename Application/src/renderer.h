@@ -14,6 +14,10 @@
 
 #include "Objects/Object2d/Cursor/cursor.h"
 
+#include "Objects/Object2d/primitive/line.h"
+#include "Objects/Object2d/primitive/circle.h"
+#include "Objects/Object2d/primitive/rect.h"
+
 class Renderer
 {
 public:

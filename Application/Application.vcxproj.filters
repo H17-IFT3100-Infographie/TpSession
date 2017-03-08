@@ -73,6 +73,18 @@
     <ClCompile Include="src\Objects\Object2d\Cursor\cursor.cpp">
       <Filter>src\Objects\Object2d\Cursor</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Object2d\Primitive\line.cpp">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object2d\Primitive\primitive.cpp">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object2d\Primitive\circle.cpp">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -119,6 +131,9 @@
     </Filter>
     <Filter Include="src\Objects\Object2d\Cursor">
       <UniqueIdentifier>{d0c4a225-90bd-49b9-af83-063dbd609d7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Objects\Object2d\Primitive">
+      <UniqueIdentifier>{19fdb2cd-856c-4cfb-a02f-ab8dfea9f8d4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +316,18 @@
     </ClInclude>
     <ClInclude Include="src\Objects\Object2d\Cursor\cursor.h">
       <Filter>src\Objects\Object2d\Cursor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object2d\Primitive\circle.h">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object2d\Primitive\line.h">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object2d\Primitive\primitive.h">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object2d\Primitive\rect.h">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
