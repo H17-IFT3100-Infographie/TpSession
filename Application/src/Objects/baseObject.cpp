@@ -27,8 +27,3 @@ void BaseObject::Update()
 void BaseObject::Draw()
 {
 }
-
-bool BaseObject::IsHovered(float x, float y)
-{
-	return false;
-}

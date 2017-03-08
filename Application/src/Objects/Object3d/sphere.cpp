@@ -17,8 +17,3 @@ Sphere::Sphere(int x, int y, int z, float radius)
 Sphere::~Sphere()
 {
 }
-
-bool Sphere::IsHovered(float x, float y)
-{
-	return false;
-}

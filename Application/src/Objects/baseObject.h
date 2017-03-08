@@ -21,8 +21,6 @@ public:
 	virtual void SetColor(int r, int g, int b) { }
 	virtual void SetAlpha(int a) { }
 
-	virtual bool IsHovered(float x, float y);
-
 	ofVec3f pos;
 	ofVec3f rot;
 	ofVec3f scale;

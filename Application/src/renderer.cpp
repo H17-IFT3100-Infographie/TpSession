@@ -4,11 +4,12 @@
 #include "renderer.h"
 
 Renderer::Renderer()
-	: screenPosition(ofVec2f(512.0f, 368.0f))
+	: screenPosition(ofVec2f(0.0f, 0.0f))
 	, screenScale(ofVec2f(1.0f, 1.0f))
 	, screenRotation(ofVec2f(0.0f, 0.0f))
 	, previousMousePosition(ofVec2f(0.0f, 0.0f))
 	, selectedObject(nullptr)
+	, leftMousePressed(false)
 	, ctrlPressed(false)
 {}
 
@@ -16,6 +17,9 @@ Renderer::~Renderer() {}
 
 void Renderer::Setup()
 {
+	cam.setDistance(1000.0f);
+	cam.disableMouseInput();
+
 	ofSetFrameRate(60);
 	// Set background to black
 	ofBackground(0, 0, 0);
@@ -52,28 +56,23 @@ void Renderer::Update()
 
 void Renderer::Draw()
 {
-	// draw cursor in front of everything, without transform modification
-	moveCursor->Draw();
-	rotationCursor->Draw();
-	scaleCursor->Draw();
-
-	// apply the current screen translation
+	cam.begin();
 	ofTranslate(screenPosition);
-
-	// apply the current screen scale
 	ofScale(screenScale);
-
-	// apply the current screen rotation
 	ofRotateX(screenRotation.x);
 	ofRotateY(screenRotation.y);
 
 	ofDrawGrid(50.0f);
-	//DrawCursor(0.0f, 0.0f, 0.0f);
 
 	for (int i = 0; i < objectsList.size(); i++)
 	{
 		objectsList[i]->Draw();
 	}
+	cam.end();
+
+	moveCursor->Draw();
+	rotationCursor->Draw();
+	scaleCursor->Draw();
 }
 
 void Renderer::DrawCursor(float x, float y, float z) const
@@ -124,12 +123,12 @@ void Renderer::MouseDragged(int x, int y, int button)
 		if (selectedObject != nullptr)
 		{
 			selectedObject->pos.x += x - previousMousePosition.x;
-			selectedObject->pos.y += y - previousMousePosition.y;
+			selectedObject->pos.y -= y - previousMousePosition.y;
 		}
 		else
 		{
 			screenPosition.x += x - previousMousePosition.x;
-			screenPosition.y += y - previousMousePosition.y;
+			screenPosition.y -= y - previousMousePosition.y;
 		}
 
 	}

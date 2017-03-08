@@ -56,4 +56,7 @@ private:
 	Cursor* scaleCursor;
 
 	bool ctrlPressed;
+	bool leftMousePressed;
+
+	ofEasyCam cam;
 };
