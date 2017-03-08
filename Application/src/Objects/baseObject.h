@@ -10,10 +10,16 @@ public:
 	BaseObject(const ofVec3f& pos);
 	~BaseObject();
 
+	virtual void Setup();
+
+	virtual void Update();
 	virtual void Draw();
 
 	inline void SetPosition(float x, float y, float z);
 	inline void Translate(const ofVec3f& translateBy);
+
+	virtual void SetColor(int r, int g, int b) { }
+	virtual void SetAlpha(int a) { }
 
 	virtual bool IsHovered(float x, float y);
 

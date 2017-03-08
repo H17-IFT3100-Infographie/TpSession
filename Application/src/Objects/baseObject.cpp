@@ -15,6 +15,15 @@ BaseObject::~BaseObject()
 {
 }
 
+void BaseObject::Setup()
+{
+
+}
+
+void BaseObject::Update()
+{
+}
+
 void BaseObject::Draw()
 {
 }

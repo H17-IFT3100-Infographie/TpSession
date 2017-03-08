@@ -22,6 +22,22 @@ void Renderer::Setup()
 	m_ObjectsList.push_back(new Box(125, 125, 0, 20, 20, 20));
 	m_ObjectsList.push_back(new Sphere(250, 250, 0, 20));
 	m_ObjectsList.push_back(new Image(-150, 15, 50, "tableflip.jpg"));
+
+	for (int i = 0; i < m_ObjectsList.size(); i++)
+	{
+		m_ObjectsList[i]->Setup();
+	}
+
+	// TEMP: For testing.
+	m_SelectedObject = m_ObjectsList[2];
+}
+
+void Renderer::Update()
+{
+	for (int i = 0; i < m_ObjectsList.size(); i++)
+	{
+		m_ObjectsList[i]->Update();
+	}
 }
 
 void Renderer::Draw()
@@ -100,3 +116,22 @@ void Renderer::MouseScrolled(int x, int y, float scrollX, float scrollY)
 	screenScale.y = max(0.1f, screenScale.y + scrollY / 10.0f);
 }
 
+void Renderer::KeyPressed(int key)
+{
+	if (key == '1')
+	{
+		m_SelectedObject->SetColor(255, 0, 0);
+	}
+	else if (key == '2')
+	{
+		m_SelectedObject->SetColor(0, 255, 0);
+	}
+	else if (key == '3')
+	{
+		m_SelectedObject->SetAlpha(125);
+	}
+	else if (key == '4')
+	{
+		m_SelectedObject->SetAlpha(255);
+	}
+}

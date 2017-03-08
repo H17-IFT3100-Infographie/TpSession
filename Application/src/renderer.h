@@ -16,11 +16,14 @@ public:
   Renderer();
 
   void Setup();
+
+  void Update();
   void Draw();
 
   void MousePressed(int x, int y, int button);
   void MouseDragged(int x, int y, int button);
   void MouseScrolled(int x, int y, float scrollX, float scrollY);
+  void KeyPressed(int key);
 
   ~Renderer();
 

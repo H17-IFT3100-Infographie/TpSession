@@ -23,15 +23,16 @@ void Application::setup()
 	renderer->Setup();
 }
 
+void Application::update()
+{
+	//gui->Update();
+	renderer->Update();
+}
+
 void Application::draw()
 {
 	//gui->Draw();
 	renderer->Draw();
-}
-
-void Application::update()
-{
-	//gui->Update();
 }
 
 void Application::mousePressed(int x, int y, int button)
@@ -59,7 +60,11 @@ void Application::keyPressed(int key)
 		ofImage img;
 		img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
 		img.save("screenshot_" + boost::lexical_cast<std::string>(timev) + ".png");
+
+		return;
 	}
+
+	renderer->KeyPressed(key);
 }
 
 void Application::exit()
