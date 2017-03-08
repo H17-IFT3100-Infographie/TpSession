@@ -6,6 +6,7 @@
 #include "ofMain.h"
 #include "Objects/baseObject.h"
 #include "Objects/Cube.h"
+#include "Objects/Sphere.h"
 
 class Renderer
 {
@@ -13,8 +14,12 @@ public:
 
   Renderer();
 
-  void setup();
-  void draw();
+  void Setup();
+  void Draw();
+
+  void MousePressed(int x, int y, int button);
+  void MouseDragged(int x, int y, int button);
+  void MouseScrolled(int x, int y, float scrollX, float scrollY);
 
   void LeftArrowPressed();
   void RightArrowPressed();
@@ -22,9 +27,10 @@ public:
   ~Renderer();
 
 private:
-
-	void AddCube(int x, int y, int z, int width, int height, int depth);
-
-
 	std::vector<BaseObject*> m_ObjectsList;
+
+	ofVec2f screenPosition;
+	ofVec2f screenScale;
+
+	ofVec2f previousMousePosition;
 };

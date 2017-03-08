@@ -12,31 +12,39 @@ void Application::setup()
 {
 	ofSetWindowTitle("IFT3100 - TpSession");
 
-	//ofLog() << "<app::setup>";
+	ofLog() << "<app::setup>";
+
+	//gui = new Gui();
+	//gui->Setup();
 
 	renderer = new Renderer();
-	renderer->setup();
+	renderer->Setup();
 }
 
 void Application::draw()
 {
-	renderer->draw();
+	//gui->Draw();
+	renderer->Draw();
 }
 
-// fonction invoquée quand une touche du clavier est relâchée
-void Application::keyReleased(int key)
+void Application::update()
 {
-	switch (key)
-	{
-	case OF_KEY_LEFT:
-		renderer->LeftArrowPressed();
-		break;
-	case OF_KEY_RIGHT:
-		renderer->RightArrowPressed();
-		break;
-	default:
-		break;
-	}
+	//gui->Update();
+}
+
+void Application::mousePressed(int x, int y, int button)
+{
+	renderer->MousePressed(x, y, button);
+}
+
+void Application::mouseDragged(int x, int y, int button)
+{
+	renderer->MouseDragged(x, y, button);
+}
+
+void Application::mouseScrolled(int x, int y, float scrollX, float scrollY)
+{
+	renderer->MouseScrolled(x, y, scrollX, scrollY);
 }
 
 void Application::exit()

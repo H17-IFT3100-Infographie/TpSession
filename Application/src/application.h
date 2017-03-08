@@ -6,21 +6,25 @@
 #include "ofMain.h"
 
 #include "renderer.h"
+#include "gui.h"
 
 class Application : public ofBaseApp
 {
 public:
 
-  Renderer * renderer;
+  Renderer* renderer;
+  Gui* gui;
 
   Application();
+  ~Application();
 
   void setup();
   void draw();
+  void update();
 
-  void keyReleased(int key);
+  void mousePressed(int x, int y, int button);
+  void mouseDragged(int x, int y, int button);
+  void mouseScrolled(int x, int y, float scrollX, float scrollY);
 
   void exit();
-
-  ~Application();
 };

@@ -21,3 +21,8 @@ void BaseObject::Draw()
 	m_3dPrimitive->setPosition(position);
 	m_3dPrimitive->draw();
 }
+
+bool BaseObject::IsHovered(float x, float y)
+{
+	return false;
+}

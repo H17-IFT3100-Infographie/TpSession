@@ -14,11 +14,14 @@ public:
 
 	inline void SetPosition(float x, float y, float z);
 	inline void Translate(const ofVec3f& translateBy);
-		
+
+	virtual bool IsHovered(float x, float y);
+
 protected:
 	of3dPrimitive* m_3dPrimitive;
-private:
 	ofVec3f position;
+private:
+	
 };
 
 void BaseObject::SetPosition(float x, float y, float z)

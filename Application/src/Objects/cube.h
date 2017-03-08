@@ -8,11 +8,13 @@ class Box : public BaseObject
 public:
 	Box(int x, int y, int z, int width, int height, int depth);
 	~Box();
-
-	void Setup(int posX, int posY, int posZ, int width, int height, int depth);
+	
+	bool IsHovered(float x, float y);
 
 private:
 	Box();
+
+	ofVec3f dimensions;
 };
 
 #endif // CUBE_H
