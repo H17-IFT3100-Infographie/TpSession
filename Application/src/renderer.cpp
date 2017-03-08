@@ -6,6 +6,7 @@
 Renderer::Renderer()
 	: screenPosition(ofVec2f(512.0f, 368.0f))
 	, screenScale(ofVec2f(1.0f, 1.0f))
+	, screenRotation(ofVec2f(0.0f, 0.0f))
 	, previousMousePosition(ofVec2f(0.0f, 0.0f))
 {}
 
@@ -25,6 +26,8 @@ void Renderer::Draw()
 {
 	ofTranslate(screenPosition);
 	ofScale(screenScale);
+	ofRotateX(screenRotation.x);
+	ofRotateY(screenRotation.y);
 	ofDrawGrid(50.0f);
 
 	for (int i = 0; i < m_ObjectsList.size(); i++)
@@ -40,9 +43,19 @@ void Renderer::MousePressed(int x, int y, int button)
 
 void Renderer::MouseDragged(int x, int y, int button)
 {
-	screenPosition.x += x - previousMousePosition.x;
-	screenPosition.y += y - previousMousePosition.y;
-
+	// left button
+	if (button == 0)
+	{
+		screenPosition.x += x - previousMousePosition.x;
+		screenPosition.y += y - previousMousePosition.y;
+	}
+	// right button
+	else if (button == 2)
+	{
+		screenRotation.y += x - previousMousePosition.x;
+		screenRotation.x += y - previousMousePosition.y;
+	}
+	
 	previousMousePosition = ofVec2f(x, y);
 }
 

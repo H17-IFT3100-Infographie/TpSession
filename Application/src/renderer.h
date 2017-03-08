@@ -31,6 +31,7 @@ private:
 
 	ofVec2f screenPosition;
 	ofVec2f screenScale;
+	ofVec2f screenRotation;
 
 	ofVec2f previousMousePosition;
 };
