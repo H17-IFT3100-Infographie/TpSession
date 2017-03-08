@@ -3,6 +3,8 @@
 
 #include "application.h"
 
+#include <boost/lexical_cast.hpp>
+
 Application::Application()
 {
 	renderer = nullptr;
@@ -45,6 +47,19 @@ void Application::mouseDragged(int x, int y, int button)
 void Application::mouseScrolled(int x, int y, float scrollX, float scrollY)
 {
 	renderer->MouseScrolled(x, y, scrollX, scrollY);
+}
+
+void Application::keyPressed(int key)
+{
+	if (key == 'x')
+	{
+		time_t timev;
+		time(&timev);
+
+		ofImage img;
+		img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+		img.save("screenshot_" + boost::lexical_cast<std::string>(timev) + ".png");
+	}
 }
 
 void Application::exit()
