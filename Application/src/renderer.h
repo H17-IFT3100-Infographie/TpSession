@@ -5,9 +5,12 @@
 
 #include "ofMain.h"
 #include "Objects/baseObject.h"
-#include "Objects/Box.h"
-#include "Objects/Sphere.h"
-#include "Objects/Image.h"
+
+#include "Objects/Object3d/Box.h"
+#include "Objects/Object3d/Sphere.h"
+
+#include "Objects/Object2d/Image.h"
+#include "Objects/Object2d/lemniscateProceduralImage.h"
 
 class Renderer
 {

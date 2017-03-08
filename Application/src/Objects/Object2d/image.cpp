@@ -42,7 +42,6 @@ void Image::Update()
 
 void Image::Draw()
 {
-	
 	image->draw(pos.x, pos.y, pos.z, image->getWidth(), image->getHeight());
 }
 

@@ -13,9 +13,6 @@
     <ClCompile Include="src\Objects\baseObject.cpp">
       <Filter>src\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\sphere.cpp">
-      <Filter>src\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="src\renderer.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -58,14 +55,20 @@
     <ClCompile Include="src\gui.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\image.cpp">
-      <Filter>src\Objects</Filter>
+    <ClCompile Include="src\Objects\Object2d\image.cpp">
+      <Filter>src\Objects\Object2d</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\base3dObject.cpp">
-      <Filter>src\Objects</Filter>
+    <ClCompile Include="src\Objects\Object2d\lemniscateProceduralImage.cpp">
+      <Filter>src\Objects\Object2d</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\box.cpp">
-      <Filter>src\Objects</Filter>
+    <ClCompile Include="src\Objects\Object3d\base3dObject.cpp">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\box.cpp">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\sphere.cpp">
+      <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -105,15 +108,18 @@
     <Filter Include="addons\ofxGui\src">
       <UniqueIdentifier>{645E9533-4DCD-6179-1CDF-CB65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Objects\Object2d">
+      <UniqueIdentifier>{8867ccdc-51a5-455b-af79-89ebb4966497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Objects\Object3d">
+      <UniqueIdentifier>{406d7d82-c402-4d48-be97-0e1da088cd66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\application.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\baseObject.h">
-      <Filter>src\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\sphere.h">
       <Filter>src\Objects</Filter>
     </ClInclude>
     <ClInclude Include="src\renderer.h">
@@ -272,14 +278,20 @@
     <ClInclude Include="src\gui.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Objects\image.h">
-      <Filter>src\Objects</Filter>
+    <ClInclude Include="src\Objects\Object2d\image.h">
+      <Filter>src\Objects\Object2d</Filter>
     </ClInclude>
-    <ClInclude Include="src\Objects\base3dObject.h">
-      <Filter>src\Objects</Filter>
+    <ClInclude Include="src\Objects\Object2d\lemniscateProceduralImage.h">
+      <Filter>src\Objects\Object2d</Filter>
     </ClInclude>
-    <ClInclude Include="src\Objects\box.h">
-      <Filter>src\Objects</Filter>
+    <ClInclude Include="src\Objects\Object3d\base3dObject.h">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\box.h">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\sphere.h">
+      <Filter>src\Objects\Object3d</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

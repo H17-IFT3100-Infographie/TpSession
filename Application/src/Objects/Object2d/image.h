@@ -21,13 +21,12 @@ public:
 
 	bool IsHovered(float x, float y);
 
+protected:
+	ofImage* image;
 private:
 	Image();
 
-	ofImage* image;
-	
 	std::string filepath;
-
 	std::vector<std::vector<ofColor> > originalColor;
 };
 
