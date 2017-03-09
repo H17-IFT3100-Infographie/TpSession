@@ -49,7 +49,7 @@ void Renderer::Setup()
 {
 	cam.setDistance(1000.0f);
 	cam.disableMouseInput();
-	ofEnableDepthTest();
+	//ofEnableDepthTest();
 
 	ofSetFrameRate(60);
 	// Set background to black

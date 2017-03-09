@@ -36,7 +36,7 @@ void Gui::Draw()
 {
 	ofBackgroundGradient(ofColor::white, ofColor::gray);
 
-	if (filled) {
+	/*if (filled) {
 		ofFill();
 	}
 	else {
@@ -50,7 +50,7 @@ void Gui::Draw()
 	}
 	else {
 		ofDrawCircle((ofVec2f)center, radius);
-	}
+	}*/
 
 	gui.draw();
 }

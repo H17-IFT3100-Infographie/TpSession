@@ -16,8 +16,8 @@ void Application::setup()
 
 	ofLog() << "<app::setup>";
 
-	//gui = new Gui();
-	//gui->Setup();
+	gui = new Gui();
+	gui->Setup();
 
 	renderer = new Renderer();
 	renderer->Setup();
@@ -25,13 +25,13 @@ void Application::setup()
 
 void Application::update()
 {
-	//gui->Update();
+	gui->Update();
 	renderer->Update();
 }
 
 void Application::draw()
 {
-	//gui->Draw();
+	gui->Draw();
 	renderer->Draw();
 }
 
@@ -86,4 +86,7 @@ Application::~Application()
 {
 	if (nullptr != renderer)
 		delete renderer;
+
+	if (nullptr != gui)
+		delete gui;
 }
