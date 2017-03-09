@@ -41,7 +41,7 @@ public:
 private:
 	std::vector<BaseObject*> objectsList;
 
-	BaseObject* selectedObject;
+	std::vector<BaseObject*> selectedObjects;
 
 	ofVec2f screenPosition;
 	ofVec2f screenScale;

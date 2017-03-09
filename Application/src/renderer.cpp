@@ -8,7 +8,7 @@ Renderer::Renderer()
 	, screenScale(ofVec2f(1.0f, 1.0f))
 	, screenRotation(ofVec2f(0.0f, 0.0f))
 	, previousMousePosition(ofVec2f(0.0f, 0.0f))
-	, selectedObject(nullptr)
+	, selectedObjects(std::vector<BaseObject*>())
 	, leftMousePressed(false)
 	, ctrlPressed(false)
 {}
@@ -102,10 +102,13 @@ void Renderer::MouseDragged(int x, int y, int button)
 		moveCursor->pos.x += x - previousMousePosition.x;
 		moveCursor->pos.y += y - previousMousePosition.y;
 
-		if (selectedObject != nullptr)
+		if (selectedObjects.size() > 0)
 		{
-			selectedObject->pos.x += x - previousMousePosition.x;
-			selectedObject->pos.y -= y - previousMousePosition.y;
+			for (int i = 0, count = selectedObjects.size(); i < count; i++)
+			{
+				selectedObjects[i]->pos.x += x - previousMousePosition.x;
+				selectedObjects[i]->pos.y -= y - previousMousePosition.y;
+			}
 		}
 		else
 		{
@@ -122,10 +125,13 @@ void Renderer::MouseDragged(int x, int y, int button)
 		rotationCursor->pos.x += x - previousMousePosition.x;
 		rotationCursor->pos.y += y - previousMousePosition.y;
 
-		if (selectedObject != nullptr)
+		if (selectedObjects.size() > 0)
 		{
-			selectedObject->rot.y += x - previousMousePosition.x;
-			selectedObject->rot.x -= y - previousMousePosition.y;
+			for (int i = 0, count = selectedObjects.size(); i < count; i++)
+			{
+				selectedObjects[i]->rot.y += x - previousMousePosition.x;
+				selectedObjects[i]->rot.x -= y - previousMousePosition.y;
+			}
 		}
 		else
 		{
@@ -141,11 +147,14 @@ void Renderer::MouseScrolled(int x, int y, float scrollX, float scrollY)
 {
 	if (ctrlPressed)
 	{
-		if (selectedObject != nullptr)
+		if (selectedObjects.size() > 0)
 		{
-			selectedObject->scale.x = max(0.1f, selectedObject->scale.x + scrollY / 10.0f);
-			selectedObject->scale.y = max(0.1f, selectedObject->scale.y + scrollY / 10.0f);
-			selectedObject->scale.z = max(0.1f, selectedObject->scale.z + scrollY / 10.0f);
+			for (int i = 0, count = selectedObjects.size(); i < count; i++)
+			{
+				selectedObjects[i]->scale.x = max(0.1f, selectedObjects[i]->scale.x + scrollY / 10.0f);
+				selectedObjects[i]->scale.y = max(0.1f, selectedObjects[i]->scale.y + scrollY / 10.0f);
+				selectedObjects[i]->scale.z = max(0.1f, selectedObjects[i]->scale.z + scrollY / 10.0f);
+			}
 		}
 		else
 		{
@@ -181,18 +190,56 @@ void Renderer::KeyPressed(int key)
 		ctrlPressed = true;
 	}
 
-	if (selectedObject != nullptr) selectedObject->SetColor(ofColor::white);
+	if (selectedObjects.size() > 0)
+	{
+		for (int i = 0, count = selectedObjects.size(); i < count; i++)
+		{
+			selectedObjects[i]->SetColor(ofColor::white);
+		}
+	}
 
-	if (key == 'u') selectedObject = nullptr;
-	else if (key == '1') selectedObject = objectsList[0];
-	else if (key == '2') selectedObject = objectsList[1];
-	else if (key == '3') selectedObject = objectsList[2];
-	else if (key == '4') selectedObject = objectsList[3];
-	else if (key == '5') selectedObject = objectsList[4];
-	else if (key == '6') selectedObject = objectsList[5];
-	else if (key == '7') selectedObject = objectsList[6];
+	int index = -1;
+	switch (key)
+	{
+	case 'u':
+		selectedObjects.clear();
+		break;
+	case '1':
+		index = 0;
+		break;
+	case '2':
+		index = 1;
+		break;
+	case '3':
+		index = 2;
+		break;
+	case '4':
+		index = 3;
+		break;
+	case '5':
+		index = 4;
+		break;
+	case '6':
+		index = 5;
+		break;
+	case '7':
+		index = 6;
+		break;
+	}
 
-	if (selectedObject != nullptr) selectedObject->SetColor(ofColor::yellow);
+	if (index != -1)
+	{
+		std::vector<BaseObject*>::iterator obj = std::find(selectedObjects.begin(), selectedObjects.end(), objectsList[index]);
+		obj != selectedObjects.end() ? selectedObjects.erase(obj) : selectedObjects.push_back(objectsList[index]);
+	}
+
+	if (selectedObjects.size() > 0)
+	{
+		for (int i = 0, count = selectedObjects.size(); i < count; i++)
+		{
+			selectedObjects[i]->SetColor(ofColor::yellow);
+		}
+	}
 }
 
 void Renderer::keyReleased(int key)
