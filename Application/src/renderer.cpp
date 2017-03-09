@@ -9,11 +9,41 @@ Renderer::Renderer()
 	, screenRotation(ofVec2f(0.0f, 0.0f))
 	, previousMousePosition(ofVec2f(0.0f, 0.0f))
 	, selectedObjects(std::vector<BaseObject*>())
+	, undoActions(std::deque<std::vector<UndoAction*> >())
 	, leftMousePressed(false)
-	, ctrlPressed(false)
-{}
+	, shiftPressed(false)
+{
 
-Renderer::~Renderer() {}
+}
+
+Renderer::~Renderer() 
+{
+	for (int i = 0, count = objectsList.size(); i < count; i++)
+	{
+		delete objectsList[i];
+		objectsList[i] = nullptr;
+	}
+	objectsList.clear();
+
+	for (int i = 0, count = selectedObjects.size(); i < count; i++)
+	{
+		delete selectedObjects[i];
+		selectedObjects[i] = nullptr;
+	}
+	selectedObjects.clear();
+
+	for (int i = 0; i < MAX_UNDO_ACTIONS; i++)
+	{
+		for (int j = 0, count = undoActions[i].size(); j < count; j++)
+		{
+			delete undoActions[i][j]->obj;
+			undoActions[i][j]->obj = nullptr;
+		}
+
+		undoActions[i].clear();
+	}
+	undoActions.clear();
+}
 
 void Renderer::Setup()
 {
@@ -78,12 +108,31 @@ void Renderer::Draw()
 
 void Renderer::MousePressed(int x, int y, int button)
 {
+	if (selectedObjects.size() > 0)
+	{
+		// remove the first in.
+		if (undoActions.size() == MAX_UNDO_ACTIONS)
+		{
+			undoActions.pop_front();
+		}
+
+		// add actions for each objects selected
+		std::vector<UndoAction*> actions;
+		for (int i = 0, count = selectedObjects.size(); i < count; i++)
+		{
+			actions.push_back(new UndoAction(selectedObjects[i]));
+		}
+		undoActions.push_back(actions);
+	}
+
 	ofHideCursor();
+	// left mouse button pressed
 	if (button == 0)
 	{
 		moveCursor->pos = ofVec2f(x, y);
 		moveCursor->Show();
 	}
+	// right mouse button pressed
 	else if (button == 2)
 	{
 		rotationCursor->pos = ofVec2f(x, y);
@@ -145,7 +194,7 @@ void Renderer::MouseDragged(int x, int y, int button)
 
 void Renderer::MouseScrolled(int x, int y, float scrollX, float scrollY)
 {
-	if (ctrlPressed)
+	if (shiftPressed)
 	{
 		if (selectedObjects.size() > 0)
 		{
@@ -180,14 +229,14 @@ void Renderer::MouseRelease(int x, int y, int button)
 
 void Renderer::KeyPressed(int key)
 {
-	if (key == OF_KEY_CONTROL)
+	if (key == OF_KEY_SHIFT)
 	{
 		ofHideCursor();
 
 		scaleCursor->pos = ofVec2f(ofGetMouseX(), ofGetMouseY());
 		scaleCursor->Show();
 
-		ctrlPressed = true;
+		shiftPressed = true;
 	}
 
 	if (selectedObjects.size() > 0)
@@ -244,12 +293,27 @@ void Renderer::KeyPressed(int key)
 
 void Renderer::keyReleased(int key)
 {
-	if (key == OF_KEY_CONTROL)
+	if (key == OF_KEY_SHIFT)
 	{
-		ctrlPressed = false;
+		shiftPressed = false;
 
 		scaleCursor->Hide();
 		ofShowCursor();
+	}
+	else if (key == 26)
+	{
+		if (!undoActions.empty())
+		{
+			std::vector<UndoAction*> toApply = undoActions[undoActions.size() - 1];
+			undoActions.pop_back();
+
+			for (int i = 0, count = toApply.size(); i < count; i++)
+			{
+				toApply[i]->obj->pos = toApply[i]->pos;
+				toApply[i]->obj->rot = toApply[i]->rot;
+				toApply[i]->obj->scale = toApply[i]->scale;
+			}
+		}		
 	}
 }
 

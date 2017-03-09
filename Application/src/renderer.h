@@ -39,6 +39,26 @@ public:
   ~Renderer();
 
 private:
+
+	struct UndoAction
+	{
+		BaseObject* obj;
+		ofVec3f pos;
+		ofVec3f rot;
+		ofVec3f scale;
+
+		UndoAction(BaseObject* obj)
+			: obj(obj)
+			, pos(obj->pos)
+			, rot(obj->rot)
+			, scale(obj->scale)
+		{
+
+		}
+	};
+
+	const int MAX_UNDO_ACTIONS = 5;
+
 	std::vector<BaseObject*> objectsList;
 
 	std::vector<BaseObject*> selectedObjects;
@@ -53,8 +73,10 @@ private:
 	Cursor* rotationCursor;
 	Cursor* scaleCursor;
 
-	bool ctrlPressed;
+	bool shiftPressed;
 	bool leftMousePressed;
 
 	ofEasyCam cam;
+
+	std::deque<std::vector<UndoAction*> > undoActions;
 };
