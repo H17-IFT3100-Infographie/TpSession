@@ -11,6 +11,7 @@ public:
 	Image(float x, float y, float z, const std::string filepath);
 	~Image();
 	
+	void Load();
 	virtual void Setup();
 
 	virtual void Update();
@@ -28,6 +29,7 @@ private:
 
 	std::string filepath;
 	std::vector<std::vector<ofColor> > originalColor;
+	ofVec2f originalDimension;
 };
 
 #endif // IMAGE_H

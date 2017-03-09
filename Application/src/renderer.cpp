@@ -19,6 +19,7 @@ void Renderer::Setup()
 {
 	cam.setDistance(1000.0f);
 	cam.disableMouseInput();
+	ofEnableDepthTest();
 
 	ofSetFrameRate(60);
 	// Set background to black
@@ -31,7 +32,7 @@ void Renderer::Setup()
 
 	objectsList.push_back(new Line(ofPoint(0, 0, 0), ofPoint(100, 100, 100), 5.0f, ofColor::yellow));
 	objectsList.push_back(new Circle(ofPoint(-150, -150, 0), 50.0f, 3.0f, false, ofColor::blue));
-	objectsList.push_back(new Rect(ofPoint(250, -250, 0), ofPoint(0, 0, 0), 3.0f, false, ofColor::pink));
+	objectsList.push_back(new Rect(ofPoint(250, -250, 0), 45.0f, 45.0f, 3.0f, false, ofColor::pink));
 
 	for (int i = 0; i < objectsList.size(); i++)
 	{
@@ -62,34 +63,17 @@ void Renderer::Draw()
 	ofRotateX(screenRotation.x);
 	ofRotateY(screenRotation.y);
 
-	ofDrawGrid(50.0f);
-
 	for (int i = 0; i < objectsList.size(); i++)
 	{
 		objectsList[i]->Draw();
 	}
+
+	ofDrawGrid(50.0f);
 	cam.end();
 
 	moveCursor->Draw();
 	rotationCursor->Draw();
 	scaleCursor->Draw();
-}
-
-void Renderer::DrawCursor(float x, float y, float z) const
-{
-	float length = 50.0f;
-
-	ofSetLineWidth(5);
-
-	// X arrow
-	ofSetColor(255, 0, 0);
-	ofDrawLine(x, y, z, x + length, y, z);
-
-	ofSetColor(0, 255, 0);
-	ofDrawLine(x, y, z, x, y - length, z);
-
-	ofSetColor(0, 0, 255);
-	ofDrawLine(x, y, z, x, y, z + length);
 }
 
 void Renderer::MousePressed(int x, int y, int button)
@@ -118,8 +102,6 @@ void Renderer::MouseDragged(int x, int y, int button)
 		moveCursor->pos.x += x - previousMousePosition.x;
 		moveCursor->pos.y += y - previousMousePosition.y;
 
-		//SetCursorPos(moveCursor->pos.x , moveCursor->pos.y);
-
 		if (selectedObject != nullptr)
 		{
 			selectedObject->pos.x += x - previousMousePosition.x;
@@ -140,8 +122,16 @@ void Renderer::MouseDragged(int x, int y, int button)
 		rotationCursor->pos.x += x - previousMousePosition.x;
 		rotationCursor->pos.y += y - previousMousePosition.y;
 
-		screenRotation.y += x - previousMousePosition.x;
-		screenRotation.x += y - previousMousePosition.y;
+		if (selectedObject != nullptr)
+		{
+			selectedObject->rot.y += x - previousMousePosition.x;
+			selectedObject->rot.x -= y - previousMousePosition.y;
+		}
+		else
+		{
+			screenRotation.y += x - previousMousePosition.x;
+			screenRotation.x += y - previousMousePosition.y;
+		}
 	}
 
 	previousMousePosition = ofVec2f(x, y);
@@ -151,8 +141,17 @@ void Renderer::MouseScrolled(int x, int y, float scrollX, float scrollY)
 {
 	if (ctrlPressed)
 	{
-		screenScale.x = max(0.1f, screenScale.x + scrollY / 10.0f);
-		screenScale.y = max(0.1f, screenScale.y + scrollY / 10.0f);
+		if (selectedObject != nullptr)
+		{
+			selectedObject->scale.x = max(0.1f, selectedObject->scale.x + scrollY / 10.0f);
+			selectedObject->scale.y = max(0.1f, selectedObject->scale.y + scrollY / 10.0f);
+			selectedObject->scale.z = max(0.1f, selectedObject->scale.z + scrollY / 10.0f);
+		}
+		else
+		{
+			screenScale.x = max(0.1f, screenScale.x + scrollY / 10.0f);
+			screenScale.y = max(0.1f, screenScale.y + scrollY / 10.0f);
+		}
 	}
 }
 
@@ -182,22 +181,18 @@ void Renderer::KeyPressed(int key)
 		ctrlPressed = true;
 	}
 
-	if (key == '1')
-	{
-		selectedObject->SetColor(255, 0, 0);
-	}
-	else if (key == '2')
-	{
-		selectedObject->SetColor(0, 255, 0);
-	}
-	else if (key == '3')
-	{
-		selectedObject->SetAlpha(125);
-	}
-	else if (key == '4')
-	{
-		selectedObject->SetAlpha(255);
-	}
+	if (selectedObject != nullptr) selectedObject->SetColor(ofColor::white);
+
+	if (key == 'u') selectedObject = nullptr;
+	else if (key == '1') selectedObject = objectsList[0];
+	else if (key == '2') selectedObject = objectsList[1];
+	else if (key == '3') selectedObject = objectsList[2];
+	else if (key == '4') selectedObject = objectsList[3];
+	else if (key == '5') selectedObject = objectsList[4];
+	else if (key == '6') selectedObject = objectsList[5];
+	else if (key == '7') selectedObject = objectsList[6];
+
+	if (selectedObject != nullptr) selectedObject->SetColor(ofColor::yellow);
 }
 
 void Renderer::keyReleased(int key)

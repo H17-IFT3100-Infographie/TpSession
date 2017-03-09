@@ -6,7 +6,7 @@
 class Rect : public Primitive
 {
 public:
-	Rect(ofPoint tl, ofPoint br, float stroke, bool fill = true, ofColor color = ofColor::black);
+	Rect(ofPoint tl, float width, float height, float stroke, bool fill = true, ofColor color = ofColor::black);
 	~Rect();
 	
 	virtual void Setup();
@@ -21,7 +21,8 @@ protected:
 private:
 	Rect();
 
-	ofPoint bottomRight;
+	float width;
+	float height;
 };
 
 #endif // RECTANGLE_H

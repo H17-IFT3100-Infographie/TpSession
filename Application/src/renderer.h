@@ -39,8 +39,6 @@ public:
   ~Renderer();
 
 private:
-	void DrawCursor(float x, float y, float z) const;
-
 	std::vector<BaseObject*> objectsList;
 
 	BaseObject* selectedObject;

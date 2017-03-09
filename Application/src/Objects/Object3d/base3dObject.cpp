@@ -19,8 +19,19 @@ Base3DObject::~Base3DObject()
 
 void Base3DObject::Draw()
 {
+	ofSetColor(color);
+
+	m_3dPrimitive->setScale(scale);
 	m_3dPrimitive->setPosition(pos);
+	m_3dPrimitive->setOrientation(rot);
 	m_3dPrimitive->draw();
+
+	ofSetColor(ofColor::white);
+}
+
+void Base3DObject::SetColor(int r, int g, int b)
+{
+	color = ofColor(r, g, b);
 }
 
 bool Base3DObject::IsHovered(float x, float y)

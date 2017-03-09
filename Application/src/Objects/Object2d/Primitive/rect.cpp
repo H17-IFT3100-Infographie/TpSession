@@ -1,8 +1,9 @@
 #include "rect.h"
 
-Rect::Rect(ofPoint tl, ofPoint br, float lineStroke, bool fill, ofColor color)
+Rect::Rect(ofPoint tl, float width, float height, float lineStroke, bool fill, ofColor color)
 	: Primitive(tl, lineStroke, fill, color)
-	, bottomRight(br)
+	, width(width)
+	, height(height)
 {
 
 }
@@ -24,7 +25,7 @@ void Rect::Draw()
 {
 	PreDraw();
 	
-	ofDrawRectangle(ofRectangle(pos, bottomRight));
+	ofDrawRectangle(pos.x, pos.y, width, height);
 	
 	PostDraw();
 }

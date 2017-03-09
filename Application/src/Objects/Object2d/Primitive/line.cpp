@@ -24,7 +24,7 @@ void Line::Draw()
 {
 	PreDraw();
 
-	ofDrawLine(pos, endPoint);
+	ofDrawLine(pos, pos + endPoint);
 
 	PostDraw();
 }

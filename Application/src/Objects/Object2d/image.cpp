@@ -4,16 +4,14 @@ Image::Image(const std::string filepath)
 	: BaseObject(0.0f, 0.0f, 0.0f)
 	, filepath(filepath)
 {
-	image = new ofImage();
-	image->load(filepath);
+	Load();
 }
 
 Image::Image(float x, float y, float z, const std::string filepath)
 	: BaseObject(x, y, z)
 	, filepath(filepath)
 {
-	image = new ofImage();
-	image->load(filepath);
+	Load();
 }
 
 Image::~Image()
@@ -22,8 +20,16 @@ Image::~Image()
 	image = nullptr;
 }
 
+void Image::Load()
+{
+	image = new ofImage();
+	image->load(filepath);
+}
+
 void Image::Setup()
 {
+	originalDimension = ofVec3f(image->getWidth(), image->getHeight(), 0.0f);
+
 	for (int i = 0; i < image->getWidth(); i++)
 	{
 		originalColor.push_back(std::vector<ofColor>());
@@ -36,12 +42,12 @@ void Image::Setup()
 
 void Image::Update()
 {
-	//image->setImageType(ofImageType::OF_IMAGE_COLOR_ALPHA);
 	image->update();
 }
 
 void Image::Draw()
 {
+	image->setAnchorPoint(image->getWidth() * 0.5f, image->getHeight() * 0.5f);
 	image->draw(pos.x, pos.y, pos.z, image->getWidth(), image->getHeight());
 }
 

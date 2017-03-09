@@ -26,7 +26,9 @@ Box::~Box()
 {
 }
 
-bool Box::IsHovered(float x, float y)
+bool Box::Inside(int x, int y, int z, const ofEasyCam& cam)
 {
-	return false;
+	ofVec3f a = cam.worldToScreen(pos);
+	ofLog() << x << "  " << y << "  " << a;
+	return x >= pos.x && y >= pos.y && x <= pos.x + dimensions.x && y <= pos.y + dimensions.y;
 }
