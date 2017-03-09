@@ -49,7 +49,6 @@ void Renderer::Setup()
 {
 	cam.setDistance(1000.0f);
 	cam.disableMouseInput();
-	//ofEnableDepthTest();
 
 	ofSetFrameRate(60);
 	// Set background to black
@@ -87,6 +86,7 @@ void Renderer::Update()
 
 void Renderer::Draw()
 {
+	ofEnableDepthTest();
 	cam.begin();
 	ofTranslate(screenPosition);
 	ofScale(screenScale);
@@ -100,6 +100,7 @@ void Renderer::Draw()
 
 	ofDrawGrid(50.0f);
 	cam.end();
+	ofDisableDepthTest();
 
 	moveCursor->Draw();
 	rotationCursor->Draw();
