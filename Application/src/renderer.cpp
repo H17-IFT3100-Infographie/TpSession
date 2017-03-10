@@ -16,7 +16,7 @@ Renderer::Renderer()
 
 }
 
-Renderer::~Renderer() 
+Renderer::~Renderer()
 {
 	for (int i = 0, count = objectsList.size(); i < count; i++)
 	{
@@ -84,7 +84,7 @@ void Renderer::Update()
 	}
 }
 
-void Renderer::Draw(bool drawCustomCursor)
+void Renderer::Draw()
 {
 	ofEnableDepthTest();
 	cam.begin();
@@ -101,13 +101,10 @@ void Renderer::Draw(bool drawCustomCursor)
 	ofDrawGrid(100.0f);
 	cam.end();
 	ofDisableDepthTest();
-	
-	if (drawCustomCursor)
-	{
-		moveCursor->Draw();
-		rotationCursor->Draw();
-		scaleCursor->Draw();
-	}
+
+	moveCursor->Draw();
+	rotationCursor->Draw();
+	scaleCursor->Draw();
 }
 
 void Renderer::CreateBox()
@@ -214,6 +211,7 @@ void Renderer::MouseDragged(int x, int y, int button)
 	}
 
 	previousMousePosition = ofVec2f(x, y);
+
 }
 
 void Renderer::MouseScrolled(int x, int y, float scrollX, float scrollY)
@@ -235,6 +233,7 @@ void Renderer::MouseScrolled(int x, int y, float scrollX, float scrollY)
 			screenScale.y = max(0.1f, screenScale.y + scrollY / 10.0f);
 		}
 	}
+
 }
 
 void Renderer::MouseRelease(int x, int y, int button)
@@ -249,6 +248,7 @@ void Renderer::MouseRelease(int x, int y, int button)
 	}
 
 	ofShowCursor();
+
 }
 
 void Renderer::KeyPressed(int key)
@@ -313,6 +313,7 @@ void Renderer::KeyPressed(int key)
 			selectedObjects[i]->SetColor(ofColor::yellow);
 		}
 	}
+
 }
 
 void Renderer::keyReleased(int key)
@@ -337,8 +338,16 @@ void Renderer::keyReleased(int key)
 				toApply[i]->obj->rot = toApply[i]->rot;
 				toApply[i]->obj->scale = toApply[i]->scale;
 			}
-		}		
+		}
 	}
 }
 
+void Renderer::HideAllCustomCursors()
+{
+	ofShowCursor();
+
+	moveCursor->Hide();
+	rotationCursor->Hide();
+	scaleCursor->Hide();
+}
 

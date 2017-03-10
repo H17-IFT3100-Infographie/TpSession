@@ -6,6 +6,7 @@
 #include <boost/lexical_cast.hpp>
 
 Application::Application()
+	: eventEnabled(true)
 {
 	renderer = nullptr;
 }
@@ -30,8 +31,6 @@ Application::~Application()
 	{
 		delete transformGui;
 	}
-
-		
 }
 
 void Application::setup()
@@ -59,11 +58,18 @@ void Application::update()
 {
 	if (renderer->IsAnyObjectSelected())
 	{
+		eventEnabled = !transformGui->IsAnyGuiFocused();
 		transformGui->Update(renderer->GetCurrentSelectedObject());
 	}
 	else
 	{
+		eventEnabled = !gui->IsAnyGuiFocused();
 		gui->Update();
+	}
+
+	if (!eventEnabled)
+	{
+		renderer->HideAllCustomCursors();
 	}
 	
 	renderer->Update();
@@ -71,19 +77,16 @@ void Application::update()
 
 void Application::draw()
 {
-	bool isAnyGuiFocused = false;
 	if (renderer->IsAnyObjectSelected())
 	{
 		transformGui->Draw();
-		isAnyGuiFocused = transformGui->IsAnyGuiFocused();
 	}
 	else
 	{
 		gui->Draw();
-		isAnyGuiFocused = gui->IsAnyGuiFocused();
 	}
 
-	renderer->Draw(isAnyGuiFocused);
+	renderer->Draw();
 }
 
 void Application::CreateBox()
@@ -118,44 +121,62 @@ void Application::CreateLemniscate()
 
 void Application::mousePressed(int x, int y, int button)
 {
-	renderer->MousePressed(x, y, button);
+	if (eventEnabled)
+	{
+		renderer->MousePressed(x, y, button);
+	}
 }
 
 void Application::mouseDragged(int x, int y, int button)
 {
-	renderer->MouseDragged(x, y, button);
+	if (eventEnabled)
+	{
+		renderer->MouseDragged(x, y, button);
+	}
 }
 
 void Application::mouseScrolled(int x, int y, float scrollX, float scrollY)
 {
-	renderer->MouseScrolled(x, y, scrollX, scrollY);
+	if (eventEnabled)
+	{
+		renderer->MouseScrolled(x, y, scrollX, scrollY);
+	}
 }
 
 void Application::mouseReleased(int x, int y, int button)
 {
-	renderer->MouseRelease(x, y, button);
+	if (eventEnabled)
+	{
+		renderer->MouseRelease(x, y, button);
+	}
 }
 
 void Application::keyPressed(int key)
 {
-	if (key == 'x')
+	if (eventEnabled)
 	{
-		time_t timev;
-		time(&timev);
+		if (key == 'x')
+		{
+			time_t timev;
+			time(&timev);
 
-		ofImage img;
-		img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
-		img.save("screenshot_" + boost::lexical_cast<std::string>(timev) + ".png");
+			ofImage img;
+			img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+			img.save("screenshot_" + boost::lexical_cast<std::string>(timev) + ".png");
 
-		return;
+			return;
+		}
+
+		renderer->KeyPressed(key);
 	}
-
-	renderer->KeyPressed(key);
 }
 
 void Application::keyReleased(int key)
 {
-	renderer->keyReleased(key);
+	if (eventEnabled)
+	{
+		renderer->keyReleased(key);
+	}
 }
 
 void Application::exit()

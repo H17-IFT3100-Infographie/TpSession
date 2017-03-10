@@ -28,7 +28,7 @@ public:
 	void Setup();
 
 	void Update();
-	void Draw(bool drawCustomCursor);
+	void Draw();
 
 	void MousePressed(int x, int y, int button);
 	void MouseDragged(int x, int y, int button);
@@ -44,6 +44,8 @@ public:
 
 	bool IsAnyObjectSelected() { return !selectedObjects.empty(); }
 	inline BaseObject* GetCurrentSelectedObject();
+
+	void HideAllCustomCursors();
 
 private:
 

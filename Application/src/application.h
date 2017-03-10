@@ -40,4 +40,6 @@ private:
 	void CreateSphere();
 	void CreateImage();
 	void CreateLemniscate();
+
+	bool eventEnabled;
 };
