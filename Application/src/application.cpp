@@ -22,6 +22,7 @@ Application::~Application()
 	{
 		gui->GetCreateBoxButton().removeListener(this, &Application::CreateBox);
 		gui->GetCreateSphereButton().removeListener(this, &Application::CreateSphere);
+		gui->GetCreateModelButton().removeListener(this, &Application::CreateModel);
 		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
 		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
 		delete gui;
@@ -53,6 +54,7 @@ void Application::setup()
 
 	gui->GetCreateBoxButton().addListener(this, &Application::CreateBox);
 	gui->GetCreateSphereButton().addListener(this, &Application::CreateSphere);
+	gui->GetCreateModelButton().addListener(this, &Application::CreateModel);
 	gui->GetCreateImageButton().addListener(this, &Application::CreateImage);
 	gui->GetCreateLemniscateButton().addListener(this, &Application::CreateLemniscate);
 }
@@ -115,6 +117,21 @@ void Application::CreateBox()
 void Application::CreateSphere()
 {
 	renderer->CreateSphere();
+}
+
+void Application::CreateModel()
+{
+	const std::string& filepath(gui->GetImageInputField().GetValue());
+	if (ofFile::doesFileExist(filepath))
+	{
+		renderer->CreateModel(filepath);
+	}
+	else
+	{
+		// Show error?
+	}
+	gui->GetImageInputField().leaveFocus();
+	gui->GetImageInputField().ResetValue();
 }
 
 void Application::CreateImage()

@@ -40,6 +40,7 @@ public:
 private:
 	void CreateBox();
 	void CreateSphere();
+	void CreateModel();
 	void CreateImage();
 	void CreateLemniscate();
 

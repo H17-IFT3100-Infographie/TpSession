@@ -2,16 +2,25 @@
 #define MODEL_OBJ_H
 
 #include "base3DObject.h"
+#include "ofxAssimpModelLoader.h"
 
-class ModeObj : public Base3DObject
+class ModelObj : public Base3DObject
 {
 public:
-	ModeObj();
-	ModeObj(int x, int y, int z, float radius);
-	~ModeObj();
+	ModelObj();
+	ModelObj(const std::string filepath);
+	ModelObj(int x, int y, int z, float radius);
+	~ModelObj();	
+protected:
+	ofxAssimpModelLoader* modele;
 
-private:
+
+private:	
+	std::string filepath;
 	void Load();
+	void Setup();	 
+	void Update();
+	void Draw();
 };
 
 #endif // MODEL_OBJ_H

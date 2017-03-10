@@ -122,6 +122,11 @@ void Renderer::CreateImage(const std::string& filepath)
 	objectsList.push_back(new Image(filepath));
 }
 
+void Renderer::CreateModel(const std::string& filepath)
+{
+	objectsList.push_back(new ModelObj(filepath));
+}
+
 void Renderer::CreateLemniscate()
 {
 	objectsList.push_back(new LemniscateProceduralImage());

@@ -172,6 +172,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Gui\baseGui.cpp" />
+    <ClCompile Include="src\Gui\cameraGui.cpp" />
     <ClCompile Include="src\Gui\gui.cpp" />
     <ClCompile Include="src\Gui\multiTransformGui.cpp" />
     <ClCompile Include="src\Gui\transformGui.cpp" />
@@ -209,6 +210,7 @@
   <ItemGroup>
     <ClInclude Include="src\application.h" />
     <ClInclude Include="src\Gui\baseGui.h" />
+    <ClInclude Include="src\Gui\cameraGui.h" />
     <ClInclude Include="src\Gui\gui.h" />
     <ClInclude Include="src\Gui\multiTransformGui.h" />
     <ClInclude Include="src\Gui\transformGui.h" />

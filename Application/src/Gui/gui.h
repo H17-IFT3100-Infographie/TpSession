@@ -14,6 +14,7 @@ public:
 
 	ofxButton& GetCreateBoxButton() { return createCubeButton; }
 	ofxButton& GetCreateSphereButton() { return createSphereButton; }
+	ofxButton& GetCreateModelButton() { return createModelButton; }
 	ofxButton& GetCreateImageButton() { return createImageButton; }
 	ofxButton& GetCreateLemniscateButton() { return createLemniscateButton; }
 
@@ -24,6 +25,7 @@ public:
 private:
 	ofxButton createCubeButton;
 	ofxButton createSphereButton;
+	ofxButton createModelButton;
 	ofxButton createImageButton;
 	ofxButton createLemniscateButton;
 	ofxTextField imageInputField;
