@@ -12,12 +12,11 @@ void Gui::Setup()
 {
 	ofSetVerticalSync(true);
 
-	// we add this listener before setting up so the initial circle resolution is correct
-	//circleResolution.addListener(this, &Application::circleResolutionChanged);
-	//ringButton.addListener(this, &Application::ringButtonPressed);
-
-	gui.setup(); // most of the time you don't need a name
+	gui.setup(); 
 	gui.add(createCubeButton.setup("Cube"));
+	gui.add(createSphereButton.setup("Sphere"));
+	gui.add(createImageButton.setup("Image"));
+	gui.add(createLemniscateButton.setup("Lemniscate"));
 }
 
 void Gui::Update()
@@ -28,22 +27,6 @@ void Gui::Update()
 void Gui::Draw()
 {
 	ofBackgroundGradient(ofColor::white, ofColor::gray);
-
-	/*if (filled) {
-		ofFill();
-	}
-	else {
-		ofNoFill();
-	}
-
-	ofSetColor(color);
-	if (twoCircles) {
-		ofDrawCircle(center->x - radius*.5, center->y, radius);
-		ofDrawCircle(center->x + radius*.5, center->y, radius);
-	}
-	else {
-		ofDrawCircle((ofVec2f)center, radius);
-	}*/
 
 	gui.draw();
 }

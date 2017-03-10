@@ -5,6 +5,7 @@ Image::Image(const std::string filepath)
 	, filepath(filepath)
 {
 	Load();
+	
 }
 
 Image::Image(float x, float y, float z, const std::string filepath)
@@ -24,12 +25,15 @@ void Image::Load()
 {
 	image = new ofImage();
 	image->load(filepath);
+
+	Setup();
 }
 
 void Image::Setup()
 {
 	originalDimension = ofVec3f(image->getWidth(), image->getHeight(), 0.0f);
 
+	originalColor.clear();
 	for (int i = 0; i < image->getWidth(); i++)
 	{
 		originalColor.push_back(std::vector<ofColor>());
@@ -47,8 +51,8 @@ void Image::Update()
 
 void Image::Draw()
 {
-	image->setAnchorPoint(image->getWidth() * 0.5f, image->getHeight() * 0.5f);
-	image->draw(pos.x, pos.y, pos.z, image->getWidth(), image->getHeight());
+	image->setAnchorPoint(image->getWidth() * 0.05f, image->getHeight() * 0.05f);
+	image->draw(pos.x, pos.y, pos.z, image->getWidth() * 0.1f, image->getHeight() * 0.1f);
 }
 
 void Image::SetColor(int r, int g, int b)

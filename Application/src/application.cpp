@@ -20,6 +20,9 @@ Application::~Application()
 	if (nullptr != gui)
 	{
 		gui->GetCreateBoxButton().removeListener(this, &Application::CreateBox);
+		gui->GetCreateSphereButton().removeListener(this, &Application::CreateSphere);
+		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
+		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
 		delete gui;
 	}
 
@@ -47,6 +50,9 @@ void Application::setup()
 	renderer->Setup();
 
 	gui->GetCreateBoxButton().addListener(this, &Application::CreateBox);
+	gui->GetCreateSphereButton().addListener(this, &Application::CreateSphere);
+	gui->GetCreateImageButton().addListener(this, &Application::CreateImage);
+	gui->GetCreateLemniscateButton().addListener(this, &Application::CreateLemniscate);
 }
 
 void Application::update()
@@ -80,6 +86,21 @@ void Application::draw()
 void Application::CreateBox()
 {
 	renderer->CreateBox();
+}
+
+void Application::CreateSphere()
+{
+	renderer->CreateSphere();
+}
+
+void Application::CreateImage()
+{
+	renderer->CreateImage();
+}
+
+void Application::CreateLemniscate()
+{
+	renderer->CreateLemniscate();
 }
 
 void Application::mousePressed(int x, int y, int button)

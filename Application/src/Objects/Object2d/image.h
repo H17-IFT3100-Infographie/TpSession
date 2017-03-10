@@ -25,8 +25,6 @@ public:
 protected:
 	ofImage* image;
 private:
-	Image();
-
 	std::string filepath;
 	std::vector<std::vector<ofColor> > originalColor;
 	ofVec2f originalDimension;

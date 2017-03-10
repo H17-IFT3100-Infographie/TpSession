@@ -3,17 +3,21 @@
 LemniscateProceduralImage::LemniscateProceduralImage()
 	: Image(0.0f, 0.0f, 0.0f, "blankcanvas.jpg")
 {
+	// For no apparent reason, the setup called fom based class never
+	// called the derived function Setup();
+	Setup();
 }
 
 LemniscateProceduralImage::LemniscateProceduralImage(float x, float y, float z)
 	: Image(x, y, z, "blankcanvas.jpg")
 {
+	// For no apparent reason, the setup called fom based class never
+	// called the derived function Setup();
+	Setup();
 }
 
 LemniscateProceduralImage::~LemniscateProceduralImage()
 {
-	delete image;
-	image = nullptr;
 }
 
 void LemniscateProceduralImage::Setup()

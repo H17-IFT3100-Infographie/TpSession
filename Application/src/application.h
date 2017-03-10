@@ -36,4 +36,7 @@ public:
 
 private:
 	void CreateBox();
+	void CreateSphere();
+	void CreateImage();
+	void CreateLemniscate();
 };

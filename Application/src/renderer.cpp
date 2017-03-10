@@ -112,6 +112,21 @@ void Renderer::CreateBox()
 	objectsList.push_back(new Box());
 }
 
+void Renderer::CreateSphere()
+{
+	objectsList.push_back(new Sphere());
+}
+
+void Renderer::CreateImage()
+{
+	objectsList.push_back(new Image("tableflip.jpg"));
+}
+
+void Renderer::CreateLemniscate()
+{
+	objectsList.push_back(new LemniscateProceduralImage());
+}
+
 void Renderer::MousePressed(int x, int y, int button)
 {
 	if (selectedObjects.size() > 0)

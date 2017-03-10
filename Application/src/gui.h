@@ -20,10 +20,16 @@ public:
 	void gotMessage(ofMessage msg);
 
 	ofxButton& GetCreateBoxButton() { return createCubeButton; }
+	ofxButton& GetCreateSphereButton() { return createSphereButton; }
+	ofxButton& GetCreateImageButton() { return createImageButton; }
+	ofxButton& GetCreateLemniscateButton() { return createLemniscateButton; }
 
 private:
 	ofxButton createCubeButton;
 	ofxButton createSphereButton;
+	ofxButton createImageButton;
+	ofxButton createLemniscateButton;
+
 	ofxPanel gui;
 };
 

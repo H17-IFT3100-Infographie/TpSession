@@ -38,6 +38,9 @@ public:
 	void keyReleased(int key);
 
 	void CreateBox();
+	void CreateSphere();
+	void CreateImage();
+	void CreateLemniscate();
 
 	bool IsAnyObjectSelected() { return !selectedObjects.empty(); }
 

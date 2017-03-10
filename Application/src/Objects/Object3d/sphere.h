@@ -6,11 +6,12 @@
 class Sphere : public Base3DObject
 {
 public:
+	Sphere();
 	Sphere(int x, int y, int z, float radius);
 	~Sphere();
 
 private:
-	Sphere();
+	void Load();
 
 	float radius;
 };
