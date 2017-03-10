@@ -14,6 +14,7 @@ public:
 
 	ofxButton& GetCreateBoxButton() { return createCubeButton; }
 	ofxButton& GetCreateSphereButton() { return createSphereButton; }
+	ofxButton& GetTetrahedronButton() { return createTetrahedronButton; }
 	ofxButton& GetCreateModelButton() { return createModelButton; }
 	ofxButton& GetCreateImageButton() { return createImageButton; }
 	ofxButton& GetCreateLemniscateButton() { return createLemniscateButton; }
@@ -31,7 +32,7 @@ private:
 	ofxButton createImageButton;
 	ofxButton createLemniscateButton;
 	ofxTextField imageInputField;
-
+	ofxButton createTetrahedronButton;
 	ofxButton gotoCamOptions;
 };
 

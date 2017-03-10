@@ -123,7 +123,10 @@ void Renderer::CreateSphere()
 {
 	objectsList.push_back(new Sphere());
 }
-
+void Renderer::CreateTetrahedron()
+{
+	objectsList.push_back(new Tetrahedron());
+}
 void Renderer::CreateImage(const std::string& filepath)
 {
 	objectsList.push_back(new Image(filepath));

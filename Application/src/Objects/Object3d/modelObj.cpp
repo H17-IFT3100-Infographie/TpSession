@@ -20,7 +20,6 @@ ModelObj::~ModelObj()
 	{
 		delete modele;
 		modele = nullptr;
-<<<<<<< HEAD
 	}
 }
 
@@ -32,23 +31,7 @@ void ModelObj::Load()
 	Setup();
 }
 void ModelObj::Setup() {
-	modele->hasMeshes();       // returns bool
-	modele->getMeshCount();   // returns int
-	modele->getMesh(0).getUniqueFaces();
 
-=======
-	}
-}
-
-void ModelObj::Load()
-{
-	modele = new ofxAssimpModelLoader();
-
-	modele->loadModel(filepath);
-	Setup();
-}
-void ModelObj::Setup() {
->>>>>>> 6891052efc502bd6fb4ee9d7258eedcc7d0bc716
 	nextRotation = ofVec3f::zero();
 	currentRotation = rot;
 }

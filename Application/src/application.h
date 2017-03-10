@@ -37,7 +37,7 @@ private:
 	void CreateModel();
 	void CreateImage();
 	void CreateLemniscate();
-
+	void CreateTetrahedron();
 	void ShowCamOptions();
 	void ShowObjectsCreator();
 

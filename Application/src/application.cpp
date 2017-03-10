@@ -200,7 +200,10 @@ void Application::CreateLemniscate()
 {
 	renderer->CreateLemniscate();
 }
-
+void Application::CreateTetrahedron()
+{
+	renderer->CreateTetrahedron();
+}
 void Application::CamToPerspective(const void* sender, bool& pressed)
 {
 	if (pressed)
