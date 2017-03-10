@@ -14,7 +14,7 @@ public:
 	virtual bool Inside(int x, int y, int z, const ofEasyCam& cam);
 
 private:
-	
+	void Load();
 
 	ofVec3f dimensions;
 };

@@ -1,14 +1,14 @@
-#include "gui.h"
+#include "transformGui.h"
 
-Gui::Gui()
+TransformGui::TransformGui()
 {
 }
 
-Gui::~Gui()
+TransformGui::~TransformGui()
 {
 }
 
-void Gui::Setup()
+void TransformGui::Setup()
 {
 	ofSetVerticalSync(true);
 
@@ -17,15 +17,14 @@ void Gui::Setup()
 	//ringButton.addListener(this, &Application::ringButtonPressed);
 
 	gui.setup(); // most of the time you don't need a name
-	gui.add(createCubeButton.setup("Cube"));
 }
 
-void Gui::Update()
+void TransformGui::Update()
 {
 
 }
 
-void Gui::Draw()
+void TransformGui::Draw()
 {
 	ofBackgroundGradient(ofColor::white, ofColor::gray);
 
@@ -48,17 +47,17 @@ void Gui::Draw()
 	gui.draw();
 }
 
-void Gui::windowResized(int w, int h)
+void TransformGui::windowResized(int w, int h)
 {
 
 }
 
-void Gui::dragEvent(ofDragInfo dragInfo)
+void TransformGui::dragEvent(ofDragInfo dragInfo)
 {
 
 }
 
-void Gui::gotMessage(ofMessage msg)
+void TransformGui::gotMessage(ofMessage msg)
 {
 
 }

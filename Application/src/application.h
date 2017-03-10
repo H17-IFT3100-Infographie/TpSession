@@ -7,6 +7,7 @@
 
 #include "renderer.h"
 #include "gui.h"
+#include "transformGui.h"
 
 class Application : public ofBaseApp
 {
@@ -14,6 +15,7 @@ public:
 
   Renderer* renderer;
   Gui* gui;
+  TransformGui* transformGui;
 
   Application();
   ~Application();
@@ -31,4 +33,7 @@ public:
   void keyReleased(int key);
 
   void exit();
+
+private:
+	void CreateBox();
 };

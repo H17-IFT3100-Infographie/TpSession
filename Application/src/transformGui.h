@@ -1,15 +1,15 @@
-#ifndef GUI_H
-#define GUI_H
+#ifndef TRANSFORM_GUI_H
+#define TRANSFORM_GUI_H
 
 #include "ofxGui.h"
 
 #include "ofMain.h"
 
-class Gui
+class TransformGui
 {
 public:
-	Gui();
-	~Gui();
+	TransformGui();
+	~TransformGui();
 
 	void Setup();
 	void Update();
@@ -19,11 +19,8 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-	ofxButton& GetCreateBoxButton() { return createCubeButton; }
-
 private:
-	ofxButton createCubeButton;
 	ofxPanel gui;
 };
 
-#endif //GUI_H
+#endif //TRANSFORM_GUI_H

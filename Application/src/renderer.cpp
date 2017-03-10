@@ -54,14 +54,14 @@ void Renderer::Setup()
 	// Set background to black
 	ofBackground(0, 0, 0);
 
-	objectsList.push_back(new Box(125, 125, 0, 20, 20, 20));
+	/*objectsList.push_back(new Box(125, 125, 0, 20, 20, 20));
 	objectsList.push_back(new Sphere(250, 250, 0, 20));
 	objectsList.push_back(new Image(-150, 15, 50, "tableflip.jpg"));
 	objectsList.push_back(new LemniscateProceduralImage(-150, -150, 0));
 
 	objectsList.push_back(new Line(ofPoint(0, 0, 0), ofPoint(100, 100, 100), 5.0f, ofColor::yellow));
 	objectsList.push_back(new Circle(ofPoint(-150, -150, 0), 50.0f, 3.0f, false, ofColor::blue));
-	objectsList.push_back(new Rect(ofPoint(250, -250, 0), 45.0f, 45.0f, 3.0f, false, ofColor::pink));
+	objectsList.push_back(new Rect(ofPoint(250, -250, 0), 45.0f, 45.0f, 3.0f, false, ofColor::pink));*/
 
 	for (int i = 0; i < objectsList.size(); i++)
 	{
@@ -105,6 +105,11 @@ void Renderer::Draw()
 	moveCursor->Draw();
 	rotationCursor->Draw();
 	scaleCursor->Draw();
+}
+
+void Renderer::CreateBox()
+{
+	objectsList.push_back(new Box(125, 125, 0, 20, 20, 20));
 }
 
 void Renderer::MousePressed(int x, int y, int button)

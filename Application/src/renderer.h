@@ -22,21 +22,24 @@ class Renderer
 {
 public:
 
-  Renderer();
+	Renderer();
+	~Renderer();
 
-  void Setup();
+	void Setup();
 
-  void Update();
-  void Draw();
+	void Update();
+	void Draw();
 
-  void MousePressed(int x, int y, int button);
-  void MouseDragged(int x, int y, int button);
-  void MouseScrolled(int x, int y, float scrollX, float scrollY);
-  void MouseRelease(int x, int y, int button);
-  void KeyPressed(int key);
-  void keyReleased(int key);
+	void MousePressed(int x, int y, int button);
+	void MouseDragged(int x, int y, int button);
+	void MouseScrolled(int x, int y, float scrollX, float scrollY);
+	void MouseRelease(int x, int y, int button);
+	void KeyPressed(int key);
+	void keyReleased(int key);
 
-  ~Renderer();
+	void CreateBox();
+
+	bool IsAnyObjectSelected() { return !selectedObjects.empty(); }
 
 private:
 

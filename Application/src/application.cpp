@@ -10,6 +10,27 @@ Application::Application()
 	renderer = nullptr;
 }
 
+Application::~Application()
+{
+	if (nullptr != renderer)
+	{
+		delete renderer;
+	}
+		
+	if (nullptr != gui)
+	{
+		gui->GetCreateBoxButton().removeListener(this, &Application::CreateBox);
+		delete gui;
+	}
+
+	if (nullptr != transformGui)
+	{
+		delete transformGui;
+	}
+
+		
+}
+
 void Application::setup()
 {
 	ofSetWindowTitle("IFT3100 - TpSession");
@@ -19,20 +40,45 @@ void Application::setup()
 	gui = new Gui();
 	gui->Setup();
 
+	transformGui = new TransformGui();
+	transformGui->Setup();
+
 	renderer = new Renderer();
 	renderer->Setup();
+
+	gui->GetCreateBoxButton().addListener(this, &Application::CreateBox);
 }
 
 void Application::update()
 {
-	gui->Update();
+	if (renderer->IsAnyObjectSelected())
+	{
+		transformGui->Update();
+	}
+	else
+	{
+		gui->Update();
+	}
+	
 	renderer->Update();
 }
 
 void Application::draw()
 {
-	gui->Draw();
+	if (renderer->IsAnyObjectSelected())
+	{
+		transformGui->Draw();
+	}
+	else
+	{
+		gui->Draw();
+	}
 	renderer->Draw();
+}
+
+void Application::CreateBox()
+{
+	renderer->CreateBox();
 }
 
 void Application::mousePressed(int x, int y, int button)
@@ -80,13 +126,4 @@ void Application::keyReleased(int key)
 void Application::exit()
 {
 	ofLog() << "<app::exit>";
-}
-
-Application::~Application()
-{
-	if (nullptr != renderer)
-		delete renderer;
-
-	if (nullptr != gui)
-		delete gui;
 }

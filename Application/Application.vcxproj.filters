@@ -85,6 +85,9 @@
     <ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp">
       <Filter>src\Objects\Object2d\Primitive</Filter>
     </ClCompile>
+    <ClCompile Include="src\transformGui.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -328,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="src\Objects\Object2d\Primitive\rect.h">
       <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="src\transformGui.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
