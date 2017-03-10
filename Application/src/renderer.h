@@ -39,7 +39,7 @@ public:
 
 	void CreateBox();
 	void CreateSphere();
-	void CreateImage();
+	void CreateImage(const std::string& filepath);
 	void CreateLemniscate();
 
 	bool IsAnyObjectSelected() { return !selectedObjects.empty(); }

@@ -117,9 +117,9 @@ void Renderer::CreateSphere()
 	objectsList.push_back(new Sphere());
 }
 
-void Renderer::CreateImage()
+void Renderer::CreateImage(const std::string& filepath)
 {
-	objectsList.push_back(new Image("tableflip.jpg"));
+	objectsList.push_back(new Image(filepath));
 }
 
 void Renderer::CreateLemniscate()

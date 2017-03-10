@@ -12,10 +12,11 @@ void Gui::Setup()
 {
 	ofSetVerticalSync(true);
 
-	gui.setup(); 
+	gui.setup();
 	gui.add(createCubeButton.setup("Cube"));
 	gui.add(createSphereButton.setup("Sphere"));
 	gui.add(createImageButton.setup("Image"));
+	gui.add(imageInputField.setup("Filepath:", ""));
 	gui.add(createLemniscateButton.setup("Lemniscate"));
 }
 

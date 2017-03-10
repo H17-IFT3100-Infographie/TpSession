@@ -88,6 +88,9 @@
     <ClCompile Include="src\transformGui.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp">
+      <Filter>src\ofxGuiAddons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -137,6 +140,9 @@
     </Filter>
     <Filter Include="src\Objects\Object2d\Primitive">
       <UniqueIdentifier>{19fdb2cd-856c-4cfb-a02f-ab8dfea9f8d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxGuiAddons">
+      <UniqueIdentifier>{a3bbef52-45c6-455c-ac98-f5741eb521c0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -334,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="src\transformGui.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxGuiAddons\ofxInputField.h">
+      <Filter>src\ofxGuiAddons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,6 +4,7 @@
 #include "ofxGui.h"
 
 #include "ofMain.h"
+#include "ofxGuiAddons/ofxInputField.h"
 
 class Gui
 {
@@ -24,12 +25,14 @@ public:
 	ofxButton& GetCreateImageButton() { return createImageButton; }
 	ofxButton& GetCreateLemniscateButton() { return createLemniscateButton; }
 
+	ofxTextField& GetImageInputField() { return imageInputField; }
+
 private:
 	ofxButton createCubeButton;
 	ofxButton createSphereButton;
 	ofxButton createImageButton;
 	ofxButton createLemniscateButton;
-
+	ofxTextField imageInputField;
 	ofxPanel gui;
 };
 

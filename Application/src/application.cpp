@@ -95,7 +95,17 @@ void Application::CreateSphere()
 
 void Application::CreateImage()
 {
-	renderer->CreateImage();
+	const std::string& filepath(gui->GetImageInputField().GetValue());
+	if (ofFile::doesFileExist(filepath))
+	{
+		renderer->CreateImage(filepath);
+	}
+	else
+	{
+		// Show error?
+	}
+	gui->GetImageInputField().leaveFocus();
+	gui->GetImageInputField().ResetValue();
 }
 
 void Application::CreateLemniscate()
