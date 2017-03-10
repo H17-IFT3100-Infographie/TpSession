@@ -49,7 +49,9 @@ void Renderer::Setup()
 {
 	cam.setDistance(1500.0f);
 	cam.disableMouseInput();
-
+	light = new ofLight();
+	glEnable(GL_LIGHTING);
+	glEnable(GL_COLOR_MATERIAL);
 	ofSetFrameRate(60);
 	// Set background to black
 	ofBackground(0, 0, 0);
@@ -87,6 +89,11 @@ void Renderer::Update()
 void Renderer::Draw()
 {
 	ofEnableDepthTest();
+	ofEnableLighting();
+	light->setAmbientColor(ofColor(255, 255, 255));
+	light->setDiffuseColor(ofColor(255, 255, 255));
+	light->enable();
+	light->setPosition(0, 150, 0);
 	cam.begin();
 	ofTranslate(screenPosition);
 	ofScale(screenScale);

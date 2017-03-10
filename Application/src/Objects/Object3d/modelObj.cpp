@@ -32,7 +32,7 @@ void ModelObj::Setup() {
 }
 void ModelObj::Draw() {
 
-	modele->drawFaces();
+	modele->draw(OF_MESH_POINTS);
 
 }
 void ModelObj::Update()
