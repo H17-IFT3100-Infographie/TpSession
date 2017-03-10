@@ -29,11 +29,6 @@ void Circle::Draw()
 	PostDraw();
 }
 
-void Circle::SetColor(int r, int g, int b)
-{
-
-}
-
 void Circle::SetAlpha(int a)
 {
 

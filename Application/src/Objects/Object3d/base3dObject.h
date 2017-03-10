@@ -12,12 +12,9 @@ public:
 
 	virtual void Draw();
 
-	virtual void SetColor(int r, int g, int b);
-
 	virtual bool IsHovered(float x, float y);
 protected:
 	of3dPrimitive* m_3dPrimitive;
-	ofColor color;
 private:
 	
 };

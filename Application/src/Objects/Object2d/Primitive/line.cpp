@@ -29,11 +29,6 @@ void Line::Draw()
 	PostDraw();
 }
 
-void Line::SetColor(int r, int g, int b)
-{
-
-}
-
 void Line::SetAlpha(int a)
 {
 

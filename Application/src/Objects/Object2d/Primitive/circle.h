@@ -14,7 +14,6 @@ public:
 	virtual void Update();
 	virtual void Draw();
 
-	virtual void SetColor(int r, int g, int b);
 	virtual void SetAlpha(int a);
 
 	bool IsHovered(float x, float y);

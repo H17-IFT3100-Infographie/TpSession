@@ -55,16 +55,19 @@ void Image::Draw()
 	image->draw(pos.x, pos.y, pos.z, image->getWidth(), image->getHeight());
 }
 
-void Image::SetColor(int r, int g, int b)
+void Image::SetColor(int r, int g, int b, int a)
 {
+	BaseObject::SetColor(r, g, b, a);
+
 	for (int i = 0; i < image->getWidth(); i++)
 	{
 		for (int j = 0; j < image->getHeight(); j++)
 		{
 			ofColor color = image->getColor(i, j);
-			color.r = (originalColor[i][j].r + r) / 2;
-			color.g = (originalColor[i][j].g + g) / 2;
-			color.b = (originalColor[i][j].b + b) / 2;
+			color.r = (originalColor[i][j].r + color.r) / 2;
+			color.g = (originalColor[i][j].g + color.g) / 2;
+			color.b = (originalColor[i][j].b + color.b) / 2;
+			color.a = (originalColor[i][j].a + color.a) / 2;
 
 			image->setColor(i, j, color);
 		}

@@ -2,7 +2,6 @@
 
 Primitive::Primitive(ofPoint pos, float stroke, ofColor color)
 	: BaseObject(pos.x, pos.y, pos.z)
-	, color(color)
 	, stroke(stroke)
 	, fill(false)
 {
@@ -11,7 +10,6 @@ Primitive::Primitive(ofPoint pos, float stroke, ofColor color)
 
 Primitive::Primitive(ofPoint pos, float stroke, bool fill, ofColor color)
 	: BaseObject(pos.x, pos.y, pos.z)
-	, color(color)
 	, stroke(stroke)
 	, fill(fill)
 {
@@ -51,11 +49,6 @@ void Primitive::PostDraw()
 
 	ofSetLineWidth(1.0f);
 	ofSetColor(ofColor::white);
-}
-
-void Primitive::SetColor(int r, int g, int b)
-{
-
 }
 
 void Primitive::SetAlpha(int a)

@@ -186,7 +186,10 @@
     <ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp" />
     <ClCompile Include="src\Objects\Object3d\base3dObject.cpp" />
     <ClCompile Include="src\Objects\Object3d\box.cpp" />
+    <ClCompile Include="src\Objects\Object3d\modelObj.cpp" />
+    <ClCompile Include="src\Objects\Object3d\particleSystem.cpp" />
     <ClCompile Include="src\Objects\Object3d\sphere.cpp" />
+    <ClCompile Include="src\Objects\Object3d\tethrahedron.cpp" />
     <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp" />
     <ClCompile Include="src\renderer.cpp" />
     <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
@@ -217,7 +220,10 @@
     <ClInclude Include="src\Objects\Object2d\Primitive\rect.h" />
     <ClInclude Include="src\Objects\Object3d\base3dObject.h" />
     <ClInclude Include="src\Objects\Object3d\box.h" />
+    <ClInclude Include="src\Objects\Object3d\modelObj.h" />
+    <ClInclude Include="src\Objects\Object3d\particleSystem.h" />
     <ClInclude Include="src\Objects\Object3d\sphere.h" />
+    <ClInclude Include="src\Objects\Object3d\tethrahedron.h" />
     <ClInclude Include="src\ofxGuiAddons\ofxInputField.h" />
     <ClInclude Include="src\renderer.h" />
     <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />

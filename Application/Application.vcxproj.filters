@@ -94,6 +94,15 @@
     <ClCompile Include="src\Gui\transformGui.cpp">
       <Filter>src\Gui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\particleSystem.cpp">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\modelObj.cpp">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\tethrahedron.cpp">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -352,6 +361,15 @@
     </ClInclude>
     <ClInclude Include="src\Gui\transformGui.h">
       <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\particleSystem.h">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\modelObj.h">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\tethrahedron.h">
+      <Filter>src\Objects\Object3d</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

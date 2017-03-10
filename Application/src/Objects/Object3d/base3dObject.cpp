@@ -29,11 +29,6 @@ void Base3DObject::Draw()
 	ofSetColor(ofColor::white);
 }
 
-void Base3DObject::SetColor(int r, int g, int b)
-{
-	color = ofColor(r, g, b);
-}
-
 bool Base3DObject::IsHovered(float x, float y)
 {
 	return false;

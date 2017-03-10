@@ -19,7 +19,6 @@ public:
 	virtual void Draw();
 	virtual void PostDraw();
 
-	virtual void SetColor(int r, int g, int b);
 	virtual void SetAlpha(int a);
 
 	bool IsHovered(float x, float y);
@@ -27,7 +26,6 @@ public:
 protected:
 	float stroke;
 	bool fill;
-	ofColor color;
 private:
 	Primitive();
 };

@@ -7,8 +7,8 @@
 class BaseObject : public of3dPrimitive
 {
 public:
-	BaseObject(float x, float y, float z);
-	BaseObject(const ofVec3f& pos);
+	BaseObject(float x, float y, float z, ofColor color = ofColor::white);
+	BaseObject(const ofVec3f& pos, ofColor color = ofColor::white);
 	~BaseObject();
 
 	virtual void Setup();
@@ -19,8 +19,9 @@ public:
 	inline void SetPosition(float x, float y, float z);
 	inline void Translate(const ofVec3f& translateBy);
 
-	virtual void SetColor(int r, int g, int b) { }
-	void SetColor(const ofColor& color) { SetColor(color.r, color.g, color.b); }
+	virtual void SetColor(int r, int g, int b, int a) { color = ofColor(r, g, b, a); }
+	void SetColor(const ofColor& color) { SetColor(color.r, color.g, color.b, color.a); }
+	virtual ofColor& GetColor() { return color;  }
 	virtual void SetAlpha(int a) { }
 
 	virtual bool Inside(int x, int y, int z, const ofEasyCam& cam) { return false; }
@@ -29,9 +30,9 @@ public:
 	ofVec3f rot;
 	ofVec3f scale;
 protected:
-
+	ofColor color;
 private:
-	
+	void ClampRotation();
 };
 
 void BaseObject::SetPosition(float x, float y, float z)
