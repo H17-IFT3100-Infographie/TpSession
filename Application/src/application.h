@@ -38,6 +38,9 @@ private:
 	void CreateImage();
 	void CreateLemniscate();
 
+	void ShowCamOptions();
+	void ShowObjectsCreator();
+
 	void CamToPerspective(const void * sender, bool & pressed);
 	void CamToOrtho(const void * sender, bool & pressed);
 
@@ -49,4 +52,5 @@ private:
 	CameraGui* cameraGui;
 
 	bool eventEnabled;
+	bool showObjectCreator;
 };

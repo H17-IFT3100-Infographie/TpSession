@@ -109,7 +109,7 @@ void MultiTransformGui::UpdateScale(std::vector<BaseObject*>& currentObjectSelec
 	{
 		for (int i = 0; i < currentObjectSelected.size(); i++)
 		{
-			currentObjectSelected[i]->scale.x = scaleXField.GetValue();
+			currentObjectSelected[i]->scale.y = scaleYField.GetValue();
 		}
 	}
 
@@ -117,7 +117,7 @@ void MultiTransformGui::UpdateScale(std::vector<BaseObject*>& currentObjectSelec
 	{
 		for (int i = 0; i < currentObjectSelected.size(); i++)
 		{
-			currentObjectSelected[i]->scale.x = scaleXField.GetValue();
+			currentObjectSelected[i]->scale.z = scaleZField.GetValue();
 		}
 	}
 }

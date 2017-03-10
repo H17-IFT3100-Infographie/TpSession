@@ -7,6 +7,7 @@
 
 Application::Application()
 	: eventEnabled(true)
+	, showObjectCreator(true)
 {
 	renderer = nullptr;
 }
@@ -26,6 +27,8 @@ Application::~Application()
 		gui->GetCreateModelButton().removeListener(this, &Application::CreateModel);
 		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
 		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
+
+		gui->GetShowCamOption().removeListener(this, &Application::ShowCamOptions);
 
 		delete gui;
 		gui = nullptr;
@@ -47,6 +50,8 @@ Application::~Application()
 	{
 		cameraGui->GetPerspToggle().removeListener(this, &Application::CamToPerspective);
 		cameraGui->GetOrhtoToggle().removeListener(this, &Application::CamToOrtho);
+
+		cameraGui->GetObjectCreatorButton().removeListener(this, &Application::ShowObjectsCreator);
 
 		delete cameraGui;
 		cameraGui = nullptr;
@@ -74,15 +79,19 @@ void Application::setup()
 	renderer = new Renderer();
 	renderer->Setup();
 
-	gui->GetCreateBoxButton().addListener(this, &Application::CreateBox);
+	gui->GetCreateBoxButton().addListener(this, &Application::ShowCamOptions);
 	gui->GetCreateSphereButton().addListener(this, &Application::CreateSphere);
 	gui->GetCreateModelButton().addListener(this, &Application::CreateModel);
 	gui->GetCreateImageButton().addListener(this, &Application::CreateImage);
 	gui->GetCreateLemniscateButton().addListener(this, &Application::CreateLemniscate);
+	
+	gui->GetShowCamOption().addListener(this, &Application::ShowCamOptions);
 
 	// camera
 	cameraGui->GetPerspToggle().addListener(this, &Application::CamToPerspective);
 	cameraGui->GetOrhtoToggle().addListener(this, &Application::CamToOrtho);
+	
+	cameraGui->GetObjectCreatorButton().addListener(this, &Application::ShowObjectsCreator);
 }
 
 void Application::update()
@@ -129,10 +138,11 @@ void Application::draw()
 	}
 	else
 	{
-		gui->Draw();
+		if (showObjectCreator)
+			gui->Draw();
+		else 
+			cameraGui->Draw();
 	}
-
-	cameraGui->Draw();
 
 	renderer->Draw();
 }
@@ -213,6 +223,16 @@ void Application::CamToOrtho(const void * sender, bool & pressed)
 		cameraGui->GetPerspToggle() = true;
 		renderer->CamToPerspective();
 	}
+}
+
+void Application::ShowCamOptions()
+{
+	showObjectCreator = false;
+}
+
+void Application::ShowObjectsCreator()
+{
+	showObjectCreator = true;
 }
 
 void Application::mousePressed(int x, int y, int button)
