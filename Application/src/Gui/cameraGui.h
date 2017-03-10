@@ -2,6 +2,7 @@
 #define CAMERA_GUI_H
 
 #include "baseGui.h"
+#include "ofxInputField.h"
 
 class CameraGui : public BaseGui
 {
@@ -15,10 +16,20 @@ public:
 	ofxToggle& GetOrhtoToggle() { return orthoToggle; }
 	ofxButton& GetObjectCreatorButton() { return showObjectsCreator; }
 
+	ofxFloatField& GetFovField() { return fovField; }
+	ofxFloatField& GetAspectRatio() { return aspectRatio; }
+	ofxFloatField& GetFarClipping() { return farClipping; }
+	ofxFloatField& GetNearClipping() { return nearClipping; }
+
 private:
 
 	ofxToggle perspToggle;
 	ofxToggle orthoToggle;
+
+	ofxFloatField fovField;
+	ofxFloatField aspectRatio;
+	ofxFloatField farClipping;
+	ofxFloatField nearClipping;
 
 	ofxButton showObjectsCreator;
 };

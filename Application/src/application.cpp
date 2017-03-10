@@ -50,6 +50,10 @@ Application::~Application()
 	{
 		cameraGui->GetPerspToggle().removeListener(this, &Application::CamToPerspective);
 		cameraGui->GetOrhtoToggle().removeListener(this, &Application::CamToOrtho);
+		cameraGui->GetFovField().removeListener(this, &Application::SetFOV);
+		cameraGui->GetAspectRatio().removeListener(this, &Application::SetAspectRatio);
+		cameraGui->GetFarClipping().removeListener(this, &Application::SetFarClippingPlane);
+		cameraGui->GetNearClipping().removeListener(this, &Application::SetNearClippingPlane);
 
 		cameraGui->GetObjectCreatorButton().removeListener(this, &Application::ShowObjectsCreator);
 
@@ -75,7 +79,7 @@ void Application::setup()
 
 	cameraGui = new CameraGui();
 	cameraGui->Setup();
-
+	
 	renderer = new Renderer();
 	renderer->Setup();
 
@@ -90,7 +94,11 @@ void Application::setup()
 	// camera
 	cameraGui->GetPerspToggle().addListener(this, &Application::CamToPerspective);
 	cameraGui->GetOrhtoToggle().addListener(this, &Application::CamToOrtho);
-	
+	cameraGui->GetFovField().addListener(this, &Application::SetFOV);
+	cameraGui->GetAspectRatio().addListener(this, &Application::SetAspectRatio);
+	cameraGui->GetFarClipping().addListener(this, &Application::SetFarClippingPlane);
+	cameraGui->GetNearClipping().addListener(this, &Application::SetNearClippingPlane);
+
 	cameraGui->GetObjectCreatorButton().addListener(this, &Application::ShowObjectsCreator);
 }
 
@@ -193,7 +201,7 @@ void Application::CreateLemniscate()
 	renderer->CreateLemniscate();
 }
 
-void Application::CamToPerspective(const void * sender, bool & pressed)
+void Application::CamToPerspective(const void* sender, bool& pressed)
 {
 	if (pressed)
 	{
@@ -209,7 +217,7 @@ void Application::CamToPerspective(const void * sender, bool & pressed)
 	}
 }
 
-void Application::CamToOrtho(const void * sender, bool & pressed)
+void Application::CamToOrtho(const void* sender, bool& pressed)
 {
 	if (pressed)
 	{
@@ -223,6 +231,26 @@ void Application::CamToOrtho(const void * sender, bool & pressed)
 		cameraGui->GetPerspToggle() = true;
 		renderer->CamToPerspective();
 	}
+}
+
+void Application::SetFOV(const void* sender, float& value)
+{
+
+}
+
+void Application::SetAspectRatio(const void* sender, float& value)
+{
+
+}
+
+void Application::SetFarClippingPlane(const void* sender, float& value)
+{
+
+}
+
+void Application::SetNearClippingPlane(const void* sender, float& value)
+{
+
 }
 
 void Application::ShowCamOptions()

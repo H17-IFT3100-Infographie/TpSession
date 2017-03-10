@@ -41,8 +41,12 @@ private:
 	void ShowCamOptions();
 	void ShowObjectsCreator();
 
-	void CamToPerspective(const void * sender, bool & pressed);
-	void CamToOrtho(const void * sender, bool & pressed);
+	void CamToPerspective(const void* sender, bool& pressed);
+	void CamToOrtho(const void* sender, bool& pressed);
+	void SetFOV(const void* sender, float& value);
+	void SetAspectRatio(const void* sender, float& value);
+	void SetFarClippingPlane(const void* sender, float& value);
+	void SetNearClippingPlane(const void* sender, float& value);
 
 	Renderer* renderer;
 
