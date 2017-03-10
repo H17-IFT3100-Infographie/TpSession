@@ -121,7 +121,8 @@ void Application::CreateSphere()
 
 void Application::CreateModel()
 {
-	const std::string& filepath(gui->GetImageInputField().GetValue());
+	renderer->CreateModel("Lara_Croft.obj");
+	/*const std::string& filepath(gui->GetImageInputField().GetValue());
 	if (ofFile::doesFileExist(filepath))
 	{
 		renderer->CreateModel(filepath);
@@ -131,7 +132,7 @@ void Application::CreateModel()
 		// Show error?
 	}
 	gui->GetImageInputField().leaveFocus();
-	gui->GetImageInputField().ResetValue();
+	gui->GetImageInputField().ResetValue();*/
 }
 
 void Application::CreateImage()
