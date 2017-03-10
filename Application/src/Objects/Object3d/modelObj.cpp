@@ -31,6 +31,10 @@ void ModelObj::Load()
 	Setup();
 }
 void ModelObj::Setup() {
+	modele->hasMeshes();       // returns bool
+	modele->getMeshCount();   // returns int
+	modele->getMesh(0).getUniqueFaces();
+
 	nextRotation = ofVec3f::zero();
 	currentRotation = rot;
 }
