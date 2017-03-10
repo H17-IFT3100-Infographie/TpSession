@@ -73,6 +73,7 @@ void Application::draw()
 	{
 		gui->Draw();
 	}
+
 	renderer->Draw();
 }
 

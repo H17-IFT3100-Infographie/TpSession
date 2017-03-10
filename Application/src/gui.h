@@ -23,6 +23,7 @@ public:
 
 private:
 	ofxButton createCubeButton;
+	ofxButton createSphereButton;
 	ofxPanel gui;
 };
 

@@ -47,7 +47,7 @@ Renderer::~Renderer()
 
 void Renderer::Setup()
 {
-	cam.setDistance(1000.0f);
+	cam.setDistance(15.0f);
 	cam.disableMouseInput();
 
 	ofSetFrameRate(60);
@@ -88,7 +88,7 @@ void Renderer::Draw()
 {
 	ofEnableDepthTest();
 	cam.begin();
-	ofTranslate(screenPosition);
+	ofTranslate(screenPosition * 0.1f);
 	ofScale(screenScale);
 	ofRotateX(screenRotation.x);
 	ofRotateY(screenRotation.y);
@@ -98,7 +98,7 @@ void Renderer::Draw()
 		objectsList[i]->Draw();
 	}
 
-	ofDrawGrid(50.0f);
+	ofDrawGrid(1.0f);
 	cam.end();
 	ofDisableDepthTest();
 
@@ -109,7 +109,7 @@ void Renderer::Draw()
 
 void Renderer::CreateBox()
 {
-	objectsList.push_back(new Box(125, 125, 0, 20, 20, 20));
+	objectsList.push_back(new Box());
 }
 
 void Renderer::MousePressed(int x, int y, int button)
@@ -161,8 +161,8 @@ void Renderer::MouseDragged(int x, int y, int button)
 		{
 			for (int i = 0, count = selectedObjects.size(); i < count; i++)
 			{
-				selectedObjects[i]->pos.x += x - previousMousePosition.x;
-				selectedObjects[i]->pos.y -= y - previousMousePosition.y;
+				selectedObjects[i]->pos.x += (x - previousMousePosition.x) * 0.1f;
+				selectedObjects[i]->pos.y -= (y - previousMousePosition.y) * 0.1f;
 			}
 		}
 		else
