@@ -173,6 +173,7 @@
   <ItemGroup>
     <ClCompile Include="src\Gui\baseGui.cpp" />
     <ClCompile Include="src\Gui\gui.cpp" />
+    <ClCompile Include="src\Gui\multiTransformGui.cpp" />
     <ClCompile Include="src\Gui\transformGui.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\application.cpp" />
@@ -209,6 +210,7 @@
     <ClInclude Include="src\application.h" />
     <ClInclude Include="src\Gui\baseGui.h" />
     <ClInclude Include="src\Gui\gui.h" />
+    <ClInclude Include="src\Gui\multiTransformGui.h" />
     <ClInclude Include="src\Gui\transformGui.h" />
     <ClInclude Include="src\Objects\baseObject.h" />
     <ClInclude Include="src\Objects\Object2d\Cursor\cursor.h" />

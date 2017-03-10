@@ -16,6 +16,7 @@ ofxInputField<Type>::ofxInputField(){
 	pressCounter = 0;
 	inputWidth = 0;
 	selectionWidth = 0;
+	isDirty = false;
 }
 
 template<typename Type>

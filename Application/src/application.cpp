@@ -45,6 +45,9 @@ void Application::setup()
 	transformGui = new TransformGui();
 	transformGui->Setup();
 
+	multiTransformGui = new MultiTransformGui();
+	multiTransformGui->Setup();
+
 	renderer = new Renderer();
 	renderer->Setup();
 
@@ -58,8 +61,16 @@ void Application::update()
 {
 	if (renderer->IsAnyObjectSelected())
 	{
-		eventEnabled = !transformGui->IsAnyGuiFocused();
-		transformGui->Update(renderer->GetCurrentSelectedObject());
+		if (renderer->ObjectsSelectedCount() == 1)
+		{
+			eventEnabled = !transformGui->IsAnyGuiFocused();
+			transformGui->Update(renderer->GetCurrentSelectedObjects()[0]);
+		}
+		else
+		{
+			eventEnabled = !multiTransformGui->IsAnyGuiFocused();
+			multiTransformGui->Update(renderer->GetCurrentSelectedObjects());
+		}
 	}
 	else
 	{
@@ -79,7 +90,14 @@ void Application::draw()
 {
 	if (renderer->IsAnyObjectSelected())
 	{
-		transformGui->Draw();
+		if (renderer->ObjectsSelectedCount() == 1)
+		{
+			transformGui->Draw();
+		}
+		else
+		{
+			multiTransformGui->Draw();
+		}
 	}
 	else
 	{
@@ -195,9 +213,9 @@ void Application::keyPressed(int key)
 
 		if (index != -1)
 		{
-			if (renderer->SelectObject(index))
+			if (renderer->SelectObject(index) && renderer->ObjectsSelectedCount() == 1)
 			{
-				transformGui->OnSelected(renderer->GetCurrentSelectedObject());
+				transformGui->OnSelected(renderer->GetCurrentSelectedObjects()[0]);
 			}
 		}
 

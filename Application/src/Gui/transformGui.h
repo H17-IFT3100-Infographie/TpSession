@@ -50,7 +50,6 @@ private:
 	ofxFloatField scaleZField;
 
 	ofxColorSlider colorSlider;
-	ofxIntSlider alphaSlider;
 };
 
 #endif //TRANSFORM_GUI_H

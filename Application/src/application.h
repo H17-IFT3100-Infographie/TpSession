@@ -8,6 +8,7 @@
 #include "renderer.h"
 #include "Gui/gui.h"
 #include "Gui/transformGui.h"
+#include "Gui/multiTransformGui.h"
 
 class Application : public ofBaseApp
 {
@@ -17,6 +18,7 @@ public:
 
   Gui* gui;
   TransformGui* transformGui;
+  MultiTransformGui* multiTransformGui;
 
   Application();
   ~Application();

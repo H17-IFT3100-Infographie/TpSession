@@ -25,9 +25,9 @@ void TransformGui::Setup()
 	gui.add(rotYField.setup("RotY:", 0, 0, 359));
 	gui.add(rotZField.setup("RotZ:", 0, 0, 359));
 
-	gui.add(scaleXField.setup("ScaleX:", 0, 0, 200));
-	gui.add(scaleYField.setup("ScaleY:", 0, 0, 200));
-	gui.add(scaleZField.setup("ScaleZ:", 0, 0, 200));
+	gui.add(scaleXField.setup("ScaleX:", 1.0f, 0, 200));
+	gui.add(scaleYField.setup("ScaleY:", 1.0f, 0, 200));
+	gui.add(scaleZField.setup("ScaleZ:", 1.0f, 0, 200));
 
 	gui.add(colorSlider.setup("Color", ofColor::white, ofColor(0, 0, 0, 0), ofColor(255, 255, 255, 255)));
 }

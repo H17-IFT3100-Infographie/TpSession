@@ -43,7 +43,8 @@ public:
 	void CreateLemniscate();
 
 	bool IsAnyObjectSelected() { return !selectedObjects.empty(); }
-	inline BaseObject* GetCurrentSelectedObject();
+	inline std::vector<BaseObject*>& GetCurrentSelectedObjects();
+	const int ObjectsSelectedCount() { return selectedObjects.size(); }
 
 	void HideAllCustomCursors();
 	bool SelectObject(int aIndex);
@@ -91,7 +92,7 @@ private:
 	std::deque<std::vector<UndoAction*> > undoActions;
 };
 
-BaseObject* Renderer::GetCurrentSelectedObject()
+std::vector<BaseObject*>& Renderer::GetCurrentSelectedObjects()
 { 
-	return selectedObjects.size() == 1 ? selectedObjects[0] : nullptr; 
+	return selectedObjects;
 }

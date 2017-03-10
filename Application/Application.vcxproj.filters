@@ -103,6 +103,9 @@
     <ClCompile Include="src\Objects\Object3d\tethrahedron.cpp">
       <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
+    <ClCompile Include="src\Gui\multiTransformGui.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -370,6 +373,9 @@
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\tethrahedron.h">
       <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\multiTransformGui.h">
+      <Filter>src\Gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
