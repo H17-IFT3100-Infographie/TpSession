@@ -2,7 +2,7 @@
 
 Sphere::Sphere()
 	: Base3DObject(0.0f, 0.0f, 0.0f)
-	, radius(1)
+	, radius(100)
 {
 	Load();
 }

@@ -51,8 +51,8 @@ void Image::Update()
 
 void Image::Draw()
 {
-	image->setAnchorPoint(image->getWidth() * 0.05f, image->getHeight() * 0.05f);
-	image->draw(pos.x, pos.y, pos.z, image->getWidth() * 0.1f, image->getHeight() * 0.1f);
+	image->setAnchorPoint(image->getWidth() * 0.5f, image->getHeight() * 0.5f);
+	image->draw(pos.x, pos.y, pos.z, image->getWidth(), image->getHeight());
 }
 
 void Image::SetColor(int r, int g, int b)

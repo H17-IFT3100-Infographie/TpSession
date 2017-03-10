@@ -2,7 +2,7 @@
 
 Box::Box()
 	: Base3DObject(0.0f, 0.0f, 0.0f)
-	, dimensions(1, 1, 1)
+	, dimensions(100, 100, 100)
 {
 	Load();
 }
