@@ -22,7 +22,7 @@
 class Renderer
 {
 public:
-
+	ofLight* light;
 	Renderer();
 	~Renderer();
 

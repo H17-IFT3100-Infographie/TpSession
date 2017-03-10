@@ -30,30 +30,25 @@ void ModelObj::Load()
 	modele->loadModel(filepath);
 	Setup();
 }
-
-void ModelObj::Setup() 
-{
+void ModelObj::Setup() {
 	nextRotation = ofVec3f::zero();
 	currentRotation = rot;
 }
-
-void ModelObj::Draw() 
-{
+void ModelObj::Draw() {
 	ofSetColor(color);
 
 	modele->setPosition(pos.x, pos.y, pos.z);
 
-	modele->setRotation(0, rot.x, 1, 0, 0);
+    modele->setRotation(0, rot.x, 1, 0, 0);
 	modele->setRotation(1, rot.y, 0, 1, 0);
 	modele->setRotation(2, rot.z, 0, 0, 1);
 
 	modele->setScale(scale.z, scale.y, scale.z);
 
 	modele->draw(ofPolyRenderMode::OF_MESH_FILL);
-	
+
 	ofSetColor(ofColor::white);
 }
-
 void ModelObj::Update()
 {
 	Base3DObject::Update();
