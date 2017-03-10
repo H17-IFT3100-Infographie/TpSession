@@ -6,14 +6,15 @@
 #include "ofMain.h"
 
 #include "renderer.h"
-#include "gui.h"
-#include "transformGui.h"
+#include "Gui/gui.h"
+#include "Gui/transformGui.h"
 
 class Application : public ofBaseApp
 {
 public:
 
   Renderer* renderer;
+
   Gui* gui;
   TransformGui* transformGui;
 

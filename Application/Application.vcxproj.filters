@@ -52,9 +52,6 @@
     <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.cpp">
       <Filter>addons\ofxGui\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\gui.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Objects\Object2d\image.cpp">
       <Filter>src\Objects\Object2d</Filter>
     </ClCompile>
@@ -85,11 +82,17 @@
     <ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp">
       <Filter>src\Objects\Object2d\Primitive</Filter>
     </ClCompile>
-    <ClCompile Include="src\transformGui.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp">
       <Filter>src\ofxGuiAddons</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\baseGui.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\gui.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\transformGui.cpp">
+      <Filter>src\Gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +146,9 @@
     </Filter>
     <Filter Include="src\ofxGuiAddons">
       <UniqueIdentifier>{a3bbef52-45c6-455c-ac98-f5741eb521c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Gui">
+      <UniqueIdentifier>{dce3c186-92d2-4a1b-96ae-517a8cc626d7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -305,9 +311,6 @@
     <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.h">
       <Filter>addons\ofxGui\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\gui.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\Objects\Object2d\image.h">
       <Filter>src\Objects\Object2d</Filter>
     </ClInclude>
@@ -338,11 +341,17 @@
     <ClInclude Include="src\Objects\Object2d\Primitive\rect.h">
       <Filter>src\Objects\Object2d\Primitive</Filter>
     </ClInclude>
-    <ClInclude Include="src\transformGui.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\ofxGuiAddons\ofxInputField.h">
       <Filter>src\ofxGuiAddons</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\baseGui.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\gui.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\transformGui.h">
+      <Filter>src\Gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 #include "gui.h"
 
 Gui::Gui()
+	: BaseGui()
 {
 }
 
@@ -10,7 +11,7 @@ Gui::~Gui()
 
 void Gui::Setup()
 {
-	ofSetVerticalSync(true);
+	BaseGui::Setup();
 
 	gui.setup();
 	gui.add(createCubeButton.setup("Cube"));
@@ -20,29 +21,7 @@ void Gui::Setup()
 	gui.add(createLemniscateButton.setup("Lemniscate"));
 }
 
-void Gui::Update()
+bool Gui::IsAnyGuiFocused()
 {
-
-}
-
-void Gui::Draw()
-{
-	ofBackgroundGradient(ofColor::white, ofColor::gray);
-
-	gui.draw();
-}
-
-void Gui::windowResized(int w, int h)
-{
-
-}
-
-void Gui::dragEvent(ofDragInfo dragInfo)
-{
-
-}
-
-void Gui::gotMessage(ofMessage msg)
-{
-
+	return imageInputField.IsFocus();
 }

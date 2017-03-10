@@ -84,7 +84,7 @@ void Renderer::Update()
 	}
 }
 
-void Renderer::Draw()
+void Renderer::Draw(bool drawCustomCursor)
 {
 	ofEnableDepthTest();
 	cam.begin();
@@ -101,10 +101,13 @@ void Renderer::Draw()
 	ofDrawGrid(100.0f);
 	cam.end();
 	ofDisableDepthTest();
-
-	moveCursor->Draw();
-	rotationCursor->Draw();
-	scaleCursor->Draw();
+	
+	if (drawCustomCursor)
+	{
+		moveCursor->Draw();
+		rotationCursor->Draw();
+		scaleCursor->Draw();
+	}
 }
 
 void Renderer::CreateBox()

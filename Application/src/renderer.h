@@ -28,7 +28,7 @@ public:
 	void Setup();
 
 	void Update();
-	void Draw();
+	void Draw(bool drawCustomCursor);
 
 	void MousePressed(int x, int y, int button);
 	void MouseDragged(int x, int y, int button);

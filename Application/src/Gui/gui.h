@@ -1,24 +1,16 @@
 #ifndef GUI_H
 #define GUI_H
 
-#include "ofxGui.h"
-
-#include "ofMain.h"
+#include "baseGui.h"
 #include "ofxGuiAddons/ofxInputField.h"
 
-class Gui
+class Gui : public BaseGui
 {
 public:
 	Gui();
 	~Gui();
 
-	void Setup();
-	void Update();
-	void Draw();
-
-	void windowResized(int w, int h);
-	void dragEvent(ofDragInfo dragInfo);
-	void gotMessage(ofMessage msg);
+	virtual void Setup();
 
 	ofxButton& GetCreateBoxButton() { return createCubeButton; }
 	ofxButton& GetCreateSphereButton() { return createSphereButton; }
@@ -27,13 +19,14 @@ public:
 
 	ofxTextField& GetImageInputField() { return imageInputField; }
 
+	virtual bool IsAnyGuiFocused();
+
 private:
 	ofxButton createCubeButton;
 	ofxButton createSphereButton;
 	ofxButton createImageButton;
 	ofxButton createLemniscateButton;
 	ofxTextField imageInputField;
-	ofxPanel gui;
 };
 
 #endif //GUI_H

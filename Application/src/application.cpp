@@ -71,16 +71,19 @@ void Application::update()
 
 void Application::draw()
 {
+	bool isAnyGuiFocused = false;
 	if (renderer->IsAnyObjectSelected())
 	{
 		transformGui->Draw();
+		isAnyGuiFocused = transformGui->IsAnyGuiFocused();
 	}
 	else
 	{
 		gui->Draw();
+		isAnyGuiFocused = gui->IsAnyGuiFocused();
 	}
 
-	renderer->Draw();
+	renderer->Draw(isAnyGuiFocused);
 }
 
 void Application::CreateBox()

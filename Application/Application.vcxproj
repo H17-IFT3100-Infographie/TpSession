@@ -171,7 +171,9 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\Gui\baseGui.cpp" />
+    <ClCompile Include="src\Gui\gui.cpp" />
+    <ClCompile Include="src\Gui\transformGui.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\application.cpp" />
     <ClCompile Include="src\Objects\baseObject.cpp" />
@@ -199,11 +201,12 @@
     <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSlider.cpp" />
     <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.cpp" />
-    <ClCompile Include="src\transformGui.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\application.h" />
+    <ClInclude Include="src\Gui\baseGui.h" />
+    <ClInclude Include="src\Gui\gui.h" />
+    <ClInclude Include="src\Gui\transformGui.h" />
     <ClInclude Include="src\Objects\baseObject.h" />
     <ClInclude Include="src\Objects\Object2d\Cursor\cursor.h" />
     <ClInclude Include="src\Objects\Object2d\image.h" />
@@ -267,7 +270,6 @@
     <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSlider.h" />
     <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.h" />
-    <ClInclude Include="src\transformGui.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
