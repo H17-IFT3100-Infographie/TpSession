@@ -9,17 +9,11 @@
 #include "Gui/gui.h"
 #include "Gui/transformGui.h"
 #include "Gui/multiTransformGui.h"
+#include "Gui/cameraGui.h"
 
 class Application : public ofBaseApp
 {
 public:
-
-  Renderer* renderer;
-
-  Gui* gui;
-  TransformGui* transformGui;
-  MultiTransformGui* multiTransformGui;
-
   Application();
   ~Application();
 
@@ -43,6 +37,16 @@ private:
 	void CreateModel();
 	void CreateImage();
 	void CreateLemniscate();
+
+	void CamToPerspective(const void * sender, bool & pressed);
+	void CamToOrtho(const void * sender, bool & pressed);
+
+	Renderer* renderer;
+
+	Gui* gui;
+	TransformGui* transformGui;
+	MultiTransformGui* multiTransformGui;
+	CameraGui* cameraGui;
 
 	bool eventEnabled;
 };

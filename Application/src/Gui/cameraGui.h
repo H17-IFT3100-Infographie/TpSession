@@ -2,7 +2,6 @@
 #define CAMERA_GUI_H
 
 #include "baseGui.h"
-#include "ofxGuiAddons/ofxInputField.h"
 
 class CameraGui : public BaseGui
 {
@@ -11,9 +10,14 @@ public:
 	~CameraGui();
 
 	virtual void Setup();
+
+	ofxToggle& GetPerspToggle() { return perspToggle; }
+	ofxToggle& GetOrhtoToggle() { return orthoToggle; }
+
 private:
 
-
+	ofxToggle perspToggle;
+	ofxToggle orthoToggle;
 };
 
 #endif //CAMERA_GUI_H

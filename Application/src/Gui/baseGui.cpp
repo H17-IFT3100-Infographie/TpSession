@@ -1,6 +1,7 @@
 #include "gui.h"
 
 BaseGui::BaseGui()
+	: pos(ofVec2f::zero())
 {
 }
 
@@ -21,7 +22,7 @@ void BaseGui::Update(BaseObject* currentObjectSelected)
 void BaseGui::Draw()
 {
 	ofBackgroundGradient(ofColor::white, ofColor::gray);
-
+	gui.setPosition(pos.x, pos.y);
 	gui.draw();
 }
 
