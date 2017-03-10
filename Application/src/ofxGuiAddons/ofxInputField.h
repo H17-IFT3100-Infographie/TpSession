@@ -47,10 +47,14 @@ public:
 	ofAbstractParameter & getParameter();
 
 	// CUSTOM modifs.
-	const ofParameter<Type> GetValue() { return value; }
+	ofParameter<Type> GetValue() { return value; }
+	void SetValue(Type newValue) { value = newValue; }
 	void ResetValue() { Type v;  value = v; }
 
 	void leaveFocus();
+
+	bool IsDirty() { bool v = isDirty; isDirty = false; return v; }
+	bool IsFocus() { return bGuiActive; }
 
 protected:
 	virtual void render();
@@ -86,6 +90,8 @@ protected:
 	virtual void drawMesh();
 
 	int pressCounter;
+
+	bool isDirty;
 };
 
 typedef ofxInputField<float> ofxFloatField;

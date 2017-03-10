@@ -59,7 +59,7 @@ void Application::update()
 {
 	if (renderer->IsAnyObjectSelected())
 	{
-		transformGui->Update();
+		transformGui->Update(renderer->GetCurrentSelectedObject());
 	}
 	else
 	{

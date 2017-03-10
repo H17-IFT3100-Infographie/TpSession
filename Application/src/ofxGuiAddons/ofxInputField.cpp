@@ -225,6 +225,7 @@ bool ofxInputField<Type>::keyPressed(ofKeyEventArgs & args){
 			}
 		}else if(args.key == OF_KEY_RETURN){
 			leaveFocus();
+			isDirty = true;
 		}else if(args.key >= '!' && args.key <= '~'){
 			newCursorIdx = insertAlphabetic(ofToString((char)args.key));
 		}

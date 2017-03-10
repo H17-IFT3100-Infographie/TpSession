@@ -43,6 +43,7 @@ public:
 	void CreateLemniscate();
 
 	bool IsAnyObjectSelected() { return !selectedObjects.empty(); }
+	inline BaseObject* GetCurrentSelectedObject();
 
 private:
 
@@ -86,3 +87,8 @@ private:
 
 	std::deque<std::vector<UndoAction*> > undoActions;
 };
+
+BaseObject* Renderer::GetCurrentSelectedObject()
+{ 
+	return selectedObjects.size() == 1 ? selectedObjects[0] : nullptr; 
+}
