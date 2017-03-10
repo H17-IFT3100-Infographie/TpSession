@@ -18,6 +18,8 @@ public:
 	ofxButton& GetCreateImageButton() { return createImageButton; }
 	ofxButton& GetCreateLemniscateButton() { return createLemniscateButton; }
 
+	ofxButton& GetShowCamOption() { return gotoCamOptions; }
+
 	ofxTextField& GetImageInputField() { return imageInputField; }
 
 	virtual bool IsAnyGuiFocused();
@@ -29,6 +31,8 @@ private:
 	ofxButton createImageButton;
 	ofxButton createLemniscateButton;
 	ofxTextField imageInputField;
+
+	ofxButton gotoCamOptions;
 };
 
 #endif //GUI_H

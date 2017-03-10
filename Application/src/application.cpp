@@ -7,6 +7,7 @@
 
 Application::Application()
 	: eventEnabled(true)
+	, showObjectCreator(true)
 {
 	renderer = nullptr;
 }
@@ -16,6 +17,7 @@ Application::~Application()
 	if (nullptr != renderer)
 	{
 		delete renderer;
+		renderer = nullptr;
 	}
 		
 	if (nullptr != gui)
@@ -25,12 +27,38 @@ Application::~Application()
 		gui->GetCreateModelButton().removeListener(this, &Application::CreateModel);
 		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
 		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
+
+		gui->GetShowCamOption().removeListener(this, &Application::ShowCamOptions);
+
 		delete gui;
+		gui = nullptr;
 	}
 
 	if (nullptr != transformGui)
 	{
 		delete transformGui;
+		transformGui = nullptr;
+	}
+
+	if (nullptr != multiTransformGui)
+	{
+		delete multiTransformGui;
+		multiTransformGui = nullptr;
+	}
+
+	if (nullptr != cameraGui)
+	{
+		cameraGui->GetPerspToggle().removeListener(this, &Application::CamToPerspective);
+		cameraGui->GetOrhtoToggle().removeListener(this, &Application::CamToOrtho);
+		cameraGui->GetFovField().removeListener(this, &Application::SetFOV);
+		cameraGui->GetAspectRatio().removeListener(this, &Application::SetAspectRatio);
+		cameraGui->GetFarClipping().removeListener(this, &Application::SetFarClippingPlane);
+		cameraGui->GetNearClipping().removeListener(this, &Application::SetNearClippingPlane);
+
+		cameraGui->GetObjectCreatorButton().removeListener(this, &Application::ShowObjectsCreator);
+
+		delete cameraGui;
+		cameraGui = nullptr;
 	}
 }
 
@@ -49,14 +77,29 @@ void Application::setup()
 	multiTransformGui = new MultiTransformGui();
 	multiTransformGui->Setup();
 
+	cameraGui = new CameraGui();
+	cameraGui->Setup();
+	
 	renderer = new Renderer();
 	renderer->Setup();
 
-	gui->GetCreateBoxButton().addListener(this, &Application::CreateBox);
+	gui->GetCreateBoxButton().addListener(this, &Application::ShowCamOptions);
 	gui->GetCreateSphereButton().addListener(this, &Application::CreateSphere);
 	gui->GetCreateModelButton().addListener(this, &Application::CreateModel);
 	gui->GetCreateImageButton().addListener(this, &Application::CreateImage);
 	gui->GetCreateLemniscateButton().addListener(this, &Application::CreateLemniscate);
+	
+	gui->GetShowCamOption().addListener(this, &Application::ShowCamOptions);
+
+	// camera
+	cameraGui->GetPerspToggle().addListener(this, &Application::CamToPerspective);
+	cameraGui->GetOrhtoToggle().addListener(this, &Application::CamToOrtho);
+	cameraGui->GetFovField().addListener(this, &Application::SetFOV);
+	cameraGui->GetAspectRatio().addListener(this, &Application::SetAspectRatio);
+	cameraGui->GetFarClipping().addListener(this, &Application::SetFarClippingPlane);
+	cameraGui->GetNearClipping().addListener(this, &Application::SetNearClippingPlane);
+
+	cameraGui->GetObjectCreatorButton().addListener(this, &Application::ShowObjectsCreator);
 }
 
 void Application::update()
@@ -103,7 +146,10 @@ void Application::draw()
 	}
 	else
 	{
-		gui->Draw();
+		if (showObjectCreator)
+			gui->Draw();
+		else 
+			cameraGui->Draw();
 	}
 
 	renderer->Draw();
@@ -153,6 +199,68 @@ void Application::CreateImage()
 void Application::CreateLemniscate()
 {
 	renderer->CreateLemniscate();
+}
+
+void Application::CamToPerspective(const void* sender, bool& pressed)
+{
+	if (pressed)
+	{
+		cameraGui->GetOrhtoToggle() = false;
+		cameraGui->GetPerspToggle() = true;
+		renderer->CamToPerspective();
+	}
+	else
+	{
+		cameraGui->GetOrhtoToggle() = true;
+		cameraGui->GetPerspToggle() = false;
+		renderer->CamToOrtho();
+	}
+}
+
+void Application::CamToOrtho(const void* sender, bool& pressed)
+{
+	if (pressed)
+	{
+		cameraGui->GetOrhtoToggle() = true;
+		cameraGui->GetPerspToggle() = false;
+		renderer->CamToOrtho();
+	}
+	else
+	{
+		cameraGui->GetOrhtoToggle() = false;
+		cameraGui->GetPerspToggle() = true;
+		renderer->CamToPerspective();
+	}
+}
+
+void Application::SetFOV(const void* sender, float& value)
+{
+
+}
+
+void Application::SetAspectRatio(const void* sender, float& value)
+{
+
+}
+
+void Application::SetFarClippingPlane(const void* sender, float& value)
+{
+
+}
+
+void Application::SetNearClippingPlane(const void* sender, float& value)
+{
+
+}
+
+void Application::ShowCamOptions()
+{
+	showObjectCreator = false;
+}
+
+void Application::ShowObjectsCreator()
+{
+	showObjectCreator = true;
 }
 
 void Application::mousePressed(int x, int y, int button)

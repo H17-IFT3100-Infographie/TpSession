@@ -20,6 +20,8 @@ void Gui::Setup()
 	gui.add(createImageButton.setup("Image"));
 	gui.add(imageInputField.setup("Filepath:", ""));
 	gui.add(createLemniscateButton.setup("Lemniscate"));
+
+	gui.add(gotoCamOptions.setup("Camera Options"));
 }
 
 bool Gui::IsAnyGuiFocused()

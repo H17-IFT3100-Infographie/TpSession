@@ -44,6 +44,9 @@ public:
 	void CreateModel(const std::string& filepath);
 	void CreateLemniscate();
 
+	void CamToPerspective() { cam.disableOrtho(); }
+	void CamToOrtho() { cam.enableOrtho(); }
+
 	bool IsAnyObjectSelected() { return !selectedObjects.empty(); }
 	inline std::vector<BaseObject*>& GetCurrentSelectedObjects();
 	const int ObjectsSelectedCount() { return selectedObjects.size(); }

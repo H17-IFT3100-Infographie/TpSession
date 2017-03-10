@@ -24,6 +24,7 @@ public:
 
 protected:
 	ofxPanel gui;
+	ofVec2f pos;
 private:
 };
 
