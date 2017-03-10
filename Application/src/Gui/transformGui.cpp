@@ -32,6 +32,11 @@ void TransformGui::Setup()
 	gui.add(colorSlider.setup("Color", ofColor::white, ofColor(0, 0, 0, 0), ofColor(255, 255, 255, 255)));
 }
 
+void TransformGui::OnSelected(BaseObject* currentObjectSelected)
+{
+	colorSlider = currentObjectSelected->GetColor();
+}
+
 void TransformGui::Update(BaseObject* currentObjectSelected)
 {
 	if (currentObjectSelected != nullptr)
@@ -121,7 +126,6 @@ void TransformGui::UpdateScale(BaseObject* currentObjectSelected)
 
 void TransformGui::UpdateColor(BaseObject* currentObjectSelected)
 {
-	colorSlider = currentObjectSelected->GetColor();
 	currentObjectSelected->SetColor(colorSlider);
 }
 

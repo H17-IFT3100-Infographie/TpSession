@@ -26,6 +26,7 @@ public:
 	void SetScaleYValue(int value) { scaleYField.SetValue(value); }
 	void SetScaleZValue(int value) { scaleZField.SetValue(value); }
 
+	void OnSelected(BaseObject* currentObjectSelected);
 	virtual bool IsAnyGuiFocused();
 
 private:

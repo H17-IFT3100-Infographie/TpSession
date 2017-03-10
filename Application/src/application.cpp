@@ -167,6 +167,40 @@ void Application::keyPressed(int key)
 			return;
 		}
 
+		int index = -1;
+		switch (key)
+		{
+		case '1':
+			index = 0;
+			break;
+		case '2':
+			index = 1;
+			break;
+		case '3':
+			index = 2;
+			break;
+		case '4':
+			index = 3;
+			break;
+		case '5':
+			index = 4;
+			break;
+		case '6':
+			index = 5;
+			break;
+		case '7':
+			index = 6;
+			break;
+		}
+
+		if (index != -1)
+		{
+			if (renderer->SelectObject(index))
+			{
+				transformGui->OnSelected(renderer->GetCurrentSelectedObject());
+			}
+		}
+
 		renderer->KeyPressed(key);
 	}
 }

@@ -46,6 +46,7 @@ public:
 	inline BaseObject* GetCurrentSelectedObject();
 
 	void HideAllCustomCursors();
+	bool SelectObject(int aIndex);
 
 private:
 

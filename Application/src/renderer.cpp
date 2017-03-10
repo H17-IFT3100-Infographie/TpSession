@@ -263,57 +263,14 @@ void Renderer::KeyPressed(int key)
 		shiftPressed = true;
 	}
 
-	if (selectedObjects.size() > 0)
-	{
-		for (int i = 0, count = selectedObjects.size(); i < count; i++)
-		{
-			selectedObjects[i]->SetColor(ofColor::white);
-		}
-	}
-
-	int index = -1;
 	switch (key)
 	{
 	case 'u':
 		selectedObjects.clear();
 		break;
-	case '1':
-		index = 0;
-		break;
-	case '2':
-		index = 1;
-		break;
-	case '3':
-		index = 2;
-		break;
-	case '4':
-		index = 3;
-		break;
-	case '5':
-		index = 4;
-		break;
-	case '6':
-		index = 5;
-		break;
-	case '7':
-		index = 6;
+	default:
 		break;
 	}
-
-	if (index != -1)
-	{
-		std::vector<BaseObject*>::iterator obj = std::find(selectedObjects.begin(), selectedObjects.end(), objectsList[index]);
-		obj != selectedObjects.end() ? selectedObjects.erase(obj) : selectedObjects.push_back(objectsList[index]);
-	}
-
-	if (selectedObjects.size() > 0)
-	{
-		for (int i = 0, count = selectedObjects.size(); i < count; i++)
-		{
-			selectedObjects[i]->SetColor(ofColor::yellow);
-		}
-	}
-
 }
 
 void Renderer::keyReleased(int key)
@@ -351,3 +308,21 @@ void Renderer::HideAllCustomCursors()
 	scaleCursor->Hide();
 }
 
+bool Renderer::SelectObject(int index)
+{
+	if (index != -1)
+	{
+		std::vector<BaseObject*>::iterator obj = std::find(selectedObjects.begin(), selectedObjects.end(), objectsList[index]);
+		if (obj != selectedObjects.end())
+		{
+			selectedObjects.erase(obj);
+		}
+		else
+		{
+			selectedObjects.push_back(objectsList[index]);
+			return true;
+		}
+	}
+
+	return false;
+}
