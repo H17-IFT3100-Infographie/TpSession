@@ -11,6 +11,7 @@ Renderer::Renderer()
 	, undoActions(std::deque<std::vector<UndoAction*> >())
 	, leftMousePressed(false)
 	, shiftPressed(false)
+	, gridActivated(true)
 {
 
 }
@@ -115,7 +116,8 @@ void Renderer::Draw()
 		objectsList[i]->Draw();
 	}
 	// Affichage d'une grille pour positionner les objets
-	ofDrawGrid(100.0f);
+	if (gridActivated)
+		ofDrawGrid(100.0f);
 	cam.end();
 	ofDisableDepthTest();
 
@@ -145,7 +147,10 @@ void Renderer::CreateFV()
 	ofDrawCircle(150, 150, 100);//objectsList.push_back(new Primitive());
 	ofSetColor(0, 0, 255);
 	ofFill();
-	for (int i = 0; i < 12; i++) { ofDrawTriangle(ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100)); }
+	for (int i = 0; i < 12; i++) 
+	{ 
+		ofDrawTriangle(ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100)); 
+	}
 }
 // Fonction permettant de générer un cube
 void Renderer::CreateBox()
@@ -177,6 +182,12 @@ void Renderer::CreateLemniscate()
 {
 	objectsList.push_back(new LemniscateProceduralImage());
 }
+
+void Renderer::SetGridActivated(bool& pressed) 
+{ 
+	gridActivated = pressed;
+}
+
 // Fonctions activées lorsqu'une touche de la souris est activée
 void Renderer::MousePressed(int x, int y, int button)
 {

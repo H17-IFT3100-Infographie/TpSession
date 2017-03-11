@@ -58,7 +58,7 @@ Application::~Application()
 		cameraGui->GetAspectRatio().removeListener(this, &Application::SetAspectRatio);
 		cameraGui->GetFarClipping().removeListener(this, &Application::SetFarClippingPlane);
 		cameraGui->GetNearClipping().removeListener(this, &Application::SetNearClippingPlane);
-
+		cameraGui->GetGridActivatorToggle().removeListener(this, &Application::SetGridActivated);
 		cameraGui->GetObjectCreatorButton().removeListener(this, &Application::ShowObjectsCreator);
 
 		delete cameraGui;
@@ -107,7 +107,8 @@ void Application::setup()
 	cameraGui->GetAspectRatio().addListener(this, &Application::SetAspectRatio);
 	cameraGui->GetFarClipping().addListener(this, &Application::SetFarClippingPlane);
 	cameraGui->GetNearClipping().addListener(this, &Application::SetNearClippingPlane);
-
+	cameraGui->GetGridActivatorToggle().addListener(this, &Application::SetGridActivated);
+	
 	cameraGui->GetObjectCreatorButton().addListener(this, &Application::ShowObjectsCreator);
 }
 // Fonction de mise à jour de l'application
@@ -288,6 +289,13 @@ void Application::SetNearClippingPlane(const void* sender, float& value)
 {
 	renderer->SetNearClippingPlane(value);
 }
+// Activation du grid dans le viewport
+void Application::SetGridActivated(const void* sender, bool& pressed)
+{
+	cameraGui->GetGridActivatorToggle() = pressed;
+	renderer->SetGridActivated(pressed);
+}
+
 // Fonction permettant l'affichage des options de la caméra
 void Application::ShowCamOptions()
 {

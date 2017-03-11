@@ -24,5 +24,7 @@ void CameraGui::Setup()
 	gui.add(farClipping.setup("Far", 2000, 0, 3000));
 	gui.add(nearClipping.setup("Near", 0, 0, 3000));
 
+	gui.add(gridActivatorToggle.setup("Show Grid", true));
+
 	gui.add(showObjectsCreator.setup("Objects Creator"));
 }

@@ -60,6 +60,8 @@ public:
 	const float GetNearClippingPlane() { return cam.getNearClip(); }
 	void SetNearClippingPlane(float& value) { cam.setNearClip(value); }
 
+	void SetGridActivated(bool& pressed);
+
 	bool IsAnyObjectSelected() { return !selectedObjects.empty(); }
 	inline std::vector<BaseObject*>& GetCurrentSelectedObjects();
 	const int ObjectsSelectedCount() { return selectedObjects.size(); }
@@ -111,6 +113,8 @@ private:
 	ofNode camParent;
 
 	std::deque<std::vector<UndoAction*> > undoActions;
+
+	bool gridActivated;
 };
 
 std::vector<BaseObject*>& Renderer::GetCurrentSelectedObjects()

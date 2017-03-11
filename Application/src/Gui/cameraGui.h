@@ -15,6 +15,7 @@ public:
 	ofxToggle& GetPerspToggle() { return perspToggle; }
 	ofxToggle& GetOrhtoToggle() { return orthoToggle; }
 	ofxButton& GetObjectCreatorButton() { return showObjectsCreator; }
+	ofxToggle& GetGridActivatorToggle() { return gridActivatorToggle; }
 
 	ofxFloatField& GetFovField() { return fovField; }
 	ofxFloatField& GetAspectRatio() { return aspectRatio; }
@@ -25,6 +26,7 @@ private:
 
 	ofxToggle perspToggle;
 	ofxToggle orthoToggle;
+	ofxToggle gridActivatorToggle;
 
 	ofxFloatField fovField;
 	ofxFloatField aspectRatio;
