@@ -20,7 +20,7 @@ void Gui::Setup()
 	gui.add(createFVButton.setup("Forme Vectorielle"));
 	gui.add(createCubeButton.setup("Cube"));
 	gui.add(createSphereButton.setup("Sphere"));
-	gui.add(createTetrahedronButton.setup("Tetrahedre"));
+	gui.add(createIcosahedronButton.setup("Icosahedre"));
 	gui.add(createModelButton.setup("Model"));
 	gui.add(createImageButton.setup("Image"));
 	gui.add(imageInputField.setup("Filepath:", ""));

@@ -64,9 +64,6 @@
     <ClCompile Include="src\Objects\Object3d\sphere.cpp">
       <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\Object3d\tetrahedron.cpp">
-      <Filter>src\Objects\Object3d</Filter>
-    </ClCompile>
     <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp">
       <Filter>src\ofxGuiAddons</Filter>
     </ClCompile>
@@ -108,6 +105,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxToggle.cpp">
       <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\icosahedron.cpp">
+      <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -222,9 +222,6 @@
       <Filter>src\Objects\Object3d</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\sphere.h">
-      <Filter>src\Objects\Object3d</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\Object3d\tetrahedron.h">
       <Filter>src\Objects\Object3d</Filter>
     </ClInclude>
     <ClInclude Include="src\ofxGuiAddons\ofxInputField.h">
@@ -382,6 +379,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxToggle.h">
       <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\icosahedron.h">
+      <Filter>src\Objects\Object3d</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

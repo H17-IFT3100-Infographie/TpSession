@@ -191,7 +191,7 @@
     <ClCompile Include="src\Objects\Object3d\modelObj.cpp" />
     <ClCompile Include="src\Objects\Object3d\particleSystem.cpp" />
     <ClCompile Include="src\Objects\Object3d\sphere.cpp" />
-    <ClCompile Include="src\Objects\Object3d\tetrahedron.cpp" />
+    <ClCompile Include="src\Objects\Object3d\icosahedron.cpp" />
     <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp" />
     <ClCompile Include="src\renderer.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
@@ -227,7 +227,7 @@
     <ClInclude Include="src\Objects\Object3d\modelObj.h" />
     <ClInclude Include="src\Objects\Object3d\particleSystem.h" />
     <ClInclude Include="src\Objects\Object3d\sphere.h" />
-    <ClInclude Include="src\Objects\Object3d\tetrahedron.h" />
+    <ClInclude Include="src\Objects\Object3d\icosahedron.h" />
     <ClInclude Include="src\ofxGuiAddons\ofxInputField.h" />
     <ClInclude Include="src\renderer.h" />
     <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
