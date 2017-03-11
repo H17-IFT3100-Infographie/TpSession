@@ -15,7 +15,7 @@ public:
 	virtual void Draw();
 	virtual void DrawBoundingBox();
 	
-	bool IsHovered(float x, float y);
+	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos);
 
 	void SetDimension(float w, float h) { SetWidth(w); SetHeight(h); }
 	void SetWidth(float w) { width = w; }

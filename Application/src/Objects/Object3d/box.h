@@ -11,7 +11,7 @@ public:
 	Box(const ofVec3f& position, int width, int height, int depth);
 	~Box();
 	
-	virtual bool Inside(int x, int y, int z, const ofEasyCam& cam);
+	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos);
 
 private:
 	void Load();

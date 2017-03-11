@@ -4,7 +4,7 @@
 // Constructeur de la classe Renderer avec initialisation des paramètres
 Renderer::Renderer()
 	: screenPosition(ofVec2f(0.0f, 0.0f))
-	, screenScale(ofVec2f(1.0f, 1.0f))
+	, screenScale(1.0f)
 	, screenRotation(ofVec2f(0.0f, 0.0f))
 	, previousMousePosition(ofVec2f(0.0f, 0.0f))
 	, selectedObjects(std::vector<BaseObject*>())
@@ -81,6 +81,10 @@ void Renderer::Setup()
 	rotationCursor = new Cursor("cursors/rotation.png");
 	scaleCursor = new Cursor("cursors/zoom.png");
 
+	camParent.setPosition(ofVec3f::zero());
+	cam.setParent(camParent);
+	cam.setPosition(ofVec3f(0.0f, 0.0f, cam.getDistance()));
+
 	// TEMP: For testing.
 	//m_SelectedObject = m_ObjectsList[3];
 }
@@ -105,11 +109,9 @@ void Renderer::Draw()
 	light->setPosition(0, 150, 0);
 	// Activation de la caméra
 	cam.begin();
-	// Application des transformations
-	ofTranslate(screenPosition);
-	ofScale(screenScale);
-	ofRotateX(screenRotation.x);
-	ofRotateY(screenRotation.y);
+	cam.setDistance(1500.0f * screenScale);
+	cam.setPosition(ofVec3f(-screenPosition.x, -screenPosition.y, cam.getDistance()));
+	camParent.setOrientation(screenRotation);
 
 	// Affichage d'une boîte autour des objects sélectionnés
 	for (int i = 0; i < selectedObjects.size(); i++)
@@ -208,7 +210,27 @@ void Renderer::MousePressed(int x, int y, int button)
 	// Si le bouton de gauche est enfoncé
 	if (button == 0)
 	{
-		// Translation
+		bool hit = false;
+		for (int i = 0, count = objectsList.size(); i < count; i++)
+		{
+			ofVec3f sPos = cam.worldToScreen(objectsList[i]->pos);
+			hit = objectsList[i]->CheckPointCollision(ofVec3f(ofGetMouseX(), ofGetMouseY(), 0.0f), sPos);
+			if (hit)
+			{
+				std::vector<BaseObject*>::iterator obj = std::find(selectedObjects.begin(), selectedObjects.end(), objectsList[i]);
+				if (obj == selectedObjects.end())
+				{
+					selectedObjects.push_back(objectsList[i]);
+				}
+				break;
+			}
+		}
+		
+		if (!hit)
+		{
+			selectedObjects.clear();
+		}
+
 		moveCursor->pos = ofVec2f(x, y);
 		moveCursor->Show();
 	}
@@ -270,6 +292,8 @@ void Renderer::MouseDragged(int x, int y, int button)
 		{
 			screenRotation.y += x - previousMousePosition.x;
 			screenRotation.x += y - previousMousePosition.y;
+
+			ClampRotation();
 		}
 	}
 
@@ -295,8 +319,7 @@ void Renderer::MouseScrolled(int x, int y, float scrollX, float scrollY)
 		// On applique un rapport d'homothétie sur l'espace
 		else
 		{
-			screenScale.x = max(0.1f, screenScale.x + scrollY / 10.0f);
-			screenScale.y = max(0.1f, screenScale.y + scrollY / 10.0f);
+			screenScale = max(0.1f, screenScale - scrollY / 10.0f);
 		}
 	}
 
@@ -402,4 +425,17 @@ bool Renderer::SelectObject(int index)
 	}
 
 	return false;
+}
+
+void Renderer::ClampRotation()
+{
+	if (screenRotation.x > 359.0f)
+		screenRotation.x = screenRotation.x - 360.0f;
+	else if (screenRotation.x < 0.0f)
+		screenRotation.x = 359.0f;
+
+	if (screenRotation.y > 359.0f)
+		screenRotation.y = screenRotation.y - 360.0f;
+	else if (screenRotation.y < 0.0f)
+		screenRotation.y = 359.0f;
 }

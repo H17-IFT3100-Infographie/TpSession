@@ -23,16 +23,15 @@ Box::Box(const ofVec3f& position, int width, int height, int depth)
 
 void Box::Load()
 {
-	m_3dPrimitive = new ofBoxPrimitive(dimensions.x, dimensions.y, dimensions.z);
+	primitive = new ofBoxPrimitive(dimensions.x, dimensions.y, dimensions.z);
 }
 
 Box::~Box()
 {
 }
 
-bool Box::Inside(int x, int y, int z, const ofEasyCam& cam)
+bool Box::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
-	ofVec3f a = cam.worldToScreen(pos);
-	ofLog() << x << "  " << y << "  " << a;
-	return x >= pos.x && y >= pos.y && x <= pos.x + dimensions.x && y <= pos.y + dimensions.y;
+	return mouse.x >= objScreenPos.x - dimensions.x * 0.5f && mouse.y >= objScreenPos.y - dimensions.y * 0.5f && 
+		   mouse.x <= objScreenPos.x + dimensions.x * 0.5f && mouse.y <= objScreenPos.y + dimensions.y * 0.5f;
 }

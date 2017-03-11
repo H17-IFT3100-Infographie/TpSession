@@ -3,6 +3,7 @@
 
 #include "base3DObject.h"
 #include "ofxAssimpModelLoader.h"
+#include "box.h"
 
 class ModelObj : public Base3DObject
 {
@@ -13,6 +14,8 @@ public:
 	~ModelObj();	
 
 	virtual void DrawBoundingBox();
+
+	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos);
 
 protected:
 	ofxAssimpModelLoader* modele;
@@ -25,6 +28,8 @@ private:
 
 	ofVec3f currentRotation;
 	ofVec3f nextRotation;
+
+	ofVec3f dimension;
 };
 
 #endif // MODEL_OBJ_H

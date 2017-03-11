@@ -13,10 +13,10 @@ Base3DObject::Base3DObject(const ofVec3f& pos)
 
 Base3DObject::~Base3DObject()
 {
-	if (nullptr != m_3dPrimitive)
+	if (nullptr != primitive)
 	{
-		delete m_3dPrimitive;
-		m_3dPrimitive = nullptr;
+		delete primitive;
+		primitive = nullptr;
 	}
 }
 
@@ -24,10 +24,10 @@ void Base3DObject::Draw()
 {
 	ofSetColor(color);
 
-	m_3dPrimitive->setScale(scale);
-	m_3dPrimitive->setPosition(pos);
-	m_3dPrimitive->setOrientation(rot);
-	m_3dPrimitive->draw();
+	primitive->setScale(scale);
+	primitive->setPosition(pos);
+	primitive->setOrientation(rot);
+	primitive->draw();
 
 	ofSetColor(ofColor::white);
 }
@@ -36,12 +36,10 @@ void Base3DObject::DrawBoundingBox()
 {
 	ofSetColor(ofColor::green);
 	
-	m_3dPrimitive->drawWireframe();
+	primitive->setScale(scale);
+	primitive->setPosition(pos);
+	primitive->setOrientation(rot);
+	primitive->drawWireframe();
 
 	ofSetColor(ofColor::white);
-}
-
-bool Base3DObject::IsHovered(float x, float y)
-{
-	return false;
 }

@@ -89,12 +89,14 @@ private:
 
 	const int MAX_UNDO_ACTIONS = 5;
 
+	void ClampRotation();
+
 	std::vector<BaseObject*> objectsList;
 
 	std::vector<BaseObject*> selectedObjects;
 
 	ofVec2f screenPosition;
-	ofVec2f screenScale;
+	float screenScale;
 	ofVec2f screenRotation;
 
 	ofVec2f previousMousePosition;
@@ -107,6 +109,7 @@ private:
 	bool leftMousePressed;
 
 	ofEasyCam cam;
+	ofNode camParent;
 
 	std::deque<std::vector<UndoAction*> > undoActions;
 };

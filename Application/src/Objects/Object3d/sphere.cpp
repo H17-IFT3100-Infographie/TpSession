@@ -20,5 +20,11 @@ Sphere::~Sphere()
 
 void Sphere::Load()
 {
-	m_3dPrimitive = new ofSpherePrimitive(radius, 5);
+	primitive = new ofSpherePrimitive(radius, 5);
+}
+
+bool Sphere::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
+{
+	return mouse.x >= objScreenPos.x - radius * 0.5f && mouse.y >= objScreenPos.y - radius * 0.5f && 
+		   mouse.x <= objScreenPos.x + radius * 0.5f && mouse.y <= objScreenPos.y + radius * 0.5f;
 }
