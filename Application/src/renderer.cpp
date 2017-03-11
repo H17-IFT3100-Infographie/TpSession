@@ -125,11 +125,11 @@ void Renderer::CreateRectangle()
 }
 void Renderer::CreateLine()
 {
-	ofDrawTriangle(50, 10, 10, 40, 90, 40);//objectsList.push_back(new Line());
+	objectsList.push_back(new Line(ofPoint(0, 0, 0), ofPoint(100, 100, 100), 5.0f, ofColor::white));
 }
 void Renderer::CreateCercle()
 {
-	ofDrawCircle(150, 150, 100); //objectsList.push_back(new Circle());
+	objectsList.push_back(new Circle(ofPoint(0, 0, 0), 15.0f, 3.0f, false, ofColor::white));
 }
 void Renderer::CreateFV()
 {
