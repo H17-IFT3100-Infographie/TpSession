@@ -45,7 +45,7 @@ void Circle::SetAlpha(int a)
 
 }
 
-bool Circle::IsHovered(float x, float y)
+bool Circle::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
-	return false;
+	return mouse.x >= objScreenPos.x - radius * 0.5f && mouse.y >= objScreenPos.y - radius * 0.5f && mouse.x <= objScreenPos.x + radius * 0.5f && mouse.y <= objScreenPos.y + radius * 0.5f;
 }

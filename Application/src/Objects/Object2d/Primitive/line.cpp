@@ -35,7 +35,7 @@ void Line::DrawBoundingBox()
 
 	ofNoFill();
 	ofSetLineWidth(1.0f);
-	ofDrawRectangle(pos.x, pos.y, pos.x + (endPoint.x - pos.x), pos.y + (endPoint.y - pos.y));
+	ofDrawRectangle(pos.x, pos.y, endPoint.x - pos.x, endPoint.y - pos.y);
 
 	ofSetColor(ofColor::white);
 }
@@ -45,7 +45,7 @@ void Line::SetAlpha(int a)
 
 }
 
-bool Line::IsHovered(float x, float y)
+bool Line::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
-	return false;
+	return mouse.x >= objScreenPos.x && mouse.y >= objScreenPos.y - endPoint.x - pos.x && mouse.x <= objScreenPos.x + endPoint.x - pos.x && mouse.y <= objScreenPos.y;
 }

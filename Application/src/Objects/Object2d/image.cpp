@@ -95,8 +95,9 @@ void Image::SetAlpha(int a)
 		}
 	}
 }
-
-bool Image::IsHovered(float x, float y)
-{
-	return false;
+ 
+bool Image::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos) 
+{ 
+	return mouse.x >= pos.x && mouse.y >= pos.y && mouse.x <= pos.x + image->getWidth() && mouse.y <= pos.y + image->getHeight(); 
 }
+

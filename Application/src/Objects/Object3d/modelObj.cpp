@@ -5,9 +5,11 @@ ModelObj::ModelObj()
 {
 	Load();
 }
+
 ModelObj::ModelObj(const std::string filepath) : Base3DObject(0.0f,0.0f,0.0f),filepath(filepath) {
 	Load();
 } 
+
 ModelObj::ModelObj(int x, int y, int z, float radius)
 	: Base3DObject(x, y, z)
 {
@@ -29,6 +31,8 @@ void ModelObj::Load()
 
 	modele->loadModel(filepath);
 	Setup();
+
+	dimension = ofVec3f(100.0f, 400.0f, 100.0f);
 }
 void ModelObj::Setup() {
 
@@ -45,7 +49,7 @@ void ModelObj::Draw() {
 	modele->setRotation(1, rot.y, 0, 1, 0);
 	modele->setRotation(2, rot.z, 0, 0, 1);
 
-	modele->setScale(scale.z, scale.y, scale.z);
+	modele->setScale(scale.x, scale.y, scale.z);
 
 	modele->draw(ofPolyRenderMode::OF_MESH_FILL);
 
@@ -54,9 +58,7 @@ void ModelObj::Draw() {
 
 void ModelObj::DrawBoundingBox()
 {
-	ofSetColor(ofColor::green);
-	//modele->drawWireframe();
-	ofSetColor(ofColor::white);
+
 }
 
 void ModelObj::Update()
@@ -69,4 +71,10 @@ void ModelObj::Update()
 		currentRotation = rot;
 	}
 	modele->update();
+}
+
+bool ModelObj::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
+{
+	return mouse.x > objScreenPos.x - dimension.x * 0.5f && mouse.y > objScreenPos.y &&
+		mouse.x <= objScreenPos.x + dimension.x * 0.5f && mouse.y <= objScreenPos.y + dimension.y * 0.5f;
 }

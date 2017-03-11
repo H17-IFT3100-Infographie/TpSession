@@ -17,7 +17,7 @@ public:
 
 	virtual void SetAlpha(int a);
 
-	bool IsHovered(float x, float y);
+	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos);
 
 protected:
 

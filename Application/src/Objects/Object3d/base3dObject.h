@@ -13,9 +13,9 @@ public:
 	virtual void Draw();
 	virtual void DrawBoundingBox();
 
-	virtual bool IsHovered(float x, float y);
+	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos) { return false; }
 protected:
-	of3dPrimitive* m_3dPrimitive;
+	of3dPrimitive* primitive;
 private:
 	
 };

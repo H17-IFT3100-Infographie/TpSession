@@ -22,7 +22,7 @@ public:
 	virtual void SetColor(int r, int g, int b, int a);
 	virtual void SetAlpha(int a);
 
-	bool IsHovered(float x, float y);
+	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos);
 
 protected:
 	ofImage* image;

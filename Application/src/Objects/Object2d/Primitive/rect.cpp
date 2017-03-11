@@ -41,7 +41,7 @@ void Rect::DrawBoundingBox()
 	ofSetColor(ofColor::white);
 }
 
-bool Rect::IsHovered(float x, float y)
+bool Rect::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
-	return false;
+	return mouse.x >= objScreenPos.x && mouse.y >= objScreenPos.y - height * 0.5f && mouse.x <= objScreenPos.x + width * 0.5f && mouse.y <= objScreenPos.y;
 }

@@ -26,7 +26,7 @@ public:
 
 	virtual void DrawBoundingBox() { }
 
-	virtual bool Inside(int x, int y, int z, const ofEasyCam& cam) { return false; }
+	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos) { return false; }
 
 	ofVec3f pos;
 	ofVec3f rot;
