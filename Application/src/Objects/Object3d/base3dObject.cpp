@@ -13,8 +13,11 @@ Base3DObject::Base3DObject(const ofVec3f& pos)
 
 Base3DObject::~Base3DObject()
 {
-	delete m_3dPrimitive;
-	m_3dPrimitive = nullptr;
+	if (nullptr != m_3dPrimitive)
+	{
+		delete m_3dPrimitive;
+		m_3dPrimitive = nullptr;
+	}
 }
 
 void Base3DObject::Draw()
