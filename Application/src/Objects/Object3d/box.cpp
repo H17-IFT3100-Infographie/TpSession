@@ -32,6 +32,6 @@ Box::~Box()
 
 bool Box::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
-	return mouse.x >= objScreenPos.x - dimensions.x * 0.5f && mouse.y >= objScreenPos.y - dimensions.y * 0.5f && 
-		   mouse.x <= objScreenPos.x + dimensions.x * 0.5f && mouse.y <= objScreenPos.y + dimensions.y * 0.5f;
+	return mouse.x >= objScreenPos.x - (dimensions.x * 0.25f) * scale.x && mouse.y >= objScreenPos.y - (dimensions.y * 0.25f) * scale.y &&
+		   mouse.x <= objScreenPos.x + (dimensions.x * 0.25f) * scale.x && mouse.y <= objScreenPos.y + (dimensions.y * 0.25f) * scale.y;
 }

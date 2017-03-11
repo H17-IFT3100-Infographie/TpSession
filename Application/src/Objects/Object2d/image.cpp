@@ -98,6 +98,7 @@ void Image::SetAlpha(int a)
  
 bool Image::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos) 
 { 
-	return mouse.x >= objScreenPos.x - image->getWidth() * 0.25f && mouse.y >= objScreenPos.y - image->getHeight() * 0.25f && mouse.x <= objScreenPos.x + image->getWidth() * 0.25f && mouse.y <= objScreenPos.y + image->getHeight() * 0.25f;
+	return mouse.x >= objScreenPos.x - (image->getWidth() * 0.25f) * scale.x && mouse.y >= objScreenPos.y - (image->getHeight() * 0.25f) * scale.x && 
+		   mouse.x <= objScreenPos.x + (image->getWidth() * 0.25f) * scale.x && mouse.y <= objScreenPos.y + (image->getHeight() * 0.25f) * scale.y;
 }
 

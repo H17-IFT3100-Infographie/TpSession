@@ -55,6 +55,8 @@ void Renderer::Setup()
 	// Détermination de la distance de la caméra pour rendu de scène
 	cam.setDistance(1500.0f);
 	cam.disableMouseInput();
+	cam.setupPerspective(false);
+
 	// Génération d'une instance de lumière pour éclairer la scène
 	light = new ofLight();
 	glEnable(GL_LIGHTING);
@@ -63,14 +65,6 @@ void Renderer::Setup()
 	// Set background to black
 	ofBackground(0, 0, 0);
 
-	/*objectsList.push_back(new Box(125, 125, 0, 20, 20, 20));
-	objectsList.push_back(new Sphere(250, 250, 0, 20));
-	objectsList.push_back(new Image(-150, 15, 50, "tableflip.jpg"));
-	objectsList.push_back(new LemniscateProceduralImage(-150, -150, 0));
-
-	objectsList.push_back(new Line(ofPoint(0, 0, 0), ofPoint(100, 100, 100), 5.0f, ofColor::yellow));
-	objectsList.push_back(new Circle(ofPoint(-150, -150, 0), 50.0f, 3.0f, false, ofColor::blue));
-	objectsList.push_back(new Rect(ofPoint(250, -250, 0), 45.0f, 45.0f, 3.0f, false, ofColor::pink));*/
 	// Mise à jour des objets contenus dans la liste
 	for (int i = 0; i < objectsList.size(); i++)
 	{
@@ -84,9 +78,6 @@ void Renderer::Setup()
 	camParent.setPosition(ofVec3f::zero());
 	cam.setParent(camParent);
 	cam.setPosition(ofVec3f(0.0f, 0.0f, cam.getDistance()));
-
-	// TEMP: For testing.
-	//m_SelectedObject = m_ObjectsList[3];
 }
 // Fonction permettant la mise à jour des objets de la scène
 void Renderer::Update()
@@ -214,6 +205,7 @@ void Renderer::MousePressed(int x, int y, int button)
 		for (int i = 0, count = objectsList.size(); i < count; i++)
 		{
 			ofVec3f sPos = cam.worldToScreen(objectsList[i]->pos);
+			ofLog() << sPos;
 			hit = objectsList[i]->CheckPointCollision(ofVec3f(ofGetMouseX(), ofGetMouseY(), 0.0f), sPos);
 			if (hit)
 			{
@@ -259,8 +251,11 @@ void Renderer::MouseDragged(int x, int y, int button)
 		{
 			for (int i = 0, count = selectedObjects.size(); i < count; i++)
 			{
-				selectedObjects[i]->pos.x += x - previousMousePosition.x;
-				selectedObjects[i]->pos.y -= y - previousMousePosition.y;
+				ofVec3f mouseWorld = cam.screenToWorld(ofVec3f(x, y));
+				ofVec3f mouseWorldPrev = cam.screenToWorld(ofVec3f(ofGetPreviousMouseX(), ofGetPreviousMouseY()));
+				selectedObjects[i]->pos.x += (mouseWorld.x - mouseWorldPrev.x) * 10;
+				selectedObjects[i]->pos.y += (mouseWorld.y - mouseWorldPrev.y) * 10;
+				selectedObjects[i]->pos.z += (mouseWorld.z - mouseWorldPrev.z) * 10;
 			}
 		}
 		// Sinon on déplace l'espace

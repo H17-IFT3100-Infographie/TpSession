@@ -75,6 +75,6 @@ void ModelObj::Update()
 
 bool ModelObj::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
-	return mouse.x > objScreenPos.x - dimension.x * 0.5f && mouse.y > objScreenPos.y &&
-		mouse.x <= objScreenPos.x + dimension.x * 0.5f && mouse.y <= objScreenPos.y + dimension.y * 0.5f;
+	return mouse.x > objScreenPos.x - (dimension.x * 0.5f) * scale.x && mouse.y > objScreenPos.y &&
+		mouse.x <= objScreenPos.x + (dimension.x * 0.5f) * scale.x && mouse.y <= objScreenPos.y + (dimension.y * 0.5f) * scale.y;
 }
