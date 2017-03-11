@@ -112,22 +112,21 @@ void Application::setup()
 
 void Application::update()
 {
+	ofGetMouseX() > 200 ? eventEnabled = true : eventEnabled = false;
+
 	if (renderer->IsAnyObjectSelected())
 	{
 		if (renderer->ObjectsSelectedCount() == 1)
 		{
-			eventEnabled = !transformGui->IsAnyGuiFocused();
 			transformGui->Update(renderer->GetCurrentSelectedObjects()[0]);
 		}
 		else
 		{
-			eventEnabled = !multiTransformGui->IsAnyGuiFocused();
 			multiTransformGui->Update(renderer->GetCurrentSelectedObjects());
 		}
 	}
 	else
 	{
-		eventEnabled = !gui->IsAnyGuiFocused();
 		gui->Update();
 	}
 
@@ -208,22 +207,32 @@ void Application::CreateLemniscate()
 {
 	renderer->CreateLemniscate();
 }
+
 void Application::CreateTetrahedron()
 {
 	renderer->CreateTetrahedron();
 }
-void Application::CreateRectangle() {
+
+void Application::CreateRectangle() 
+{
 	renderer->CreateRectangle();
 }
-void Application::CreateLine() {
+
+void Application::CreateLine() 
+{
 	renderer->CreateLine();
 }
-void Application::CreateCercle() {
+
+void Application::CreateCercle() 
+{
 	renderer->CreateCercle();
 }
-void Application::CreateFV() {
+
+void Application::CreateFV()
+{
 	renderer->CreateFV();
 }
+
 void Application::CamToPerspective(const void* sender, bool& pressed)
 {
 	if (pressed)
