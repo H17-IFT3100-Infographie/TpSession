@@ -25,38 +25,92 @@ void Icosahedron::Load()
 {
 	ofMesh mesh; 
 	
+	radius = 50.0f;
 
-		Setup();
+	Setup();
 }
 
 void Icosahedron::Draw() {
+	
+	for (int i = 0; i < mesh.getNumVertices(); i++)
+	{
+		mesh.setColor(i, color);
+	}
+
 	ofPushMatrix();
-	ofScale(50, 50, 50);
+	ofTranslate(pos);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
+	ofScale(scale);
 	mesh.drawFaces();
 	ofPopMatrix();
 }
 
 void Icosahedron::DrawBoundingBox()
 {
+	for (int i = 0; i < mesh.getNumVertices(); i++)
+	{
+		mesh.setColor(i, ofColor::green);
+	}
 
+	ofPushMatrix();
+	ofTranslate(pos);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
+	ofScale(scale);
+	mesh.drawWireframe();
+	ofPopMatrix();
+}
+
+bool Icosahedron::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
+{
+	return mouse.x >= objScreenPos.x - (radius * 0.5f) * scale.x && mouse.y >= objScreenPos.y - (radius * 0.5f) * scale.y &&
+		mouse.x <= objScreenPos.x + (radius * 0.5f) * scale.x && mouse.y <= objScreenPos.y + (radius * 0.5f) * scale.y;
 }
 
 void Icosahedron::Setup()
 {
-	float t = (1 + sqrt(5)) / 2;
-	mesh.addVertex(ofVec3f(t, 1, 0)); mesh.addColor(ofColor(255, 0, 0));
-	mesh.addVertex(ofVec3f(-t, 1, 0)); mesh.addColor(ofColor(255,255, 0));
-	mesh.addVertex(ofVec3f(t, -1, 0)); mesh.addColor(ofColor(255, 0, 255));
-	mesh.addVertex(ofVec3f(-t, -1, 0)); mesh.addColor(ofColor(255, 0, 0));
-	mesh.addVertex(ofVec3f( 1,0,t)); mesh.addColor(ofColor(200, 0, 0));
-	mesh.addVertex(ofVec3f(1,0,-t)); mesh.addColor(ofColor(200, 200, 0));
-	mesh.addVertex(ofVec3f(-1,0,t)); mesh.addColor(ofColor(200, 0, 200));
-	mesh.addVertex(ofVec3f(-1,0,-t)); mesh.addColor(ofColor(150, 0, 0));
-	mesh.addVertex(ofVec3f(0,t,1)); mesh.addColor(ofColor(150, 150, 0));
-	mesh.addVertex(ofVec3f(0,-t,1)); mesh.addColor(ofColor(150, 0, 150));
-	mesh.addVertex(ofVec3f(0, t,-1)); mesh.addColor(ofColor(255, 255, 255));
-	mesh.addVertex(ofVec3f(0,-t,-1)); mesh.addColor(ofColor(0, 0, 0));
-	float hue = 254.f;
+	mesh.clear();
+
+	float t = ((1 + sqrt(5)) / 2) * radius;
+	mesh.addVertex(ofVec3f(t, 1, 0)); 
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(-t, 1, 0));
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(t, -1, 0));
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(-t, -1, 0)); 
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f( 1,0,t)); 
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(1,0,-t));
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(-1,0,t)); 
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(-1,0,-t));
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(0,t,1)); 
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(0,-t,1)); 
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(0, t,-1));
+	mesh.addColor(color);
+
+	mesh.addVertex(ofVec3f(0,-t,-1)); 
+	mesh.addColor(color);
+
 	int indices[20][3] = { {0,8,4},{0,5,10},{2,4,9},{2,11,5},{1,6,8},{1,10,7},{3,9,6},{3,7,11},{0,10,8},{1,8,10},{2,9,11},{3,9,11},{4,2,0},{5,0,2},{6,1,3},{7,3,4},{8,6,4},{9,4,6},{10,5,7},{11,7,5} };
 
 	for (int i = 0; i < 20; i++) {
@@ -64,5 +118,5 @@ void Icosahedron::Setup()
 		mesh.addIndex(indices[i][1]);
 		mesh.addIndex(indices[i][2]);
 
-	}Draw();
+	}
 }

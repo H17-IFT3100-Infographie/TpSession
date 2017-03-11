@@ -50,6 +50,7 @@ private:
 	void SetAspectRatio(const void* sender, float& value);
 	void SetFarClippingPlane(const void* sender, float& value);
 	void SetNearClippingPlane(const void* sender, float& value);
+	void SetGridActivated(const void* sender, bool& pressed);
 
 	Renderer* renderer;
 

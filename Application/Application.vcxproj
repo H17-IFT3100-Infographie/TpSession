@@ -49,19 +49,19 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../../libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+    <Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../../libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+    <Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../../libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+    <Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../../libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+    <Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -95,7 +95,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -103,7 +103,7 @@
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -114,7 +114,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -123,7 +123,7 @@
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -133,7 +133,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -145,7 +145,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -155,7 +155,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -166,7 +166,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -183,7 +183,6 @@
     <ClCompile Include="src\Objects\Object2d\image.cpp" />
     <ClCompile Include="src\Objects\Object2d\lemniscateProceduralImage.cpp" />
     <ClCompile Include="src\Objects\Object2d\Primitive\circle.cpp" />
-    <ClCompile Include="src\Objects\Object2d\Primitive\FormeVectorielle.cpp" />
     <ClCompile Include="src\Objects\Object2d\Primitive\line.cpp" />
     <ClCompile Include="src\Objects\Object2d\Primitive\primitive.cpp" />
     <ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp" />
@@ -195,18 +194,18 @@
     <ClCompile Include="src\Objects\Object3d\sphere.cpp" />
     <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp" />
     <ClCompile Include="src\renderer.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxButton.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxLabel.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxPanel.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxSlider.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
-    <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxBaseGui.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxButton.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxGuiGroup.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxLabel.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxPanel.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSlider.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSliderGroup.cpp" />
+    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\application.h" />
@@ -220,7 +219,6 @@
     <ClInclude Include="src\Objects\Object2d\image.h" />
     <ClInclude Include="src\Objects\Object2d\lemniscateProceduralImage.h" />
     <ClInclude Include="src\Objects\Object2d\Primitive\circle.h" />
-    <ClInclude Include="src\Objects\Object2d\Primitive\FormeVectorielle.h" />
     <ClInclude Include="src\Objects\Object2d\Primitive\line.h" />
     <ClInclude Include="src\Objects\Object2d\Primitive\primitive.h" />
     <ClInclude Include="src\Objects\Object2d\Primitive\rect.h" />
@@ -232,56 +230,56 @@
     <ClInclude Include="src\Objects\Object3d\sphere.h" />
     <ClInclude Include="src\ofxGuiAddons\ofxInputField.h" />
     <ClInclude Include="src\renderer.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpUtils.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ai_assert.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\anim.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\camera.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cexport.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cfileio.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cimport.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\color4.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\poppack1.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pstdint.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pushpack1.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\config.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\DefaultLogger.hpp" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\defs.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Exporter.hpp" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Importer.hpp" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\importerdesc.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOStream.hpp" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOSystem.hpp" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\light.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Logger.hpp" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\LogStream.hpp" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\material.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix3x3.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix4x4.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\mesh.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\metadata.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\NullLogger.hpp" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\postprocess.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ProgressHandler.hpp" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\quaternion.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\scene.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\texture.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\types.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector2.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector3.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\version.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxButton.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxGui.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxGuiGroup.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxLabel.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxPanel.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxSlider.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
-    <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxToggle.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpUtils.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ai_assert.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\anim.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\camera.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cexport.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cfileio.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cimport.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\color4.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\poppack1.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pstdint.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pushpack1.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\config.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\defs.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Exporter.hpp" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Importer.hpp" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\importerdesc.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOStream.hpp" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOSystem.hpp" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\light.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Logger.hpp" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\LogStream.hpp" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\material.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix3x3.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix4x4.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\mesh.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\metadata.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\NullLogger.hpp" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\postprocess.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\quaternion.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\scene.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\texture.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\types.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector2.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector3.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\version.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxBaseGui.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxButton.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxGui.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxGuiGroup.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxLabel.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxPanel.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSlider.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSliderGroup.h" />
+    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

@@ -58,7 +58,7 @@ Application::~Application()
 		cameraGui->GetAspectRatio().removeListener(this, &Application::SetAspectRatio);
 		cameraGui->GetFarClipping().removeListener(this, &Application::SetFarClippingPlane);
 		cameraGui->GetNearClipping().removeListener(this, &Application::SetNearClippingPlane);
-
+		cameraGui->GetGridActivatorToggle().removeListener(this, &Application::SetGridActivated);
 		cameraGui->GetObjectCreatorButton().removeListener(this, &Application::ShowObjectsCreator);
 
 		delete cameraGui;
@@ -70,7 +70,6 @@ void Application::setup()
 {
 	ofSetWindowTitle("IFT3100 - TpSession");
 
-	ofLog() << "<app::setup>";
 	// On génère le gui
 	gui = new Gui();
 	gui->Setup();
@@ -108,7 +107,8 @@ void Application::setup()
 	cameraGui->GetAspectRatio().addListener(this, &Application::SetAspectRatio);
 	cameraGui->GetFarClipping().addListener(this, &Application::SetFarClippingPlane);
 	cameraGui->GetNearClipping().addListener(this, &Application::SetNearClippingPlane);
-
+	cameraGui->GetGridActivatorToggle().addListener(this, &Application::SetGridActivated);
+	
 	cameraGui->GetObjectCreatorButton().addListener(this, &Application::ShowObjectsCreator);
 }
 // Fonction de mise à jour de l'application
@@ -184,20 +184,7 @@ void Application::CreateSphere()
 // Fonction appelant la méthode CreateModel du renderer
 void Application::CreateModel()
 {
-	// On récupère le nom du fichier contenu dans la textbox Filepath
-	const std::string& filepath(gui->GetImageInputField().GetValue());
-	// Si le fichier existe, on appelle la fonction du renderer pour créer le modèle
-	if (ofFile::doesFileExist(filepath))
-	{
-		renderer->CreateModel(filepath);
-	}
-	else
-	{
-		// Show error?
-	}
-	// Réinitialisation de la textbox
-	gui->GetImageInputField().leaveFocus();
-	gui->GetImageInputField().ResetValue();
+	renderer->CreateModel("Lara_Croft.obj");
 }
 
 // Fonction permettant l'appel de la méthode CreateImage de la classe Renderer
@@ -302,6 +289,13 @@ void Application::SetNearClippingPlane(const void* sender, float& value)
 {
 	renderer->SetNearClippingPlane(value);
 }
+// Activation du grid dans le viewport
+void Application::SetGridActivated(const void* sender, bool& pressed)
+{
+	cameraGui->GetGridActivatorToggle() = pressed;
+	renderer->SetGridActivated(pressed);
+}
+
 // Fonction permettant l'affichage des options de la caméra
 void Application::ShowCamOptions()
 {
@@ -416,5 +410,5 @@ void Application::keyReleased(int key)
 
 void Application::exit()
 {
-	ofLog() << "<app::exit>";
+
 }
