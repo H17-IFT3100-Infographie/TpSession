@@ -227,9 +227,7 @@
     <ClInclude Include="src\Objects\Object3d\modelObj.h" />
     <ClInclude Include="src\Objects\Object3d\particleSystem.h" />
     <ClInclude Include="src\Objects\Object3d\sphere.h" />
-    <ClInclude Include="src\Objects\Object3d\tetrahedron.h">
-      <DeploymentContent>true</DeploymentContent>
-    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\tetrahedron.h" />
     <ClInclude Include="src\ofxGuiAddons\ofxInputField.h" />
     <ClInclude Include="src\renderer.h" />
     <ClInclude Include="..\..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
