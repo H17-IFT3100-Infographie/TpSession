@@ -235,26 +235,31 @@ void Application::CamToOrtho(const void* sender, bool& pressed)
 
 void Application::SetFOV(const void* sender, float& value)
 {
-
+	renderer->SetFOV(value);
 }
 
 void Application::SetAspectRatio(const void* sender, float& value)
 {
-
+	renderer->SetAspectRatio(value);
 }
 
 void Application::SetFarClippingPlane(const void* sender, float& value)
 {
-
+	renderer->SetFarClippingPlane(value);
 }
 
 void Application::SetNearClippingPlane(const void* sender, float& value)
 {
-
+	renderer->SetNearClippingPlane(value);
 }
 
 void Application::ShowCamOptions()
 {
+	cameraGui->GetFovField().SetValue(renderer->GetFOV());
+	cameraGui->GetAspectRatio().SetValue(renderer->GetAspectRatio());
+	cameraGui->GetFarClipping().SetValue(renderer->GetFarClippingPlane());
+	cameraGui->GetNearClipping().SetValue(renderer->GetNearClippingPlane());
+
 	showObjectCreator = false;
 }
 

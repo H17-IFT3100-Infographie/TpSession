@@ -47,6 +47,15 @@ public:
 	void CamToPerspective() { cam.disableOrtho(); }
 	void CamToOrtho() { cam.enableOrtho(); }
 
+	const float GetFOV() { return cam.getFov(); }
+	void SetFOV(float& value) { cam.setFov(value); }
+	const float GetAspectRatio() { return cam.getAspectRatio(); }
+	void SetAspectRatio(float& value) { cam.setAspectRatio(value); }
+	const float GetFarClippingPlane() { return cam.getFarClip(); }
+	void SetFarClippingPlane(float& value) { cam.setFarClip(value); }
+	const float GetNearClippingPlane() { return cam.getNearClip(); }
+	void SetNearClippingPlane(float& value) { cam.setNearClip(value); }
+
 	bool IsAnyObjectSelected() { return !selectedObjects.empty(); }
 	inline std::vector<BaseObject*>& GetCurrentSelectedObjects();
 	const int ObjectsSelectedCount() { return selectedObjects.size(); }
