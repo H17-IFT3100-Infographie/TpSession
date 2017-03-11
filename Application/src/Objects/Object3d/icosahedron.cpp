@@ -25,16 +25,7 @@ void Icosahedron::Load()
 {
 	ofMesh mesh; 
 	
-	/*
-		mesh.addColor(ofColor(255, 0, 0));
-		mesh.addVertex(ofVec3f(0, 0, 1)); 
-		mesh.addColor(ofColor(255, 255, 0));
-		mesh.addVertex(ofVec3f(0,2*sqrt(2),-1)/3);
-		mesh.addColor(ofColor(255, 0, 255));
-		mesh.addVertex(ofVec3f(-sqrt(6),-sqrt(2),-1)/3);
-		mesh.addColor(ofColor(0, 0, 0));
-		mesh.addVertex(ofVec3f(sqrt(6),-sqrt(2),-1)/3);
-*/
+
 		Setup();
 }
 

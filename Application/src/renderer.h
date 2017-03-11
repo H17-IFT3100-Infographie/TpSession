@@ -19,6 +19,7 @@
 #include "Objects/Object2d/primitive/line.h"
 #include "Objects/Object2d/primitive/circle.h"
 #include "Objects/Object2d/primitive/rect.h"
+#include "Objects/Object2d/primitive/FormeVectorielle.h"
 
 class Renderer
 {
