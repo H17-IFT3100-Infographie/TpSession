@@ -24,7 +24,7 @@ void Rect::Update()
 void Rect::Draw()
 {
 	PreDraw();
-	
+
 	ofDrawRectangle(pos.x, pos.y, width, height);
 	
 	PostDraw();

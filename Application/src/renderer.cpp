@@ -100,14 +100,14 @@ void Renderer::Draw()
 	ofRotateX(screenRotation.x);
 	ofRotateY(screenRotation.y);
 
-	for (int i = 0; i < objectsList.size(); i++)
-	{
-		objectsList[i]->Draw();
-	}
-
 	for (int i = 0; i < selectedObjects.size(); i++)
 	{
 		selectedObjects[i]->DrawBoundingBox();
+	}
+
+	for (int i = 0; i < objectsList.size(); i++)
+	{
+		objectsList[i]->Draw();
 	}
 
 	ofDrawGrid(100.0f);
@@ -129,7 +129,7 @@ void Renderer::CreateLine()
 }
 void Renderer::CreateCercle()
 {
-	objectsList.push_back(new Circle(ofPoint(0, 0, 0), 15.0f, 3.0f, false, ofColor::white));
+	objectsList.push_back(new Circle(ofPoint(0, 0, 0), 50.0f, 3.0f, false, ofColor::white));
 }
 void Renderer::CreateFV()
 {

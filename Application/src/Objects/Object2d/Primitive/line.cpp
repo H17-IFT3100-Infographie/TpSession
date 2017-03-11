@@ -35,7 +35,7 @@ void Line::DrawBoundingBox()
 
 	ofNoFill();
 	ofSetLineWidth(1.0f);
-	ofDrawRectangle(pos.x, pos.y, stroke, abs(pos.x - endPoint.x));
+	ofDrawRectangle(pos.x, pos.y, pos.x + (endPoint.x - pos.x), pos.y + (endPoint.y - pos.y));
 
 	ofSetColor(ofColor::white);
 }

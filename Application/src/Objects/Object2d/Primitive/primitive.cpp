@@ -31,6 +31,11 @@ void Primitive::Update()
 
 void Primitive::PreDraw()
 {
+	if (fill)
+		ofFill();
+	else
+		ofNoFill();
+
 	ofSetColor(color);
 	ofSetLineWidth(stroke);
 }
@@ -42,11 +47,6 @@ void Primitive::Draw()
 
 void Primitive::PostDraw()
 {
-	if (fill)
-		ofFill();
-	else
-		ofNoFill();
-
 	ofSetLineWidth(1.0f);
 	ofSetColor(ofColor::white);
 }

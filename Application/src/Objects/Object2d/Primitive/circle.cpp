@@ -35,7 +35,7 @@ void Circle::DrawBoundingBox()
 
 	ofNoFill();
 	ofSetLineWidth(1.0f);
-	ofDrawCircle(pos, radius);
+	ofDrawRectangle(pos.x - radius, pos.y - radius, radius * 2.0f, radius * 2.0f);
 
 	ofSetColor(ofColor::white);
 }
