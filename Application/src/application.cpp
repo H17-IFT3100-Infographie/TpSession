@@ -70,7 +70,6 @@ void Application::setup()
 {
 	ofSetWindowTitle("IFT3100 - TpSession");
 
-	ofLog() << "<app::setup>";
 	// On génère le gui
 	gui = new Gui();
 	gui->Setup();
@@ -184,20 +183,7 @@ void Application::CreateSphere()
 // Fonction appelant la méthode CreateModel du renderer
 void Application::CreateModel()
 {
-	// On récupère le nom du fichier contenu dans la textbox Filepath
-	const std::string& filepath(gui->GetImageInputField().GetValue());
-	// Si le fichier existe, on appelle la fonction du renderer pour créer le modèle
-	if (ofFile::doesFileExist(filepath))
-	{
-		renderer->CreateModel(filepath);
-	}
-	else
-	{
-		// Show error?
-	}
-	// Réinitialisation de la textbox
-	gui->GetImageInputField().leaveFocus();
-	gui->GetImageInputField().ResetValue();
+	renderer->CreateModel("Lara_Croft.obj");
 }
 
 // Fonction permettant l'appel de la méthode CreateImage de la classe Renderer
@@ -416,5 +402,5 @@ void Application::keyReleased(int key)
 
 void Application::exit()
 {
-	ofLog() << "<app::exit>";
+
 }
