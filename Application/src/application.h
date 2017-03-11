@@ -32,6 +32,10 @@ public:
   void exit();
 
 private:
+	void CreateRectangle();
+	void CreateLine();
+	void CreateCercle();
+	void CreateFV();
 	void CreateBox();
 	void CreateSphere();
 	void CreateModel();

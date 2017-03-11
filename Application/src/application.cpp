@@ -22,12 +22,16 @@ Application::~Application()
 		
 	if (nullptr != gui)
 	{
+		gui->GetCreateRectangleButton().removeListener(this, &Application::CreateRectangle);
+		gui->GetCreateLineButton().removeListener(this, &Application::CreateLine);
+		gui->GetCreateCercleButton().removeListener(this, &Application::CreateCercle);
+		gui->GetCreateFVButton().removeListener(this, &Application::CreateFV);
 		gui->GetCreateBoxButton().removeListener(this, &Application::CreateBox);
 		gui->GetCreateSphereButton().removeListener(this, &Application::CreateSphere);
 		gui->GetCreateModelButton().removeListener(this, &Application::CreateModel);
 		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
 		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
-
+		gui->GetCreateTetrahedronButton().removeListener(this, &Application::CreateTetrahedron);
 		gui->GetShowCamOption().removeListener(this, &Application::ShowCamOptions);
 
 		delete gui;
@@ -82,8 +86,12 @@ void Application::setup()
 	
 	renderer = new Renderer();
 	renderer->Setup();
-
-	gui->GetCreateBoxButton().addListener(this, &Application::ShowCamOptions);
+	gui->GetCreateRectangleButton().addListener(this, &Application::CreateRectangle);
+	gui->GetCreateLineButton().addListener(this, &Application::CreateLine);
+	gui->GetCreateCercleButton().addListener(this, &Application::CreateCercle);
+	gui->GetCreateFVButton().addListener(this, &Application::CreateFV);
+	gui->GetCreateTetrahedronButton().addListener(this, &Application::CreateTetrahedron);
+	gui->GetCreateBoxButton().addListener(this, &Application::CreateBox);
 	gui->GetCreateSphereButton().addListener(this, &Application::CreateSphere);
 	gui->GetCreateModelButton().addListener(this, &Application::CreateModel);
 	gui->GetCreateImageButton().addListener(this, &Application::CreateImage);
@@ -203,6 +211,18 @@ void Application::CreateLemniscate()
 void Application::CreateTetrahedron()
 {
 	renderer->CreateTetrahedron();
+}
+void Application::CreateRectangle() {
+	renderer->CreateRectangle();
+}
+void Application::CreateLine() {
+	renderer->CreateLine();
+}
+void Application::CreateCercle() {
+	renderer->CreateCercle();
+}
+void Application::CreateFV() {
+	renderer->CreateFV();
 }
 void Application::CamToPerspective(const void* sender, bool& pressed)
 {

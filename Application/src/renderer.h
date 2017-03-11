@@ -6,6 +6,7 @@
 #include "ofMain.h"
 #include "Objects/baseObject.h"
 
+
 #include "Objects/Object3d/Box.h"
 #include "Objects/Object3d/Sphere.h"
 #include "Objects/Object3d/ModelObj.h"
@@ -14,7 +15,7 @@
 #include "Objects/Object2d/lemniscateProceduralImage.h"
 
 #include "Objects/Object2d/Cursor/cursor.h"
-
+#include "Objects/Object2d/primitive/primitive.h"
 #include "Objects/Object2d/primitive/line.h"
 #include "Objects/Object2d/primitive/circle.h"
 #include "Objects/Object2d/primitive/rect.h"
@@ -38,6 +39,10 @@ public:
 	void KeyPressed(int key);
 	void keyReleased(int key);
 
+	void CreateRectangle();
+	void CreateLine();
+	void CreateCercle();
+	void CreateFV();
 	void CreateBox();
 	void CreateSphere();
 	void CreateImage(const std::string& filepath);
