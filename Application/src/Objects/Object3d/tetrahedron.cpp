@@ -25,9 +25,6 @@ void Tetrahedron::Load()
 {
 	ofMesh mesh; 
 	
-	char c[] = "100110010101";
-	for (int i = 0, x, y, z; i<12; i += 3) 
-	{
 	char c[] = "100010000001";
 	for (int i = 0, x, y, z; i<12; i += 3) {
 		x = c[i + 0] - '0';
