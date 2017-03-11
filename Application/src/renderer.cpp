@@ -113,7 +113,26 @@ void Renderer::Draw()
 	rotationCursor->Draw();
 	scaleCursor->Draw();
 }
-
+void Renderer::CreateRectangle()
+{
+	ofDrawRectangle(10, 10, 100, 100);
+	//objectsList.push_back(new Rect());
+}
+void Renderer::CreateLine()
+{
+	ofDrawTriangle(50, 10, 10, 40, 90, 40);//objectsList.push_back(new Line());
+}
+void Renderer::CreateCercle()
+{
+	ofDrawCircle(150, 150, 100); //objectsList.push_back(new Circle());
+}
+void Renderer::CreateFV()
+{
+	ofDrawCircle(150, 150, 100);//objectsList.push_back(new Primitive());
+	ofSetColor(0, 0, 255);
+	ofFill();
+	for (int i = 0; i < 12; i++) { ofDrawTriangle(ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100)); }
+}
 void Renderer::CreateBox()
 {
 	objectsList.push_back(new Box());
@@ -123,7 +142,10 @@ void Renderer::CreateSphere()
 {
 	objectsList.push_back(new Sphere());
 }
-
+void Renderer::CreateTetrahedron()
+{
+	objectsList.push_back(new Tetrahedron());
+}
 void Renderer::CreateImage(const std::string& filepath)
 {
 	objectsList.push_back(new Image(filepath));

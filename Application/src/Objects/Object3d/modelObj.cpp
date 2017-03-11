@@ -31,6 +31,7 @@ void ModelObj::Load()
 	Setup();
 }
 void ModelObj::Setup() {
+
 	nextRotation = ofVec3f::zero();
 	currentRotation = rot;
 }
