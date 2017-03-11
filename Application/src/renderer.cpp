@@ -115,8 +115,8 @@ void Renderer::Draw()
 }
 void Renderer::CreateRectangle()
 {
-	ofDrawRectangle(10, 10, 100, 100);
-	//objectsList.push_back(new Rect());
+	ofPoint pt; pt.x = 0; pt.y = 0;
+	objectsList.push_back(new Rect(pt,150,100,3,1,ofColor(255,0,0)));
 }
 void Renderer::CreateLine()
 {

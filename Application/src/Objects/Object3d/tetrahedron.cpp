@@ -23,7 +23,7 @@ void Tetrahedron::Load()
 {
 	ofMesh mesh; 
 	
-	char c[] = "100110010101";
+	char c[] = "100010000001";
 	for (int i = 0, x, y, z; i<12; i += 3) {
 
 		x = c[i + 0] - '0';
@@ -31,7 +31,7 @@ void Tetrahedron::Load()
 		z = c[i + 2] - '0';
 
 		mesh.addColor(ofFloatColor(x, y, z));
-		mesh.addVertex(ofVec3f(x * 2 - 1, y * 2 - 1, z * 2 - 1));
+		mesh.addVertex(ofVec3f(x,y,z));
 	}
 
 	vbo.setMesh(mesh, GL_STATIC_DRAW);
