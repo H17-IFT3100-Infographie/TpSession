@@ -191,7 +191,7 @@ void Application::CreateModel()
 void Application::CreateImage()
 {
 	const std::string& filepath(gui->GetImageInputField().GetValue());
-	if (ofFile::doesFileExist(filepath))
+	if (!filepath.empty() && ofFile::doesFileExist(filepath))
 	{
 		renderer->CreateImage(filepath);
 	}
