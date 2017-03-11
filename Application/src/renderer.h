@@ -10,7 +10,7 @@
 #include "Objects/Object3d/Box.h"
 #include "Objects/Object3d/Sphere.h"
 #include "Objects/Object3d/ModelObj.h"
-#include "Objects/Object3d/Tetrahedron.h"
+#include "Objects/Object3d/Icosahedron.h"
 #include "Objects/Object2d/Image.h"
 #include "Objects/Object2d/lemniscateProceduralImage.h"
 
@@ -26,9 +26,8 @@ public:
 	ofLight* light;
 	Renderer();
 	~Renderer();
-
 	void Setup();
-
+	
 	void Update();
 	void Draw();
 
@@ -48,7 +47,7 @@ public:
 	void CreateImage(const std::string& filepath);
 	void CreateModel(const std::string& filepath);
 	void CreateLemniscate();
-	void CreateTetrahedron();
+	void CreateIcosahedron();
 	void CamToPerspective() { cam.disableOrtho(); }
 	void CamToOrtho() { cam.enableOrtho(); }
 

@@ -31,7 +31,7 @@ Application::~Application()
 		gui->GetCreateModelButton().removeListener(this, &Application::CreateModel);
 		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
 		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
-		gui->GetCreateTetrahedronButton().removeListener(this, &Application::CreateTetrahedron);
+		gui->GetCreateIcosahedronButton().removeListener(this, &Application::CreateIcosahedron);
 		gui->GetShowCamOption().removeListener(this, &Application::ShowCamOptions);
 
 		delete gui;
@@ -91,7 +91,7 @@ void Application::setup()
 	gui->GetCreateLineButton().addListener(this, &Application::CreateLine);
 	gui->GetCreateCercleButton().addListener(this, &Application::CreateCercle);
 	gui->GetCreateFVButton().addListener(this, &Application::CreateFV);
-	gui->GetCreateTetrahedronButton().addListener(this, &Application::CreateTetrahedron);
+	gui->GetCreateIcosahedronButton().addListener(this, &Application::CreateIcosahedron);
 	gui->GetCreateBoxButton().addListener(this, &Application::CreateBox);
 	gui->GetCreateSphereButton().addListener(this, &Application::CreateSphere);
 	gui->GetCreateModelButton().addListener(this, &Application::CreateModel);
@@ -209,10 +209,10 @@ void Application::CreateLemniscate()
 {
 	renderer->CreateLemniscate();
 }
-// Fonction appelant la méthode CreateTetrahedron du renderer
-void Application::CreateTetrahedron()
+// Fonction appelant la méthode CreateIcosahedron du renderer
+void Application::CreateIcosahedron()
 {
-	renderer->CreateTetrahedron();
+	renderer->CreateIcosahedron();
 }
 // Fonction appelant la méthode CreateRectangle du renderer
 void Application::CreateRectangle() 

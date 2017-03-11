@@ -40,7 +40,7 @@ private:
 	void CreateModel();
 	void CreateImage();
 	void CreateLemniscate();
-	void CreateTetrahedron();
+	void CreateIcosahedron();
 	void ShowCamOptions();
 	void ShowObjectsCreator();
 

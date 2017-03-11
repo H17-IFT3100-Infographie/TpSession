@@ -1,27 +1,27 @@
-#include "tetrahedron.h"
+#include "Icosahedron.h"
 
-Tetrahedron::Tetrahedron()
+Icosahedron::Icosahedron()
 	: Base3DObject(0.0f, 0.0f, 0.0f)
 {
 	Load();
 }
 
-Tetrahedron::Tetrahedron(int x, int y, int z, float radius)
+Icosahedron::Icosahedron(int x, int y, int z, float radius)
 	: Base3DObject(x, y, z)
 {
 	Load();
 }
 
-Tetrahedron::~Tetrahedron()
+Icosahedron::~Icosahedron()
 {
 }
-Tetrahedron::Tetrahedron(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) 
+Icosahedron::Icosahedron(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) 
 	: Base3DObject(x1, y1, 0)
 {
 	Load();
 }
 
-void Tetrahedron::Load()
+void Icosahedron::Load()
 {
 	ofMesh mesh; 
 	
@@ -38,19 +38,19 @@ void Tetrahedron::Load()
 		Setup();
 }
 
-void Tetrahedron::Draw() {
+void Icosahedron::Draw() {
 	ofPushMatrix();
 	ofScale(50, 50, 50);
 	mesh.drawFaces();
 	ofPopMatrix();
 }
 
-void Tetrahedron::DrawBoundingBox()
+void Icosahedron::DrawBoundingBox()
 {
 
 }
 
-void Tetrahedron::Setup()
+void Icosahedron::Setup()
 {
 	float t = (1 + sqrt(5)) / 2;
 	mesh.addVertex(ofVec3f(t, 1, 0)); mesh.addColor(ofColor(255, 0, 0));

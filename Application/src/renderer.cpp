@@ -158,9 +158,9 @@ void Renderer::CreateSphere()
 	objectsList.push_back(new Sphere());
 }
 // Fonction permettant de générer un tétrahèdre
-void Renderer::CreateTetrahedron()
+void Renderer::CreateIcosahedron()
 {
-	objectsList.push_back(new Tetrahedron());
+	objectsList.push_back(new Icosahedron());
 }
 // Fonction permettant la génération d'une image à l'aide d'un chemin source
 void Renderer::CreateImage(const std::string& filepath)
