@@ -10,7 +10,7 @@ class Tetrahedron : public Base3DObject
 public:
 	ofMesh mesh;
 	ofVbo vbo;
-
+	float ang;
 	Tetrahedron();
 	Tetrahedron(int x, int y, int z, float radius);
 	~Tetrahedron();
