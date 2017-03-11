@@ -1,302 +1,304 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-  </ItemGroup>
-  <PropertyGroup Label="Globals">
-    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
-    <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Application</RootNamespace>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
-  </ImportGroup>
-  <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>bin\</OutDir>
-    <IntDir>obj\$(Configuration)\</IntDir>
-    <TargetName>$(ProjectName)_debug</TargetName>
-    <LinkIncremental>true</LinkIncremental>
-    <GenerateManifest>true</GenerateManifest>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>bin\</OutDir>
-    <IntDir>obj\$(Configuration)\</IntDir>
-    <TargetName>$(ProjectName)_debug</TargetName>
-    <LinkIncremental>true</LinkIncremental>
-    <GenerateManifest>true</GenerateManifest>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>bin\</OutDir>
-    <IntDir>obj\$(Configuration)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>bin\</OutDir>
-    <IntDir>obj\$(Configuration)\</IntDir>
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
-      <CompileAs>CompileAsCpp</CompileAs>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
-    </Link>
-    <PostBuildEvent />
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64</AdditionalLibraryDirectories>
-    </Link>
-    <PostBuildEvent />
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <Link>
-      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
-    </Link>
-    <PostBuildEvent />
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
-      <CompileAs>CompileAsCpp</CompileAs>
-    </ClCompile>
-    <Link>
-      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64</AdditionalLibraryDirectories>
-    </Link>
-    <PostBuildEvent />
-  </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\application.cpp" />
-    <ClCompile Include="src\Gui\baseGui.cpp" />
-    <ClCompile Include="src\Gui\cameraGui.cpp" />
-    <ClCompile Include="src\Gui\gui.cpp" />
-    <ClCompile Include="src\Gui\multiTransformGui.cpp" />
-    <ClCompile Include="src\Gui\transformGui.cpp" />
-    <ClCompile Include="src\Objects\baseObject.cpp" />
-    <ClCompile Include="src\Objects\Object2d\Cursor\cursor.cpp" />
-    <ClCompile Include="src\Objects\Object2d\image.cpp" />
-    <ClCompile Include="src\Objects\Object2d\lemniscateProceduralImage.cpp" />
-    <ClCompile Include="src\Objects\Object2d\Primitive\circle.cpp" />
-    <ClCompile Include="src\Objects\Object2d\Primitive\line.cpp" />
-    <ClCompile Include="src\Objects\Object2d\Primitive\primitive.cpp" />
-    <ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp" />
-    <ClCompile Include="src\Objects\Object3d\base3dObject.cpp" />
-    <ClCompile Include="src\Objects\Object3d\box.cpp" />
-    <ClCompile Include="src\Objects\Object3d\modelObj.cpp" />
-    <ClCompile Include="src\Objects\Object3d\particleSystem.cpp" />
-    <ClCompile Include="src\Objects\Object3d\sphere.cpp" />
-    <ClCompile Include="src\Objects\Object3d\tetrahedron.cpp" />
-    <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp" />
-    <ClCompile Include="src\renderer.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxBaseGui.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxButton.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxGuiGroup.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxLabel.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxPanel.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSlider.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSliderGroup.cpp" />
-    <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\application.h" />
-    <ClInclude Include="src\Gui\baseGui.h" />
-    <ClInclude Include="src\Gui\cameraGui.h" />
-    <ClInclude Include="src\Gui\gui.h" />
-    <ClInclude Include="src\Gui\multiTransformGui.h" />
-    <ClInclude Include="src\Gui\transformGui.h" />
-    <ClInclude Include="src\Objects\baseObject.h" />
-    <ClInclude Include="src\Objects\Object2d\Cursor\cursor.h" />
-    <ClInclude Include="src\Objects\Object2d\image.h" />
-    <ClInclude Include="src\Objects\Object2d\lemniscateProceduralImage.h" />
-    <ClInclude Include="src\Objects\Object2d\Primitive\circle.h" />
-    <ClInclude Include="src\Objects\Object2d\Primitive\line.h" />
-    <ClInclude Include="src\Objects\Object2d\Primitive\primitive.h" />
-    <ClInclude Include="src\Objects\Object2d\Primitive\rect.h" />
-    <ClInclude Include="src\Objects\Object3d\base3dObject.h" />
-    <ClInclude Include="src\Objects\Object3d\box.h" />
-    <ClInclude Include="src\Objects\Object3d\modelObj.h" />
-    <ClInclude Include="src\Objects\Object3d\particleSystem.h" />
-    <ClInclude Include="src\Objects\Object3d\sphere.h" />
-    <ClInclude Include="src\Objects\Object3d\tetrahedron.h" />
-    <ClInclude Include="src\ofxGuiAddons\ofxInputField.h" />
-    <ClInclude Include="src\renderer.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpUtils.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ai_assert.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\anim.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\camera.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cexport.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cfileio.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cimport.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\color4.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\poppack1.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pstdint.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pushpack1.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\config.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\DefaultLogger.hpp" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\defs.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Exporter.hpp" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Importer.hpp" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\importerdesc.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOStream.hpp" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOSystem.hpp" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\light.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Logger.hpp" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\LogStream.hpp" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\material.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix3x3.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix4x4.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\mesh.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\metadata.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\NullLogger.hpp" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\postprocess.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ProgressHandler.hpp" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\quaternion.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\scene.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\texture.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\types.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector2.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector3.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\version.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxBaseGui.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxButton.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxGui.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxGuiGroup.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxLabel.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxPanel.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSlider.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSliderGroup.h" />
-    <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
-      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="icon.rc">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
-    </ResourceCompile>
-  </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties RESOURCE_FILE="icon.rc" />
-    </VisualStudio>
-  </ProjectExtensions>
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|Win32">
+			<Configuration>Debug</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|Win32">
+			<Configuration>Release</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+		<Keyword>Win32Proj</Keyword>
+		<RootNamespace>Application</RootNamespace>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<PlatformToolset>v140</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<PlatformToolset>v140</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v140</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>Application</ConfigurationType>
+		<CharacterSet>Unicode</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<PlatformToolset>v140</PlatformToolset>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="../../../frameworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Configuration)\</IntDir>
+		<TargetName>$(ProjectName)_debug</TargetName>
+		<LinkIncremental>true</LinkIncremental>
+		<GenerateManifest>true</GenerateManifest>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Configuration)\</IntDir>
+		<TargetName>$(ProjectName)_debug</TargetName>
+		<LinkIncremental>true</LinkIncremental>
+		<GenerateManifest>true</GenerateManifest>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Configuration)\</IntDir>
+		<LinkIncremental>false</LinkIncremental>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<OutDir>bin\</OutDir>
+		<IntDir>obj\$(Configuration)\</IntDir>
+		<LinkIncremental>false</LinkIncremental>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<ClCompile>
+			<Optimization>Disabled</Optimization>
+			<BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+			<MultiProcessorCompilation>true</MultiProcessorCompilation>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<ClCompile>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+			<MultiProcessorCompilation>true</MultiProcessorCompilation>
+		</ClCompile>
+		<Link>
+			<IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<ClCompile>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<WarningLevel>Level3</WarningLevel>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src;..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src</AdditionalIncludeDirectories>
+			<CompileAs>CompileAsCpp</CompileAs>
+		</ClCompile>
+		<Link>
+			<IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<SubSystem>Console</SubSystem>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<RandomizedBaseAddress>false</RandomizedBaseAddress>
+			<AdditionalDependencies>%(AdditionalDependencies);assimp.lib</AdditionalDependencies>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64</AdditionalLibraryDirectories>
+		</Link>
+		<PostBuildEvent />
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClCompile Include="src\main.cpp" />
+		<ClCompile Include="src\ofApp.cpp" />
+		<ClCompile Include="src\application.cpp" />
+		<ClCompile Include="src\Gui\baseGui.cpp" />
+		<ClCompile Include="src\Gui\cameraGui.cpp" />
+		<ClCompile Include="src\Gui\gui.cpp" />
+		<ClCompile Include="src\Gui\multiTransformGui.cpp" />
+		<ClCompile Include="src\Gui\transformGui.cpp" />
+		<ClCompile Include="src\Objects\baseObject.cpp" />
+		<ClCompile Include="src\Objects\Object2d\Cursor\cursor.cpp" />
+		<ClCompile Include="src\Objects\Object2d\image.cpp" />
+		<ClCompile Include="src\Objects\Object2d\lemniscateProceduralImage.cpp" />
+		<ClCompile Include="src\Objects\Object2d\Primitive\circle.cpp" />
+		<ClCompile Include="src\Objects\Object2d\Primitive\line.cpp" />
+		<ClCompile Include="src\Objects\Object2d\Primitive\primitive.cpp" />
+		<ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp" />
+		<ClCompile Include="src\Objects\Object3d\base3dObject.cpp" />
+		<ClCompile Include="src\Objects\Object3d\box.cpp" />
+		<ClCompile Include="src\Objects\Object3d\modelObj.cpp" />
+		<ClCompile Include="src\Objects\Object3d\particleSystem.cpp" />
+		<ClCompile Include="src\Objects\Object3d\sphere.cpp" />
+		<ClCompile Include="src\Objects\Object3d\tetrahedron.cpp" />
+		<ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp" />
+		<ClCompile Include="src\renderer.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxBaseGui.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxButton.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxGuiGroup.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxLabel.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxPanel.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSlider.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSliderGroup.cpp" />
+		<ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.cpp" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h" />
+		<ClInclude Include="src\application.h" />
+		<ClInclude Include="src\Gui\baseGui.h" />
+		<ClInclude Include="src\Gui\cameraGui.h" />
+		<ClInclude Include="src\Gui\gui.h" />
+		<ClInclude Include="src\Gui\multiTransformGui.h" />
+		<ClInclude Include="src\Gui\transformGui.h" />
+		<ClInclude Include="src\Objects\baseObject.h" />
+		<ClInclude Include="src\Objects\Object2d\Cursor\cursor.h" />
+		<ClInclude Include="src\Objects\Object2d\image.h" />
+		<ClInclude Include="src\Objects\Object2d\lemniscateProceduralImage.h" />
+		<ClInclude Include="src\Objects\Object2d\Primitive\circle.h" />
+		<ClInclude Include="src\Objects\Object2d\Primitive\line.h" />
+		<ClInclude Include="src\Objects\Object2d\Primitive\primitive.h" />
+		<ClInclude Include="src\Objects\Object2d\Primitive\rect.h" />
+		<ClInclude Include="src\Objects\Object3d\base3dObject.h" />
+		<ClInclude Include="src\Objects\Object3d\box.h" />
+		<ClInclude Include="src\Objects\Object3d\modelObj.h" />
+		<ClInclude Include="src\Objects\Object3d\particleSystem.h" />
+		<ClInclude Include="src\Objects\Object3d\sphere.h" />
+		<ClInclude Include="src\Objects\Object3d\tetrahedron.h" />
+		<ClInclude Include="src\ofxGuiAddons\ofxInputField.h" />
+		<ClInclude Include="src\renderer.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\src\ofxAssimpUtils.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ai_assert.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\anim.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\camera.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cexport.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cfileio.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\cimport.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\color4.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\poppack1.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pstdint.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler\pushpack1.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\config.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\DefaultLogger.hpp" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\defs.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Exporter.hpp" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Importer.hpp" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\importerdesc.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOStream.hpp" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\IOSystem.hpp" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\light.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Logger.hpp" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\LogStream.hpp" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\material.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix3x3.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\matrix4x4.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\mesh.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\metadata.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\NullLogger.hpp" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\postprocess.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\ProgressHandler.hpp" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\quaternion.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\scene.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\texture.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\types.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector2.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\vector3.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\version.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxBaseGui.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxButton.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxGui.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxGuiGroup.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxLabel.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxPanel.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSlider.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxSliderGroup.h" />
+		<ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.h" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+			<Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc">
+			<AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+			<AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+			<AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
+		</ResourceCompile>
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties RESOURCE_FILE="icon.rc" />
+		</VisualStudio>
+	</ProjectExtensions>
 </Project>

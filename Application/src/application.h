@@ -1,4 +1,3 @@
-// IFT3100H17_ClearScreen/application.h
 // Classe principale de l'application.
 
 #pragma once
