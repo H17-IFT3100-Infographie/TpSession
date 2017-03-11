@@ -47,5 +47,6 @@ void Circle::SetAlpha(int a)
 
 bool Circle::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
-	return mouse.x >= objScreenPos.x - radius * 0.5f && mouse.y >= objScreenPos.y - radius * 0.5f && mouse.x <= objScreenPos.x + radius * 0.5f && mouse.y <= objScreenPos.y + radius * 0.5f;
+	return mouse.x >= objScreenPos.x - (radius * 0.5f) * scale.x && mouse.y >= objScreenPos.y - (radius * 0.5f) * scale.y && 
+		   mouse.x <= objScreenPos.x + (radius * 0.5f) * scale.x && mouse.y <= objScreenPos.y + (radius * 0.5f) * scale.y;
 }

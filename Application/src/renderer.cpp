@@ -49,6 +49,8 @@ void Renderer::Setup()
 {
 	cam.setDistance(1500.0f);
 	cam.disableMouseInput();
+	cam.setupPerspective(false);
+
 	light = new ofLight();
 	glEnable(GL_LIGHTING);
 	glEnable(GL_COLOR_MATERIAL);
@@ -198,6 +200,7 @@ void Renderer::MousePressed(int x, int y, int button)
 		for (int i = 0, count = objectsList.size(); i < count; i++)
 		{
 			ofVec3f sPos = cam.worldToScreen(objectsList[i]->pos);
+			ofLog() << sPos;
 			hit = objectsList[i]->CheckPointCollision(ofVec3f(ofGetMouseX(), ofGetMouseY(), 0.0f), sPos);
 			if (hit)
 			{
@@ -241,8 +244,11 @@ void Renderer::MouseDragged(int x, int y, int button)
 		{
 			for (int i = 0, count = selectedObjects.size(); i < count; i++)
 			{
-				selectedObjects[i]->pos.x += x - previousMousePosition.x;
-				selectedObjects[i]->pos.y -= y - previousMousePosition.y;
+				ofVec3f mouseWorld = cam.screenToWorld(ofVec3f(x, y));
+				ofVec3f mouseWorldPrev = cam.screenToWorld(ofVec3f(ofGetPreviousMouseX(), ofGetPreviousMouseY()));
+				selectedObjects[i]->pos.x += (mouseWorld.x - mouseWorldPrev.x) * 10;
+				selectedObjects[i]->pos.y += (mouseWorld.y - mouseWorldPrev.y) * 10;
+				selectedObjects[i]->pos.z += (mouseWorld.z - mouseWorldPrev.z) * 10;
 			}
 		}
 		else

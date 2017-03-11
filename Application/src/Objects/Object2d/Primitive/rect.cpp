@@ -43,5 +43,6 @@ void Rect::DrawBoundingBox()
 
 bool Rect::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
-	return mouse.x >= objScreenPos.x && mouse.y >= objScreenPos.y - height * 0.5f && mouse.x <= objScreenPos.x + width * 0.5f && mouse.y <= objScreenPos.y;
+	return mouse.x >= objScreenPos.x && mouse.y >= objScreenPos.y - (height * 0.5f) * scale.y &&
+		   mouse.x <= objScreenPos.x + (width * 0.5f) * scale.x && mouse.y <= objScreenPos.y;
 }
