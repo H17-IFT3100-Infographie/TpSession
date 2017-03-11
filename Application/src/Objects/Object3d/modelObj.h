@@ -11,10 +11,11 @@ public:
 	ModelObj(const std::string filepath);
 	ModelObj(int x, int y, int z, float radius);
 	~ModelObj();	
+
+	virtual void DrawBoundingBox();
+
 protected:
 	ofxAssimpModelLoader* modele;
-
-
 private:	
 	std::string filepath;
 	void Load();

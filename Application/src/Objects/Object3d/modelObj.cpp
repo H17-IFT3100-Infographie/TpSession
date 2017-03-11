@@ -35,6 +35,7 @@ void ModelObj::Setup() {
 	nextRotation = ofVec3f::zero();
 	currentRotation = rot;
 }
+
 void ModelObj::Draw() {
 	ofSetColor(color);
 
@@ -50,6 +51,14 @@ void ModelObj::Draw() {
 
 	ofSetColor(ofColor::white);
 }
+
+void ModelObj::DrawBoundingBox()
+{
+	ofSetColor(ofColor::green);
+	//modele->drawWireframe();
+	ofSetColor(ofColor::white);
+}
+
 void ModelObj::Update()
 {
 	Base3DObject::Update();
