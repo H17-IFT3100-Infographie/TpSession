@@ -59,9 +59,9 @@ void Image::Draw()
 
 void Image::DrawBoundingBox() 
 {
-	boundingBox->pos = ofVec3f(pos.x, pos.y, pos.z);
+	boundingBox->pos = ofVec3f(pos.x - image->getWidth() * 0.5f, pos.y - image->getHeight() * 0.5f, pos.z);
 	boundingBox->SetDimension(image->getWidth(), image->getHeight());
-	boundingBox->Draw();
+	boundingBox->DrawBoundingBox();
 }
 
 void Image::SetColor(int r, int g, int b, int a)
@@ -72,13 +72,13 @@ void Image::SetColor(int r, int g, int b, int a)
 	{
 		for (int j = 0; j < image->getHeight(); j++)
 		{
-			ofColor color = image->getColor(i, j);
-			color.r = (originalColor[i][j].r + color.r) / 2;
-			color.g = (originalColor[i][j].g + color.g) / 2;
-			color.b = (originalColor[i][j].b + color.b) / 2;
-			color.a = (originalColor[i][j].a + color.a) / 2;
+			ofColor finalColor = image->getColor(i, j);
+			finalColor.r = (originalColor[i][j].r + color.r) / 2;
+			finalColor.g = (originalColor[i][j].g + color.g) / 2;
+			finalColor.b = (originalColor[i][j].b + color.b) / 2;
+			finalColor.a = color.a;
 
-			image->setColor(i, j, color);
+			image->setColor(i, j, finalColor);
 		}
 	}
 }
