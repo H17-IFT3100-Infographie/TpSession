@@ -32,6 +32,15 @@ void Base3DObject::Draw()
 	ofSetColor(ofColor::white);
 }
 
+void Base3DObject::DrawBoundingBox()
+{
+	ofSetColor(ofColor::green);
+	
+	m_3dPrimitive->drawWireframe();
+
+	ofSetColor(ofColor::white);
+}
+
 bool Base3DObject::IsHovered(float x, float y)
 {
 	return false;

@@ -11,6 +11,7 @@ public:
 	~Base3DObject();
 
 	virtual void Draw();
+	virtual void DrawBoundingBox();
 
 	virtual bool IsHovered(float x, float y);
 protected:

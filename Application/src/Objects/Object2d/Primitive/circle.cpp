@@ -29,6 +29,17 @@ void Circle::Draw()
 	PostDraw();
 }
 
+void Circle::DrawBoundingBox()
+{
+	ofSetColor(ofColor::green);
+
+	ofNoFill();
+	ofSetLineWidth(1.0f);
+	ofDrawCircle(pos, radius);
+
+	ofSetColor(ofColor::white);
+}
+
 void Circle::SetAlpha(int a)
 {
 

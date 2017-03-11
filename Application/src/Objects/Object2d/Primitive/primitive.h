@@ -19,6 +19,8 @@ public:
 	virtual void Draw();
 	virtual void PostDraw();
 
+	virtual void DrawBoundingBox() {}
+
 	virtual void SetAlpha(int a);
 
 	bool IsHovered(float x, float y);

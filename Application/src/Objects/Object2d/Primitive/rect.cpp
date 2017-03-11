@@ -30,6 +30,17 @@ void Rect::Draw()
 	PostDraw();
 }
 
+void Rect::DrawBoundingBox()
+{
+	ofSetColor(ofColor::green);
+
+	ofNoFill();
+	ofSetLineWidth(1.0f);
+	ofDrawRectangle(pos.x, pos.y, width, height);
+
+	ofSetColor(ofColor::white);
+}
+
 bool Rect::IsHovered(float x, float y)
 {
 	return false;

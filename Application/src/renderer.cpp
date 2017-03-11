@@ -105,6 +105,11 @@ void Renderer::Draw()
 		objectsList[i]->Draw();
 	}
 
+	for (int i = 0; i < selectedObjects.size(); i++)
+	{
+		selectedObjects[i]->DrawBoundingBox();
+	}
+
 	ofDrawGrid(100.0f);
 	cam.end();
 	ofDisableDepthTest();

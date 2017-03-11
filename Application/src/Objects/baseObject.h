@@ -24,6 +24,8 @@ public:
 	virtual ofColor& GetColor() { return color;  }
 	virtual void SetAlpha(int a) { }
 
+	virtual void DrawBoundingBox() { }
+
 	virtual bool Inside(int x, int y, int z, const ofEasyCam& cam) { return false; }
 
 	ofVec3f pos;

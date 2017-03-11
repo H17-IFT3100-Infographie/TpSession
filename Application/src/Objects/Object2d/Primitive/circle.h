@@ -13,6 +13,7 @@ public:
 
 	virtual void Update();
 	virtual void Draw();
+	virtual void DrawBoundingBox();
 
 	virtual void SetAlpha(int a);
 

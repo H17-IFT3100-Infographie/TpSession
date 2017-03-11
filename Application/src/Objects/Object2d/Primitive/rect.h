@@ -13,8 +13,13 @@ public:
 
 	virtual void Update();
 	virtual void Draw();
-
+	virtual void DrawBoundingBox();
+	
 	bool IsHovered(float x, float y);
+
+	void SetDimension(float w, float h) { SetWidth(w); SetHeight(h); }
+	void SetWidth(float w) { width = w; }
+	void SetHeight(float h) { height = h; }
 
 protected:
 

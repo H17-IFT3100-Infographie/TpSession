@@ -29,6 +29,17 @@ void Line::Draw()
 	PostDraw();
 }
 
+void Line::DrawBoundingBox()
+{
+	ofSetColor(ofColor::green);
+
+	ofNoFill();
+	ofSetLineWidth(1.0f);
+	ofDrawRectangle(pos.x, pos.y, stroke, abs(pos.x - endPoint.x));
+
+	ofSetColor(ofColor::white);
+}
+
 void Line::SetAlpha(int a)
 {
 

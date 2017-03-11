@@ -42,6 +42,8 @@ void Image::Setup()
 			originalColor[i].push_back(image->getColor(i, j));
 		}
 	}
+
+	boundingBox = new Rect(ofPoint(pos.x, pos.y, pos.z), image->getWidth(), image->getHeight(), 1.0f, false, ofColor::green);
 }
 
 void Image::Update()
@@ -53,6 +55,13 @@ void Image::Draw()
 {
 	image->setAnchorPoint(image->getWidth() * 0.5f, image->getHeight() * 0.5f);
 	image->draw(pos.x, pos.y, pos.z, image->getWidth(), image->getHeight());
+}
+
+void Image::DrawBoundingBox() 
+{
+	boundingBox->pos = ofVec3f(pos.x, pos.y, pos.z);
+	boundingBox->SetDimension(image->getWidth(), image->getHeight());
+	boundingBox->Draw();
 }
 
 void Image::SetColor(int r, int g, int b, int a)
