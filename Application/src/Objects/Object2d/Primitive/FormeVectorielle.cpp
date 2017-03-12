@@ -1,13 +1,11 @@
 #include "FormeVectorielle.h"
-
-
-
+// Constructeur de la classe FormeVectorielle 5 paramètres et initialisation
 FormeVectorielle::FormeVectorielle(ofPoint center, float radius, float stroke, bool fill, ofColor color)
 	: Primitive(center, stroke, fill, color)
 	, radius(radius){
 }
 
-
+// Destructeur de la classe FormeVectorielle
 FormeVectorielle::~FormeVectorielle()
 {
 }
@@ -23,8 +21,9 @@ void FormeVectorielle::Update()
 void FormeVectorielle::Draw()
 {
 	PreDraw();
-	// Dessin d'un cercle
+	// Dessin de 5 cercles concentriques
 	ofDrawCircle(pos, radius);
+
 	ofDrawCircle(pos, radius + 20);
 
 	ofDrawCircle(pos, radius + 50);
@@ -35,7 +34,8 @@ void FormeVectorielle::Draw()
 
 	PostDraw();
 }
-// Déterminer les limites du cercle
+
+// Fonction permettant de délimiter les frontières du cercle par un rectangle
 void FormeVectorielle::DrawBoundingBox()
 {
 	// On déterminer la couleur de la limite de l'objet
@@ -51,7 +51,6 @@ void FormeVectorielle::DrawBoundingBox()
 // Fonction permettant de modifier la transparence du cercle
 void FormeVectorielle::SetAlpha(int a)
 {
-	// TODO
 }
 // Fonction permettant de déterminer s'il y a collision entre la souris et la figure géométrique
 bool FormeVectorielle::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)

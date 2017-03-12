@@ -99,7 +99,7 @@ void Renderer::Draw()
 	// Configuration de paramètres de la lumière pour l'affichage
 	ofEnableDepthTest();
 	ofEnableLighting();
-	light->setAmbientColor(ofColor(255, 255, 255));
+	light->setAmbientColor(ofColor(100, 100,100));
 	light->setDiffuseColor(ofColor(255, 255, 255));
 	light->enable();
 	light->setPosition(0, 150, 0);

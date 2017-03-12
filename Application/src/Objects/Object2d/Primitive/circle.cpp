@@ -41,11 +41,12 @@ void Circle::DrawBoundingBox()
 
 	ofSetColor(ofColor::white);
 }
+
 // Fonction permettant de modifier la transparence du cercle
 void Circle::SetAlpha(int a)
 {
-	// TODO
 }
+
 // Fonction permettant de déterminer s'il y a collision entre la souris et la figure géométrique
 bool Circle::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
