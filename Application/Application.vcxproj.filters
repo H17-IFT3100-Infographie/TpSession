@@ -40,6 +40,9 @@
     <ClCompile Include="src\Objects\Object2d\Primitive\circle.cpp">
       <Filter>src\Objects\Object2d\Primitive</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Object2d\Primitive\FormeVectorielle.cpp">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClCompile>
     <ClCompile Include="src\Objects\Object2d\Primitive\line.cpp">
       <Filter>src\Objects\Object2d\Primitive</Filter>
     </ClCompile>
@@ -198,6 +201,9 @@
       <Filter>src\Objects\Object2d</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Object2d\Primitive\circle.h">
+      <Filter>src\Objects\Object2d\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object2d\Primitive\FormeVectorielle.h">
       <Filter>src\Objects\Object2d\Primitive</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Object2d\Primitive\line.h">

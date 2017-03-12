@@ -183,6 +183,7 @@
     <ClCompile Include="src\Objects\Object2d\image.cpp" />
     <ClCompile Include="src\Objects\Object2d\lemniscateProceduralImage.cpp" />
     <ClCompile Include="src\Objects\Object2d\Primitive\circle.cpp" />
+    <ClCompile Include="src\Objects\Object2d\Primitive\FormeVectorielle.cpp" />
     <ClCompile Include="src\Objects\Object2d\Primitive\line.cpp" />
     <ClCompile Include="src\Objects\Object2d\Primitive\primitive.cpp" />
     <ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp" />
@@ -219,6 +220,7 @@
     <ClInclude Include="src\Objects\Object2d\image.h" />
     <ClInclude Include="src\Objects\Object2d\lemniscateProceduralImage.h" />
     <ClInclude Include="src\Objects\Object2d\Primitive\circle.h" />
+    <ClInclude Include="src\Objects\Object2d\Primitive\FormeVectorielle.h" />
     <ClInclude Include="src\Objects\Object2d\Primitive\line.h" />
     <ClInclude Include="src\Objects\Object2d\Primitive\primitive.h" />
     <ClInclude Include="src\Objects\Object2d\Primitive\rect.h" />

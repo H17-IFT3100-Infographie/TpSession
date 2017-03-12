@@ -65,6 +65,10 @@ void Renderer::Setup()
 	ofSetFrameRate(60);
 	// Set background to black
 	ofBackground(0, 0, 0);
+	/*ofPushMatrix();
+	ofScale(0.5,0.5,0.5);
+	objectsList.push_back(new Image(0,540, -850, "darkness.jpg"));
+	ofPopMatrix();*/
 
 	// Mise à jour des objets contenus dans la liste
 	for (int i = 0; i < objectsList.size(); i++)
@@ -95,7 +99,7 @@ void Renderer::Draw()
 	// Configuration de paramètres de la lumière pour l'affichage
 	ofEnableDepthTest();
 	ofEnableLighting();
-	light->setAmbientColor(ofColor(255, 255, 255));
+	light->setAmbientColor(ofColor(100, 100,100));
 	light->setDiffuseColor(ofColor(255, 255, 255));
 	light->enable();
 	light->setPosition(0, 150, 0);
@@ -144,13 +148,8 @@ void Renderer::CreateCercle()
 // Fonction permettant de générer une Forme vectorielle
 void Renderer::CreateFV()
 {
-	ofDrawCircle(150, 150, 100);//objectsList.push_back(new Primitive());
-	ofSetColor(0, 0, 255);
-	ofFill();
-	for (int i = 0; i < 12; i++) 
-	{ 
-		ofDrawTriangle(ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100), ofRandom(0, 100)); 
-	}
+	ofPoint center; center.x = 0; center.y = 0; float radius = 25; float stroke = 5; bool fill = false; ofColor c; c.r = 255; c.g = 255; c.b = 0;
+	objectsList.push_back(new FormeVectorielle(center,radius,stroke,fill,c));
 }
 // Fonction permettant de générer un cube
 void Renderer::CreateBox()
