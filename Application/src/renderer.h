@@ -24,7 +24,6 @@
 class Renderer
 {
 public:
-	ofLight* light;
 	Renderer();
 	~Renderer();
 	void Setup();
@@ -49,17 +48,17 @@ public:
 	void CreateModel(const std::string& filepath);
 	void CreateLemniscate();
 	void CreateIcosahedron();
-	void CamToPerspective() { cam.disableOrtho(); }
-	void CamToOrtho() { cam.enableOrtho(); }
+	void CamToPerspective() { cam->disableOrtho(); }
+	void CamToOrtho() { cam->enableOrtho(); }
 
-	const float GetFOV() { return cam.getFov(); }
-	void SetFOV(float& value) { cam.setFov(value); }
-	const float GetAspectRatio() { return cam.getAspectRatio(); }
-	void SetAspectRatio(float& value) { cam.setAspectRatio(value); }
-	const float GetFarClippingPlane() { return cam.getFarClip(); }
-	void SetFarClippingPlane(float& value) { cam.setFarClip(value); }
-	const float GetNearClippingPlane() { return cam.getNearClip(); }
-	void SetNearClippingPlane(float& value) { cam.setNearClip(value); }
+	const float GetFOV() { return cam->getFov(); }
+	void SetFOV(float& value) { cam->setFov(value); }
+	const float GetAspectRatio() { return cam->getAspectRatio(); }
+	void SetAspectRatio(float& value) { cam->setAspectRatio(value); }
+	const float GetFarClippingPlane() { return cam->getFarClip(); }
+	void SetFarClippingPlane(float& value) { cam->setFarClip(value); }
+	const float GetNearClippingPlane() { return cam->getNearClip(); }
+	void SetNearClippingPlane(float& value) { cam->setNearClip(value); }
 
 	void SetGridActivated(bool& pressed);
 
@@ -110,12 +109,14 @@ private:
 	bool shiftPressed;
 	bool leftMousePressed;
 
-	ofEasyCam cam;
+	ofEasyCam* cam;
 	ofNode camParent;
 
 	std::deque<std::vector<UndoAction*> > undoActions;
 
 	bool gridActivated;
+
+	ofLight* light;
 };
 
 std::vector<BaseObject*>& Renderer::GetCurrentSelectedObjects()

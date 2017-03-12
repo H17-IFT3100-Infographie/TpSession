@@ -37,7 +37,7 @@ Renderer::~Renderer()
 	selectedObjects.clear();
 
 	// On vide le tableau des actions effectuées
-	for (int i = 0; i < MAX_UNDO_ACTIONS; i++)
+	for (int i = 0; i < undoActions.size(); i++)
 	{
 		for (int j = 0, count = undoActions[i].size(); j < count; j++)
 		{
@@ -49,14 +49,45 @@ Renderer::~Renderer()
 	}
 	// On détruit le tableau
 	undoActions.clear();
+
+	if (nullptr != moveCursor)
+	{
+		delete moveCursor;
+		moveCursor = nullptr;
+	}
+
+	if (nullptr != rotationCursor)
+	{
+		delete rotationCursor;
+		rotationCursor = nullptr;
+	}
+
+	if (nullptr != scaleCursor)
+	{
+		delete scaleCursor;
+		scaleCursor = nullptr;
+	}
+
+	if (nullptr != light)
+	{
+		delete light;
+		light = nullptr;
+	}
+
+	if (nullptr != cam)
+	{
+		delete cam;
+		cam = nullptr;
+	}
 }
 // Fonction permettant l'initialisation du renderer
 void Renderer::Setup()
 {
+	cam = new ofEasyCam();
 	// Détermination de la distance de la caméra pour rendu de scène
-	cam.setDistance(1500.0f);
-	cam.disableMouseInput();
-	cam.setupPerspective(false);
+	cam->setDistance(1500.0f);
+	cam->disableMouseInput();
+	cam->setupPerspective(false);
 
 	// Génération d'une instance de lumière pour éclairer la scène
 	light = new ofLight();
@@ -65,10 +96,6 @@ void Renderer::Setup()
 	ofSetFrameRate(60);
 	// Set background to black
 	ofBackground(0, 0, 0);
-	/*ofPushMatrix();
-	ofScale(0.5,0.5,0.5);
-	objectsList.push_back(new Image(0,540, -850, "darkness.jpg"));
-	ofPopMatrix();*/
 
 	// Mise à jour des objets contenus dans la liste
 	for (int i = 0; i < objectsList.size(); i++)
@@ -81,8 +108,8 @@ void Renderer::Setup()
 	scaleCursor = new Cursor("cursors/zoom.png");
 
 	camParent.setPosition(ofVec3f::zero());
-	cam.setParent(camParent);
-	cam.setPosition(ofVec3f(0.0f, 0.0f, cam.getDistance()));
+	cam->setParent(camParent);
+	cam->setPosition(ofVec3f(0.0f, 0.0f, cam->getDistance()));
 }
 // Fonction permettant la mise à jour des objets de la scène
 void Renderer::Update()
@@ -104,9 +131,9 @@ void Renderer::Draw()
 	light->enable();
 	light->setPosition(0, 150, 0);
 	// Activation de la caméra
-	cam.begin();
-	cam.setDistance(1500.0f * screenScale);
-	cam.setPosition(ofVec3f(-screenPosition.x, -screenPosition.y, cam.getDistance()));
+	cam->begin();
+	cam->setDistance(1500.0f * screenScale);
+	cam->setPosition(ofVec3f(-screenPosition.x, -screenPosition.y, cam->getDistance()));
 	camParent.setOrientation(screenRotation);
 
 	// Affichage d'une boîte autour des objects sélectionnés
@@ -122,7 +149,7 @@ void Renderer::Draw()
 	// Affichage d'une grille pour positionner les objets
 	if (gridActivated)
 		ofDrawGrid(100.0f);
-	cam.end();
+	cam->end();
 	ofDisableDepthTest();
 
 	moveCursor->Draw();
@@ -214,7 +241,7 @@ void Renderer::MousePressed(int x, int y, int button)
 		bool hit = false;
 		for (int i = 0, count = objectsList.size(); i < count; i++)
 		{
-			ofVec3f sPos = cam.worldToScreen(objectsList[i]->pos);
+			ofVec3f sPos = cam->worldToScreen(objectsList[i]->pos);
 			hit = objectsList[i]->CheckPointCollision(ofVec3f(ofGetMouseX(), ofGetMouseY(), 0.0f), sPos);
 			if (hit)
 			{
@@ -260,8 +287,8 @@ void Renderer::MouseDragged(int x, int y, int button)
 		{
 			for (int i = 0, count = selectedObjects.size(); i < count; i++)
 			{
-				ofVec3f mouseWorld = cam.screenToWorld(ofVec3f(x, y));
-				ofVec3f mouseWorldPrev = cam.screenToWorld(ofVec3f(ofGetPreviousMouseX(), ofGetPreviousMouseY()));
+				ofVec3f mouseWorld = cam->screenToWorld(ofVec3f(x, y));
+				ofVec3f mouseWorldPrev = cam->screenToWorld(ofVec3f(ofGetPreviousMouseX(), ofGetPreviousMouseY()));
 				selectedObjects[i]->pos.x += (mouseWorld.x - mouseWorldPrev.x) * 10;
 				selectedObjects[i]->pos.y += (mouseWorld.y - mouseWorldPrev.y) * 10;
 				selectedObjects[i]->pos.z += (mouseWorld.z - mouseWorldPrev.z) * 10;

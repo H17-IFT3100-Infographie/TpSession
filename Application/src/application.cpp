@@ -13,12 +13,6 @@ Application::Application()
 // Destructeur pour la classe application
 Application::~Application()
 {
-	// On détruit le renderer
-	if (nullptr != renderer)
-	{
-		delete renderer;
-		renderer = nullptr;
-	}
 	// On détruit les différents gui	
 	if (nullptr != gui)
 	{
@@ -64,11 +58,22 @@ Application::~Application()
 		delete cameraGui;
 		cameraGui = nullptr;
 	}
+
+	// On détruit le renderer
+	if (nullptr != renderer)
+	{
+		delete renderer;
+		renderer = nullptr;
+	}
 }
 // Initialisation de l'application
 void Application::setup()
 {
 	ofSetWindowTitle("IFT3100 - TpSession");
+
+	// On génère le renderer, responsable du rendu graphique de la scène
+	renderer = new Renderer();
+	renderer->Setup();
 
 	// On génère le gui
 	gui = new Gui();
@@ -82,9 +87,6 @@ void Application::setup()
 	// On génère le gui responsable des options de la caméra
 	cameraGui = new CameraGui();
 	cameraGui->Setup();
-	// On génère le renderer, responsable du rendu graphique de la scène
-	renderer = new Renderer();
-	renderer->Setup();
 
 	// Ajoute des listeners pour valider les clics des boutons de l'interface Création d'objets
 	gui->GetCreateRectangleButton().addListener(this, &Application::CreateRectangle);

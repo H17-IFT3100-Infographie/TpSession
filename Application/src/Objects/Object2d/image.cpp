@@ -18,8 +18,17 @@ Image::Image(float x, float y, float z, const std::string filepath)
 Image::~Image()
 {
 	// Destruction de l'image et désallocation du pointeur
-	delete image;
-	image = nullptr;
+	if (nullptr != image)
+	{
+		delete image;
+		image = nullptr;
+	}
+	
+	/*if (nullptr != boundingBox)
+	{
+		delete boundingBox;
+		boundingBox = nullptr;
+	}*/
 }
 // Fonction permettant de charger une image
 void Image::Load()

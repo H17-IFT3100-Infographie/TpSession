@@ -10,7 +10,11 @@ Rect::Rect(ofPoint tl, float width, float height, float lineStroke, bool fill, o
 // Destructeur de la classe Rect
 Rect::~Rect()
 {
-
+	if (nullptr != rect)
+	{
+		delete rect;
+		rect = nullptr;
+	}
 }
 // Fonction permettant l'initialisation des paramètres du rectangle
 void Rect::Setup()
