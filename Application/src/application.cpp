@@ -184,7 +184,7 @@ void Application::CreateSphere()
 // Fonction appelant la méthode CreateModel du renderer
 void Application::CreateModel()
 {
-	renderer->CreateModel("Lara_Croft.obj");
+	renderer->CreateModel("MegaMan/MegaMan_OpenCollada.DAE");
 }
 
 // Fonction permettant l'appel de la méthode CreateImage de la classe Renderer
