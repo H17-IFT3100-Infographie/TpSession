@@ -138,7 +138,7 @@ void Renderer::CreateRectangle()
 // Fonction permettant de générer une ligne
 void Renderer::CreateLine()
 {
-	objectsList.push_back(new Line(ofPoint(0, 0, 0), ofPoint(100, 100, 100), 5.0f, ofColor::white));
+	objectsList.push_back(new Line(ofPoint(0, 0, 0), ofPoint(100, 100, 0), 5.0f, ofColor::white));
 }
 // Fonction permettant de générer un cercle
 void Renderer::CreateCercle()

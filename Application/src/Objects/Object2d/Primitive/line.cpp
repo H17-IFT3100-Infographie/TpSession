@@ -23,8 +23,17 @@ void Line::Update()
 void Line::Draw()
 {
 	PreDraw();
+
+	ofPushMatrix();
+	ofTranslate(pos.x + endPoint.x * 0.5f, pos.y + endPoint.y * 0.5f, pos.z + endPoint.z * 0.5f);
+	ofScale(scale);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
+	ofTranslate(-endPoint.x * 0.5f, -endPoint.y * 0.5f, -endPoint.z * 0.5f);
 	// Dessin d'une ligne avec une position de départ et une position d'arrivée
-	ofDrawLine(pos, pos + endPoint);
+	ofDrawLine(ofPoint(0.0f, 0.0f, 0.0f), endPoint);
+	ofPopMatrix();
 
 	PostDraw();
 }
@@ -36,8 +45,17 @@ void Line::DrawBoundingBox()
 
 	ofNoFill();
 	ofSetLineWidth(1.0f);
+
+	ofPushMatrix();
+	ofTranslate(pos.x + endPoint.x * 0.5f, pos.y + endPoint.y * 0.5f, pos.z + endPoint.z * 0.5f);
+	ofScale(scale);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
+	ofTranslate(-endPoint.x * 0.5f, -endPoint.y * 0.5f, -endPoint.z * 0.5f);
 	// Dessin du rectangle englobant la ligne
-	ofDrawRectangle(pos.x, pos.y, endPoint.x - pos.x, endPoint.y - pos.y);
+	ofDrawRectangle(0.0f, 0.0f, endPoint.x, endPoint.y);
+	ofPopMatrix();
 
 	ofSetColor(ofColor::white);
 }
@@ -49,5 +67,6 @@ void Line::SetAlpha(int a)
 // Fonction permettant de valider s'il y a une collision entre une ligne et la souris
 bool Line::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
-	return mouse.x >= objScreenPos.x && mouse.y >= objScreenPos.y - endPoint.x - pos.x && mouse.x <= objScreenPos.x + endPoint.x - pos.x && mouse.y <= objScreenPos.y;
+	return mouse.y >= objScreenPos.y - endPoint.y * 0.5f * scale.y && mouse.y <= objScreenPos.y
+		&& mouse.x >= objScreenPos.x && mouse.x <= objScreenPos.x + endPoint.x * 0.5f * scale.x;
 }
