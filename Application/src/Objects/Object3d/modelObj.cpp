@@ -59,7 +59,7 @@ void ModelObj::Draw() {
 	ofTranslate(0.0f, dimension.y * 0.5f, dimension.z * 0.5f);
 	// Rendu graphique du mesh du modèle
 	modele->draw(ofPolyRenderMode::OF_MESH_FILL);
-	ofPopMatrix();
+	ofPopMatrix(); 
 
 	ofSetColor(ofColor::white);
 }
