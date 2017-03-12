@@ -99,7 +99,7 @@ void Renderer::Draw()
 	// Configuration de paramètres de la lumière pour l'affichage
 	ofEnableDepthTest();
 	ofEnableLighting();
-	light->setAmbientColor(ofColor(100, 100,100));
+	light->setAmbientColor(ofColor(200, 200,200));
 	light->setDiffuseColor(ofColor(255, 255, 255));
 	light->enable();
 	light->setPosition(0, 150, 0);
@@ -181,7 +181,7 @@ void Renderer::CreateLemniscate()
 {
 	objectsList.push_back(new LemniscateProceduralImage());
 }
-
+// Fonction permettant d'activer et de désactiver le grid.
 void Renderer::SetGridActivated(bool& pressed) 
 { 
 	gridActivated = pressed;
