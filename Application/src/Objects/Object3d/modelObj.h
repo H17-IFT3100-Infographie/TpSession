@@ -30,6 +30,7 @@ private:
 	ofVec3f nextRotation;
 
 	ofVec3f dimension;
+	Box* boundingBox;
 };
 
 #endif // MODEL_OBJ_H

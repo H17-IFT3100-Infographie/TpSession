@@ -13,6 +13,8 @@ public:
 	
 	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos);
 
+	void SetDimension(float w, float h, float d) { dimensions = ofVec3f(w, h, d); }
+
 private:
 	void Load();
 

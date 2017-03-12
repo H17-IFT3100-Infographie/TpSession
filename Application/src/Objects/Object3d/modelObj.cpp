@@ -19,6 +19,12 @@ ModelObj::~ModelObj()
 		delete modele;
 		modele = nullptr;
 	}
+
+	if (nullptr != boundingBox)
+	{
+		delete boundingBox;
+		boundingBox = nullptr;
+	}
 }
 // Fonction permettant le chargement d'un nouveau modèle format obj ou 3ds
 void ModelObj::Load()
@@ -29,7 +35,8 @@ void ModelObj::Load()
 	modele->loadModel(filepath);
 	Setup();
 
-	dimension = ofVec3f(100.0f, 400.0f, 100.0f);
+	dimension = ofVec3f(100.0f, 300.0f, 100.0f);
+	boundingBox = new Box(0.0f, 0.0f, 0.0f, dimension.x, dimension.y, dimension.z);
 }
 // Fonction permettant l'initialisation de certains paramètres propres au modèle
 void ModelObj::Setup() {
@@ -42,27 +49,35 @@ void ModelObj::Draw() {
 	// Initialisation de paramètres
 	ofSetColor(color);
 
-	modele->setPosition(pos.x, pos.y, pos.z);
-
-    modele->setRotation(0, rot.x, 1, 0, 0);
-	modele->setRotation(1, rot.y, 0, 1, 0);
-	modele->setRotation(2, rot.z, 0, 0, 1);
-
-	modele->setScale(scale.x, scale.y, scale.z);
+	ofPushMatrix();
+	ofTranslate(pos.x, pos.y - dimension.y * 0.5f, pos.z - dimension.z * 0.5f);
+	ofScale(scale);
+	ofRotateX(rot.x + 180.0f);
+	ofRotateY(rot.y + 180.0f);
+	ofRotateZ(rot.z);
+	modele->setPosition(0.0f, 0.0f, 0.0f);
+	ofTranslate(0.0f, dimension.y * 0.5f, dimension.z * 0.5f);
 	// Rendu graphique du mesh du modèle
 	modele->draw(ofPolyRenderMode::OF_MESH_FILL);
+	ofPopMatrix();
 
 	ofSetColor(ofColor::white);
 }
 // Fonction permettant de déterminer les frontières du modèle chargé
 void ModelObj::DrawBoundingBox()
 {
-	//TODO
+	ofPushMatrix();
+	ofTranslate(pos.x, pos.y - dimension.y * 0.5f, pos.z + dimension.z * 0.5f);
+	ofScale(scale);
+	ofRotateX(rot.x + 180.0f);
+	ofRotateY(rot.y + 180.0f);
+	ofRotateZ(rot.z);
+	boundingBox->DrawBoundingBox();
+	ofPopMatrix();
 }
 // Fonction permettant la mise à jour des paramètres du modèle
 void ModelObj::Update()
 {
-
 	Base3DObject::Update();
 	// Mise à jour de la rotation du modèle 
 	if (currentRotation != rot)
