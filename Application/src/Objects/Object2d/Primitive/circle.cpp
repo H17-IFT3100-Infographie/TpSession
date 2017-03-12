@@ -24,8 +24,13 @@ void Circle::Draw()
 {
 	PreDraw();
 
-	ofDrawCircle(pos, radius);
-	
+	ofPushMatrix();
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
+	ofDrawCircle(pos, radius * scale.x);
+	ofPopMatrix();
+
 	PostDraw();
 }
 
@@ -35,7 +40,7 @@ void Circle::DrawBoundingBox()
 
 	ofNoFill();
 	ofSetLineWidth(1.0f);
-	ofDrawRectangle(pos.x - radius, pos.y - radius, radius * 2.0f, radius * 2.0f);
+	ofDrawRectangle(pos.x - radius * scale.x, pos.y - radius * scale.x, radius * scale.x * 2.0f, radius * scale.x * 2.0f);
 
 	ofSetColor(ofColor::white);
 }
