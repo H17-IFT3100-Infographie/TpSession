@@ -189,8 +189,8 @@
     <ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp" />
     <ClCompile Include="src\Objects\Object3d\base3dObject.cpp" />
     <ClCompile Include="src\Objects\Object3d\box.cpp" />
-    <ClCompile Include="src\Objects\Object3d\icosahedron.cpp" />
     <ClCompile Include="src\Objects\Object3d\modelObj.cpp" />
+    <ClCompile Include="src\Objects\Object3d\octahedre.cpp" />
     <ClCompile Include="src\Objects\Object3d\particleSystem.cpp" />
     <ClCompile Include="src\Objects\Object3d\sphere.cpp" />
     <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp" />
@@ -226,8 +226,8 @@
     <ClInclude Include="src\Objects\Object2d\Primitive\rect.h" />
     <ClInclude Include="src\Objects\Object3d\base3dObject.h" />
     <ClInclude Include="src\Objects\Object3d\box.h" />
-    <ClInclude Include="src\Objects\Object3d\icosahedron.h" />
     <ClInclude Include="src\Objects\Object3d\modelObj.h" />
+    <ClInclude Include="src\Objects\Object3d\octahedre.h" />
     <ClInclude Include="src\Objects\Object3d\particleSystem.h" />
     <ClInclude Include="src\Objects\Object3d\sphere.h" />
     <ClInclude Include="src\ofxGuiAddons\ofxInputField.h" />

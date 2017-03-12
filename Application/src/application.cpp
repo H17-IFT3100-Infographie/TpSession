@@ -31,7 +31,7 @@ Application::~Application()
 		gui->GetCreateModelButton().removeListener(this, &Application::CreateModel);
 		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
 		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
-		gui->GetCreateIcosahedronButton().removeListener(this, &Application::CreateIcosahedron);
+		gui->GetCreateOctahedreButton().removeListener(this, &Application::CreateIcosahedron);
 		gui->GetShowCamOption().removeListener(this, &Application::ShowCamOptions);
 
 		delete gui;
@@ -91,7 +91,7 @@ void Application::setup()
 	gui->GetCreateLineButton().addListener(this, &Application::CreateLine);
 	gui->GetCreateCercleButton().addListener(this, &Application::CreateCercle);
 	gui->GetCreateFVButton().addListener(this, &Application::CreateFV);
-	gui->GetCreateIcosahedronButton().addListener(this, &Application::CreateIcosahedron);
+	gui->GetCreateOctahedreButton().addListener(this, &Application::CreateIcosahedron);
 	gui->GetCreateBoxButton().addListener(this, &Application::CreateBox);
 	gui->GetCreateSphereButton().addListener(this, &Application::CreateSphere);
 	gui->GetCreateModelButton().addListener(this, &Application::CreateModel);

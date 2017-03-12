@@ -58,9 +58,6 @@
     <ClCompile Include="src\Objects\Object3d\box.cpp">
       <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\Object3d\icosahedron.cpp">
-      <Filter>src\Objects\Object3d</Filter>
-    </ClCompile>
     <ClCompile Include="src\Objects\Object3d\modelObj.cpp">
       <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
@@ -111,6 +108,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.cpp">
       <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\octahedre.cpp">
+      <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -219,9 +219,6 @@
       <Filter>src\Objects\Object3d</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\box.h">
-      <Filter>src\Objects\Object3d</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\Object3d\icosahedron.h">
       <Filter>src\Objects\Object3d</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\modelObj.h">
@@ -388,6 +385,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.h">
       <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\octahedre.h">
+      <Filter>src\Objects\Object3d</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

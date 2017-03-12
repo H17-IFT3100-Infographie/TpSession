@@ -1,39 +1,39 @@
-#include "Icosahedron.h"
-// Constructeur de la classe Icosahedron sans paramètre
-Icosahedron::Icosahedron()
+#include "Octahedre.h"
+// Constructeur de la classe Octahedre sans paramètre
+Octahedre::Octahedre()
 	: Base3DObject(0.0f, 0.0f, 0.0f)
 {
 	Load();
 }
 // Constructeur de la classe icosahedron avec paramètres de position et de rayon
-Icosahedron::Icosahedron(int x, int y, int z, float radius)
+Octahedre::Octahedre(int x, int y, int z, float radius)
 	: Base3DObject(x, y, z)
 {
 	Load();
 }
 // Destructeur de la classe icosahedron
-Icosahedron::~Icosahedron()
+Octahedre::~Octahedre()
 {
 }
 
-// Fonction permettant de charger l'icosahèdre et d'en déterminer les paramètres
-void Icosahedron::Load()
+// Fonction permettant de charger l'octahedre et d'en déterminer les paramètres
+void Octahedre::Load()
 {
-	// On génère le mesh qui formera l'icosahèdre
+	// On génère le mesh qui formera l'octahedre
 	ofMesh mesh;
 	
 	radius = 50.0f;
-	// Préparation des paramètres de l'icosahèdre
+	// Préparation des paramètres de l'octahedre
 	Setup();
 }
-// Fonction permettant de faire le rendu graphique de l'icosahèdre
-void Icosahedron::Draw() {
+// Fonction permettant de faire le rendu graphique de l'octahedre
+void Octahedre::Draw() {
 	// Détermination de la couleur des sommets
 	for (int i = 0; i < mesh.getNumVertices(); i++)
 	{
 		mesh.setColor(i, color);
 	}
-	// Application de transformations dans l'espace de l'icosahèdre
+	// Application de transformations dans l'espace de l'octahedre
 	ofPushMatrix();
 	ofTranslate(pos);
 	ofRotateX(rot.x);
@@ -45,14 +45,14 @@ void Icosahedron::Draw() {
 	ofPopMatrix();
 }
 // Détermination des limites de la boîte frontière et rendu
-void Icosahedron::DrawBoundingBox()
+void Octahedre::DrawBoundingBox()
 {
 	// Affocjage des sommets en vert
 	for (int i = 0; i < mesh.getNumVertices(); i++)
 	{
 		mesh.setColor(i, ofColor::green);
 	}
-	// Application de transformations dans l'univers de l'icosahèdre
+	// Application de transformations dans l'univers de l'octahedre
 	ofPushMatrix();
 	ofTranslate(pos);
 	ofRotateX(rot.x);
@@ -63,18 +63,18 @@ void Icosahedron::DrawBoundingBox()
 	mesh.drawWireframe();
 	ofPopMatrix();
 }
-// Détermination de la collision entre le clic de la souris et l'icosahèdre
-bool Icosahedron::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
+// Détermination de la collision entre le clic de la souris et l'octahedre
+bool Octahedre::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
 	return mouse.x >= objScreenPos.x - (radius * 0.5f) * scale.x && mouse.y >= objScreenPos.y - (radius * 0.5f) * scale.y &&
 		mouse.x <= objScreenPos.x + (radius * 0.5f) * scale.x && mouse.y <= objScreenPos.y + (radius * 0.5f) * scale.y;
 }
-// Fonction permettant l'initialisation des paramètres de l'icosahèdre
-void Icosahedron::Setup()
+// Fonction permettant l'initialisation des paramètres de l'octahedre
+void Octahedre::Setup()
 {
 	mesh.clear();
 	float t = ((1 + sqrt(5)) / 2) * radius;
-	// Génération des sommets de l'icosahèdre
+	// Génération des sommets de l'octahedre
 	mesh.addVertex(ofVec3f(t, 1, 0));
 	mesh.addColor(color);
 
