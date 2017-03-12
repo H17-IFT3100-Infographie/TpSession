@@ -24,9 +24,19 @@ void Rect::Update()
 void Rect::Draw()
 {
 	PreDraw();
+
+	ofPushMatrix();
+	// Déplacement au centre du rectangle
+	ofTranslate(pos.x + width * 0.5f, pos.y + height * 0.5f, 0);
+	ofScale(scale);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);	
 	// Rendu du rectangle
-	ofDrawRectangle(pos.x, pos.y, width, height);
-	
+	//ofDrawRectangle(-width * 0.5f, -height * 0.5f, width * scale.x, height * scale.y);
+	ofDrawRectangle(-width * 0.5f, -height * 0.5f, width, height);
+	ofPopMatrix();
+
 	PostDraw();
 }
 // Fonction permettant de déterminer les frontières d'un rectangle
@@ -34,11 +44,20 @@ void Rect::DrawBoundingBox()
 {
 	// Paramétrage de la boîte contour
 	ofSetColor(ofColor::green);
-
 	ofNoFill();
 	ofSetLineWidth(1.0f);
+
+	ofPushMatrix();
+	// Déplacement au centre du rectangle
+	ofTranslate(pos.x + width * 0.5f, pos.y + height * 0.5f, 0);
+	ofScale(scale);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
+	// Déplacement a l'origine (bl) du rectangle
 	// Rendu de la boîte contour
-	ofDrawRectangle(pos.x, pos.y, width, height);
+	ofDrawRectangle(-width * 0.5f, -height * 0.5f, width, height);
+	ofPopMatrix();
 
 	ofSetColor(ofColor::white);
 }
@@ -46,6 +65,6 @@ void Rect::DrawBoundingBox()
 bool Rect::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos)
 {
 	// Validation des coordonnées en x et y 
-	return mouse.x >= objScreenPos.x && mouse.y >= objScreenPos.y - (height * 0.5f) * scale.y &&
-		   mouse.x <= objScreenPos.x + (width * 0.5f) * scale.x && mouse.y <= objScreenPos.y;
+	return mouse.x >= objScreenPos.x && mouse.y >= objScreenPos.y - (height * 0.5f) &&
+		   mouse.x <= objScreenPos.x + (width * 0.5f) && mouse.y <= objScreenPos.y;
 }

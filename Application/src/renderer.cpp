@@ -215,7 +215,6 @@ void Renderer::MousePressed(int x, int y, int button)
 		for (int i = 0, count = objectsList.size(); i < count; i++)
 		{
 			ofVec3f sPos = cam.worldToScreen(objectsList[i]->pos);
-			ofLog() << sPos;
 			hit = objectsList[i]->CheckPointCollision(ofVec3f(ofGetMouseX(), ofGetMouseY(), 0.0f), sPos);
 			if (hit)
 			{

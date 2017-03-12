@@ -26,10 +26,14 @@ void Circle::Draw()
 
 	// Dessin d'un cercle
 	ofPushMatrix();
+	// Déplacement au centre du cercle
+	ofTranslate(pos.x, pos.y, 0);
+	ofScale(scale);
 	ofRotateX(rot.x);
 	ofRotateY(rot.y);
 	ofRotateZ(rot.z);
-	ofDrawCircle(pos, radius * scale.x);
+	// Dessin du cercle
+	ofDrawCircle(0.0f, 0.0f, 0.0f, radius);
 	ofPopMatrix();
 
 	PostDraw();
@@ -44,11 +48,14 @@ void Circle::DrawBoundingBox()
 	ofSetLineWidth(1.0f);
 
 	ofPushMatrix();
+	// Déplacement au centre du cercle
+	ofTranslate(pos.x, pos.y, 0);
+	ofScale(scale);
 	ofRotateX(rot.x);
 	ofRotateY(rot.y);
 	ofRotateZ(rot.z);
 	// Dessin du rectangle englobant le cercle
-	ofDrawRectangle(pos.x - radius * scale.x, pos.y - radius * scale.x, radius * scale.x * 2.0f, radius * scale.x * 2.0f);
+	ofDrawRectangle(-radius, -radius, radius * 2.0f, radius * 2.0f);
 	ofPopMatrix();
 
 	ofSetColor(ofColor::white);
