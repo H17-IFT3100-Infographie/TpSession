@@ -138,7 +138,7 @@ void Renderer::CreateRectangle()
 // Fonction permettant de générer une ligne
 void Renderer::CreateLine()
 {
-	objectsList.push_back(new Line(ofPoint(0, 0, 0), ofPoint(100, 100, 100), 5.0f, ofColor::white));
+	objectsList.push_back(new Line(ofPoint(0, 0, 0), ofPoint(100, 100, 0), 5.0f, ofColor::white));
 }
 // Fonction permettant de générer un cercle
 void Renderer::CreateCercle()
@@ -164,7 +164,7 @@ void Renderer::CreateSphere()
 // Fonction permettant de générer un tétrahèdre
 void Renderer::CreateIcosahedron()
 {
-	objectsList.push_back(new Icosahedron());
+	objectsList.push_back(new Octahedre());
 }
 // Fonction permettant la génération d'une image à l'aide d'un chemin source
 void Renderer::CreateImage(const std::string& filepath)
@@ -215,7 +215,6 @@ void Renderer::MousePressed(int x, int y, int button)
 		for (int i = 0, count = objectsList.size(); i < count; i++)
 		{
 			ofVec3f sPos = cam.worldToScreen(objectsList[i]->pos);
-			ofLog() << sPos;
 			hit = objectsList[i]->CheckPointCollision(ofVec3f(ofGetMouseX(), ofGetMouseY(), 0.0f), sPos);
 			if (hit)
 			{

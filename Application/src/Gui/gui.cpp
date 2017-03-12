@@ -22,7 +22,7 @@ void Gui::Setup()
 	// Options permettant la génération de primitives 3d 
 	gui.add(createCubeButton.setup("Cube"));
 	gui.add(createSphereButton.setup("Sphere"));
-	gui.add(createIcosahedronButton.setup("Icosahedre"));
+	gui.add(createOctahedreButton.setup("Octahedre"));
 	// Options permettant le chargement de modèles et d'images
 	gui.add(createModelButton.setup("Model"));
 	gui.add(createImageButton.setup("Image"));

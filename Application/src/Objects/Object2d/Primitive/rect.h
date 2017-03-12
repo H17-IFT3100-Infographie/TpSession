@@ -28,6 +28,8 @@ private:
 
 	float width;
 	float height;
+
+	ofRectangle* rect;
 };
 
 #endif // RECTANGLE_H

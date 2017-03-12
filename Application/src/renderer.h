@@ -10,7 +10,7 @@
 #include "Objects/Object3d/Box.h"
 #include "Objects/Object3d/Sphere.h"
 #include "Objects/Object3d/ModelObj.h"
-#include "Objects/Object3d/Icosahedron.h"
+#include "Objects/Object3d/Octahedre.h"
 #include "Objects/Object2d/Image.h"
 #include "Objects/Object2d/lemniscateProceduralImage.h"
 

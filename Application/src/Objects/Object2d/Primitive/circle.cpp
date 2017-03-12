@@ -23,9 +23,19 @@ void Circle::Update()
 void Circle::Draw()
 {
 	PreDraw();
+
 	// Dessin d'un cercle
-	ofDrawCircle(pos, radius);
-	
+	ofPushMatrix();
+	// Déplacement au centre du cercle
+	ofTranslate(pos.x, pos.y, 0);
+	ofScale(scale);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
+	// Dessin du cercle
+	ofDrawCircle(0.0f, 0.0f, 0.0f, radius);
+	ofPopMatrix();
+
 	PostDraw();
 }
 // Déterminer les limites du cercle
@@ -36,8 +46,17 @@ void Circle::DrawBoundingBox()
 	// On initialise certains paramètres au goût
 	ofNoFill();
 	ofSetLineWidth(1.0f);
+
+	ofPushMatrix();
+	// Déplacement au centre du cercle
+	ofTranslate(pos.x, pos.y, 0);
+	ofScale(scale);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
 	// Dessin du rectangle englobant le cercle
-	ofDrawRectangle(pos.x - radius, pos.y - radius, radius * 2.0f, radius * 2.0f);
+	ofDrawRectangle(-radius, -radius, radius * 2.0f, radius * 2.0f);
+	ofPopMatrix();
 
 	ofSetColor(ofColor::white);
 }
