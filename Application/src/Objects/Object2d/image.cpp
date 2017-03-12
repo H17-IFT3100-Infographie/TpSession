@@ -56,18 +56,30 @@ void Image::Update()
 // Fonction permettant le rendu graphique de l'image
 void Image::Draw()
 {
-
+	ofPushMatrix();
+	ofTranslate(pos.x + image->getWidth() * 0.5f, pos.y + image->getHeight() * 0.5f, pos.z);
+	ofScale(scale);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
 	image->setAnchorPoint(image->getWidth() * 0.5f, image->getHeight() * 0.5f);
-	image->draw(pos.x, pos.y, pos.z, image->getWidth(), image->getHeight());
+	image->draw(0.0f, 0.0f, 0.0f, image->getWidth(), image->getHeight());
+	ofPopMatrix();
 }
 // Fonction permettant de déterminer les frontières d'une image
 void Image::DrawBoundingBox()
 {
-	// Paramètrage de la boîte contour
-	boundingBox->pos = ofVec3f(pos.x - image->getWidth() * 0.5f, pos.y - image->getHeight() * 0.5f, pos.z);
-	boundingBox->SetDimension(image->getWidth(), image->getHeight());
-	// Dessin de la boîte frontière
-	boundingBox->DrawBoundingBox();
+	ofSetColor(ofColor::green);
+	ofNoFill();
+	ofPushMatrix();
+	ofTranslate(pos.x + image->getWidth() * 0.5f, pos.y + image->getHeight() * 0.5f, pos.z);
+	ofScale(scale);
+	ofRotateX(rot.x);
+	ofRotateY(rot.y);
+	ofRotateZ(rot.z);
+	ofDrawRectangle(-image->getWidth() * 0.5f, -image->getHeight() * 0.5f, image->getWidth(), image->getHeight());
+	ofPopMatrix();
+	ofSetColor(ofColor::white);
 }
 // Fonction permettant d'ajuster la teinte des pixels de l'image
 void Image::SetColor(int r, int g, int b, int a)
@@ -110,7 +122,7 @@ void Image::SetAlpha(int a)
 // Détermination de la collision entre le clic de la souris et l'image 
 bool Image::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos) 
 { 
-	return mouse.x >= objScreenPos.x - (image->getWidth() * 0.25f) * scale.x && mouse.y >= objScreenPos.y - (image->getHeight() * 0.25f) * scale.x && 
-		   mouse.x <= objScreenPos.x + (image->getWidth() * 0.25f) * scale.x && mouse.y <= objScreenPos.y + (image->getHeight() * 0.25f) * scale.y;
+	return mouse.x >= objScreenPos.x && mouse.y >= objScreenPos.y - (image->getHeight() * 0.5f) && 
+		   mouse.x <= objScreenPos.x + (image->getWidth() * 0.5f) && mouse.y <= objScreenPos.y;
 }
 
