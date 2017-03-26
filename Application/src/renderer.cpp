@@ -252,6 +252,7 @@ void Renderer::CreatePointLight()
 	lights.push_back(new PointLight());
 }
 
+// Fonction permettant d'activer et de désactiver le grid.
 void Renderer::SetGridActivated(bool& pressed) 
 { 
 	gridActivated = pressed;
