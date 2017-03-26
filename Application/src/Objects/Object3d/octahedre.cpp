@@ -27,7 +27,8 @@ void Octahedre::Load()
 	Setup();
 }
 // Fonction permettant de faire le rendu graphique de l'octahedre
-void Octahedre::Draw() {
+void Octahedre::Draw()
+{
 	// Détermination de la couleur des sommets
 	for (int i = 0; i < mesh.getNumVertices(); i++)
 	{

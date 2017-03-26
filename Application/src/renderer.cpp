@@ -1,6 +1,7 @@
 // Classe responsable du rendu de l'application.
 
 #include "renderer.h"
+
 // Constructeur de la classe Renderer avec initialisation des paramètres
 Renderer::Renderer()
 	: screenPosition(ofVec2f(0.0f, 0.0f))
@@ -26,6 +27,15 @@ Renderer::~Renderer()
 	}
 	// On détruit la liste
 	objectsList.clear();
+
+	// On détruit la liste des lumiere créés pour la scène
+	for (int i = 0, count = lights.size(); i < count; i++)
+	{
+		delete lights[i];
+		lights[i] = nullptr;
+	}
+	// On détruit la liste
+	lights.clear();
 
 	// On vide et réinitialise la liste d'objets sélectionnés
 	for (int i = 0, count = selectedObjects.size(); i < count; i++)
@@ -89,10 +99,8 @@ void Renderer::Setup()
 	cam->disableMouseInput();
 	cam->setupPerspective(false);
 
-	// Génération d'une instance de lumière pour éclairer la scène
-	light = new ofLight();
-	glEnable(GL_LIGHTING);
-	glEnable(GL_COLOR_MATERIAL);
+	ofSetSmoothLighting(true);
+
 	ofSetFrameRate(60);
 	// Set background to black
 	ofBackground(0, 0, 0);
@@ -125,31 +133,46 @@ void Renderer::Draw()
 {
 	// Configuration de paramètres de la lumière pour l'affichage
 	ofEnableDepthTest();
-	ofEnableLighting();
-	light->setAmbientColor(ofColor(100, 100,100));
-	light->setDiffuseColor(ofColor(255, 255, 255));
-	light->enable();
-	light->setPosition(0, 150, 0);
+
 	// Activation de la caméra
 	cam->begin();
-	cam->setDistance(1500.0f * screenScale);
-	cam->setPosition(ofVec3f(-screenPosition.x, -screenPosition.y, cam->getDistance()));
-	camParent.setOrientation(screenRotation);
+		cam->setDistance(1500.0f * screenScale);
+		cam->setPosition(ofVec3f(-screenPosition.x, -screenPosition.y, cam->getDistance()));
+		camParent.setOrientation(screenRotation);
 
-	// Affichage d'une boîte autour des objects sélectionnés
-	for (int i = 0; i < selectedObjects.size(); i++)
-	{
-		selectedObjects[i]->DrawBoundingBox();
-	}
-	// Affichage de tous les objets de la scène
-	for (int i = 0; i < objectsList.size(); i++)
-	{
-		objectsList[i]->Draw();
-	}
-	// Affichage d'une grille pour positionner les objets
-	if (gridActivated)
-		ofDrawGrid(100.0f);
+		// Affichage d'une boîte autour des objects sélectionnés
+		for (int i = 0; i < selectedObjects.size(); i++)
+		{
+			selectedObjects[i]->DrawBoundingBox();
+		}
+
+		// Affichage des lumieres
+		ofEnableLighting();
+			for (int i = 0; i < lights.size(); i++)
+			{
+				lights[i]->Enable();
+			}
+
+			// Affichage de tous les objets de la scène
+			for (int i = 0; i < objectsList.size(); i++)
+			{
+				objectsList[i]->Draw();
+			}
+
+			// Affichage des lumieres
+			for (int i = 0; i < lights.size(); i++)
+			{
+				lights[i]->Disable();
+			}
+		ofDisableLighting();
+
+		// Affichage d'une grille pour positionner les objets
+		if (gridActivated)
+		{
+			ofDrawGrid(100.0f);
+		}
 	cam->end();
+
 	ofDisableDepthTest();
 
 	moveCursor->Draw();
@@ -207,6 +230,26 @@ void Renderer::CreateModel(const std::string& filepath)
 void Renderer::CreateLemniscate()
 {
 	objectsList.push_back(new LemniscateProceduralImage());
+}
+
+void Renderer::CreateDirectionalLight()
+{
+	lights.push_back(new DirectionalLight());
+}
+
+void Renderer::CreateAmbiantLight()
+{
+	lights.push_back(new AmbiantLight());
+}
+
+void Renderer::CreateSpotLight()
+{
+	lights.push_back(new SpotLight());
+}
+
+void Renderer::CreatePointLight()
+{
+	lights.push_back(new PointLight());
 }
 
 void Renderer::SetGridActivated(bool& pressed) 

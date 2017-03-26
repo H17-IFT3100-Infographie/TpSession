@@ -112,6 +112,21 @@
     <ClCompile Include="src\Objects\Object3d\octahedre.cpp">
       <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Light\light.cpp">
+      <Filter>src\Objects\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Light\directionallight.cpp">
+      <Filter>src\Objects\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Light\ambiantlight.cpp">
+      <Filter>src\Objects\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Light\pointlight.cpp">
+      <Filter>src\Objects\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Light\spotlight.cpp">
+      <Filter>src\Objects\Light</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -167,6 +182,9 @@
     </Filter>
     <Filter Include="addons\ofxGui\src">
       <UniqueIdentifier>{645E9533-4DCD-6179-1CDF-CB65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Objects\Light">
+      <UniqueIdentifier>{55c7364a-51bf-4092-b628-5af59b388d3b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -388,6 +406,21 @@
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\octahedre.h">
       <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Light\light.h">
+      <Filter>src\Objects\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Light\directionallight.h">
+      <Filter>src\Objects\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Light\ambiantlight.h">
+      <Filter>src\Objects\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Light\pointlight.h">
+      <Filter>src\Objects\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Light\spotlight.h">
+      <Filter>src\Objects\Light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

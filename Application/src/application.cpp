@@ -26,6 +26,12 @@ Application::~Application()
 		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
 		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
 		gui->GetCreateOctahedreButton().removeListener(this, &Application::CreateIcosahedron);
+
+		gui->GetCreateDirectionalLight().removeListener(this, &Application::CreateDirectionalLight);
+		gui->GetCreatePointLight().removeListener(this, &Application::CreatePointLight);
+		gui->GetCreateAmbiantLight().removeListener(this, &Application::CreateAmbiantLight);
+		gui->GetCreateSpotLight().removeListener(this, &Application::CreateSpotLight);
+
 		gui->GetShowCamOption().removeListener(this, &Application::ShowCamOptions);
 
 		delete gui;
@@ -100,6 +106,11 @@ void Application::setup()
 	gui->GetCreateImageButton().addListener(this, &Application::CreateImage);
 	gui->GetCreateLemniscateButton().addListener(this, &Application::CreateLemniscate);
 	
+	gui->GetCreateDirectionalLight().addListener(this, &Application::CreateDirectionalLight);
+	gui->GetCreatePointLight().addListener(this, &Application::CreatePointLight);
+	gui->GetCreateAmbiantLight().addListener(this, &Application::CreateAmbiantLight);
+	gui->GetCreateSpotLight().addListener(this, &Application::CreateSpotLight);
+
 	gui->GetShowCamOption().addListener(this, &Application::ShowCamOptions);
 
 	// Ajout des listeners pour valider les clics des boutons de l'interface Caméra 
@@ -237,6 +248,27 @@ void Application::CreateFV()
 {
 	renderer->CreateFV();
 }
+
+void Application::CreateDirectionalLight()
+{
+	renderer->CreateDirectionalLight();
+}
+
+void Application::CreateAmbiantLight()
+{
+	renderer->CreateAmbiantLight();
+}
+
+void Application::CreateSpotLight()
+{
+	renderer->CreateSpotLight();
+}
+
+void Application::CreatePointLight()
+{
+	renderer->CreatePointLight();
+}
+
 // Fonction permettant de mettre la vision de la caméra en projection en perspective
 void Application::CamToPerspective(const void* sender, bool& pressed)
 {

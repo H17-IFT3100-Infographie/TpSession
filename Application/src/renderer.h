@@ -21,6 +21,11 @@
 #include "Objects/Object2d/primitive/rect.h"
 #include "Objects/Object2d/primitive/FormeVectorielle.h"
 
+#include "Objects/Light/directionallight.h"
+#include "Objects/Light/pointlight.h"
+#include "Objects/Light/ambiantlight.h"
+#include "Objects/Light/spotlight.h"
+
 class Renderer
 {
 public:
@@ -48,6 +53,12 @@ public:
 	void CreateModel(const std::string& filepath);
 	void CreateLemniscate();
 	void CreateIcosahedron();
+
+	void CreateDirectionalLight();
+	void CreateAmbiantLight();
+	void CreateSpotLight();
+	void CreatePointLight();
+
 	void CamToPerspective() { cam->disableOrtho(); }
 	void CamToOrtho() { cam->enableOrtho(); }
 
@@ -95,6 +106,8 @@ private:
 	std::vector<BaseObject*> objectsList;
 
 	std::vector<BaseObject*> selectedObjects;
+
+	std::vector<Light*> lights;
 
 	ofVec2f screenPosition;
 	float screenScale;

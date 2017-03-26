@@ -29,6 +29,12 @@ void Gui::Setup()
 	gui.add(imageInputField.setup("Filepath:", ""));
 	// Option permettant le rendu d'une image procédurale
 	gui.add(createLemniscateButton.setup("Lemniscate"));
+
+	gui.add(createDirectionalLight.setup("Directional Light"));
+	gui.add(createAmbiantLight.setup("Ambiant Light"));
+	gui.add(createSpotLight.setup("Spot Light"));
+	gui.add(createPointLight.setup("Point Light"));
+
 	// Option permettant de passer à l'interface de la caméra
 	gui.add(gotoCamOptions.setup("Camera Options"));
 }

@@ -41,6 +41,12 @@ private:
 	void CreateImage();
 	void CreateLemniscate();
 	void CreateIcosahedron();
+
+	void CreateDirectionalLight();
+	void CreateAmbiantLight();
+	void CreateSpotLight();
+	void CreatePointLight();
+
 	void ShowCamOptions();
 	void ShowObjectsCreator();
 
