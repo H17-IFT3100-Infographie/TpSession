@@ -122,6 +122,11 @@ void Renderer::Setup()
 // Fonction permettant la mise à jour des objets de la scène
 void Renderer::Update()
 {
+	for (int i = 0; i < lights.size(); i++)
+	{
+		lights[i]->Update();
+	}
+
 	// Mise à jour de tous les objets de la scène
 	for (int i = 0; i < objectsList.size(); i++)
 	{
@@ -165,6 +170,11 @@ void Renderer::Draw()
 				lights[i]->Disable();
 			}
 		ofDisableLighting();
+
+		for (int i = 0; i < lights.size(); i++)
+		{
+			lights[i]->Draw();
+		}
 
 		// Affichage d'une grille pour positionner les objets
 		if (gridActivated)
@@ -298,6 +308,24 @@ void Renderer::MousePressed(int x, int y, int button)
 			}
 		}
 		
+		if (!hit)
+		{
+			for (int i = 0, count = lights.size(); i < count; i++)
+			{
+				ofVec3f sPos = cam->worldToScreen(lights[i]->pos);
+				hit = lights[i]->CheckPointCollision(ofVec3f(ofGetMouseX(), ofGetMouseY(), 0.0f), sPos);
+				if (hit)
+				{
+					std::vector<BaseObject*>::iterator obj = std::find(selectedObjects.begin(), selectedObjects.end(), lights[i]);
+					if (obj == selectedObjects.end())
+					{
+						selectedObjects.push_back(lights[i]);
+					}
+					break;
+				}
+			}
+		}
+
 		if (!hit)
 		{
 			selectedObjects.clear();

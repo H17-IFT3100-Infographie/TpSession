@@ -2,6 +2,7 @@
 #define LIGHT_H
 
 #include "baseObject.h"
+#include "../Object2d/image.h"
 
 #include <ofLight.h>
 
@@ -23,13 +24,13 @@ public:
 		SPOT
 	};
 
-	Light(const ELightType lightType);
-	Light(float x, float y, float z, const ELightType lightType);
+	Light(const ELightType lightType, const std::string& guiFilepath);
+	Light(float x, float y, float z, const ELightType lightType, const std::string& guiFilepath);
 	~Light();
 
 	void Load();
 	virtual void Setup();
-
+	virtual void Draw();
 	virtual void Update();
 	void Enable();
 	void Disable();
@@ -41,8 +42,11 @@ public:
 
 protected:
 
-	ofLight* light;
+	ofLight light;
 	ELightType type;
+
+	Image* gui;
+	std::string guiFilepath;
 
 private:
 
