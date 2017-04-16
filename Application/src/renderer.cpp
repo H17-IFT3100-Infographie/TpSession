@@ -284,6 +284,7 @@ void Renderer::Draw()
 				{
 					shader->setUniform3f("colorAmbiant", colors);
 					shader->setUniform3f("colorDiffuse", colors);
+					shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 1.0f);
 				}
 				
 				// Affichage de tous les objets de la scène
