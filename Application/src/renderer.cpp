@@ -278,7 +278,7 @@ void Renderer::Draw()
 
 			// Passer les attributs uniformes au shader
 			for (int i = 0; i < lights.size(); i++) {
-				shader->setUniform3f("lightPosition", lights[i]->getGlobalPosition() * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
+				shader->setUniform3f("lightPosition", lights[i]->pos * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
 			}
 			// Affichage de tous les objets de la scène
 			for (int i = 0; i < objectsList.size(); i++)
