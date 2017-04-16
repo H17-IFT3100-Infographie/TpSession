@@ -70,6 +70,12 @@
     <ClCompile Include="src\Objects\Object3d\base3dObject.cpp">
       <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\Beziers\cubic.cpp">
+      <Filter>src\Objects\Object3d\Beziers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\Beziers\quadratic.cpp">
+      <Filter>src\Objects\Object3d\Beziers</Filter>
+    </ClCompile>
     <ClCompile Include="src\Objects\Object3d\box.cpp">
       <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
@@ -152,6 +158,9 @@
     </Filter>
     <Filter Include="src\Objects\Object3d">
       <UniqueIdentifier>{C49F8A24-492B-8DB7-8294-B8D9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Objects\Object3d\Beziers">
+      <UniqueIdentifier>{1B076637-6F45-9429-5F63-56C7}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\ofxGuiAddons">
       <UniqueIdentifier>{314AE252-C9F8-F1D9-E192-E287}</UniqueIdentifier>
@@ -250,6 +259,12 @@
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\base3dObject.h">
       <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\Beziers\cubic.h">
+      <Filter>src\Objects\Object3d\Beziers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\Beziers\quadratic.h">
+      <Filter>src\Objects\Object3d\Beziers</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\box.h">
       <Filter>src\Objects\Object3d</Filter>

@@ -157,7 +157,6 @@ private:
 
 	ofEasyCam* cam;
 	ofNode camParent;
-
 	std::deque<std::vector<UndoAction*> > undoActions;
 
 	bool gridActivated;

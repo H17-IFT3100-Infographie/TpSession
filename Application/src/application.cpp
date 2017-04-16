@@ -38,7 +38,9 @@ Application::~Application()
 		gui->GetCreatePointLight().removeListener(this, &Application::CreatePointLight);
 		gui->GetCreateAmbiantLight().removeListener(this, &Application::CreateAmbiantLight);
 		gui->GetCreateSpotLight().removeListener(this, &Application::CreateSpotLight);
-
+		gui->GetMaterial1Toggle().removeListener(this, &Application::SetMaterial1);
+		gui->GetMaterial2Toggle().removeListener(this, &Application::SetMaterial2);
+		gui->GetMaterial3Toggle().removeListener(this, &Application::SetMaterial3);
 		gui->GetShowCamOption().removeListener(this, &Application::ShowCamOptions);
 
 		delete gui;
@@ -100,7 +102,7 @@ void Application::setup()
 		renderer->glVersionMinor = 1;
 	}
 
-
+	material = new ofMaterial();
 	renderer->Setup();
 
 	// On génère le gui
@@ -135,6 +137,11 @@ void Application::setup()
 	gui->GetCreatePointLight().addListener(this, &Application::CreatePointLight);
 	gui->GetCreateAmbiantLight().addListener(this, &Application::CreateAmbiantLight);
 	gui->GetCreateSpotLight().addListener(this, &Application::CreateSpotLight);
+
+	gui->GetMaterial1Toggle().addListener(this, &Application::SetMaterial1);
+	gui->GetMaterial2Toggle().addListener(this, &Application::SetMaterial2);
+	gui->GetMaterial3Toggle().addListener(this, &Application::SetMaterial3);
+
 
 	gui->GetShowCamOption().addListener(this, &Application::ShowCamOptions);
 
@@ -483,11 +490,11 @@ if (pressed)
 	gui->GetMaterial1Toggle() = true;
 	gui->GetMaterial2Toggle() = false;
 	gui->GetMaterial3Toggle() = false;
-	material.setDiffuseColor(ofFloatColor::green);
-	material.setAmbientColor(ofFloatColor::green);
-	material.setEmissiveColor(ofFloatColor::green);
-	material.setSpecularColor(ofFloatColor::green);
-	material.setShininess(2);
+	material->setDiffuseColor(ofFloatColor::green);
+	material->setAmbientColor(ofFloatColor::green);
+	material->setEmissiveColor(ofFloatColor::green);
+	material->setSpecularColor(ofFloatColor::green);
+	material->setShininess(2);
 }
 }
 void Application::SetMaterial2(const void* sender, bool& pressed)
@@ -498,11 +505,11 @@ void Application::SetMaterial2(const void* sender, bool& pressed)
 		gui->GetMaterial2Toggle() = true;
 		gui->GetMaterial1Toggle() = false;
 		gui->GetMaterial3Toggle() = false;
-		material.setDiffuseColor(ofFloatColor::red);
-		material.setAmbientColor(ofFloatColor::red);
-		material.setEmissiveColor(ofFloatColor::red);
-		material.setSpecularColor(ofFloatColor::red);
-		material.setShininess(1);
+		material->setDiffuseColor(ofFloatColor::red);
+		material->setAmbientColor(ofFloatColor::red);
+		material->setEmissiveColor(ofFloatColor::red);
+		material->setSpecularColor(ofFloatColor::red);
+		material->setShininess(1);
 	}
 }
 
@@ -514,11 +521,11 @@ void Application::SetMaterial3(const void* sender, bool& pressed)
 		gui->GetMaterial3Toggle() = true;
 		gui->GetMaterial1Toggle() = false;
 		gui->GetMaterial2Toggle() = false;
-		material.setDiffuseColor(ofFloatColor::blue);
-		material.setAmbientColor(ofFloatColor::blue);
-		material.setEmissiveColor(ofFloatColor::blue);
-		material.setSpecularColor(ofFloatColor::blue);
-		material.setShininess(5);
+		material->setDiffuseColor(ofFloatColor::blue);
+		material->setAmbientColor(ofFloatColor::blue);
+		material->setEmissiveColor(ofFloatColor::blue);
+		material->setSpecularColor(ofFloatColor::blue);
+		material->setShininess(5);
 	}
 }
 

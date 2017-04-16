@@ -38,7 +38,7 @@ void Gui::Setup()
 	gui.add(createSpotLight.setup("Spot Light"));
 	gui.add(createPointLight.setup("Point Light"));
 
-	gui.add(material1Toggle.setup("Material 1", false));
+	gui.add(material1Toggle.setup("Material 1", true));
 	gui.add(material2Toggle.setup("Material 2", false));
 	gui.add(material3Toggle.setup("Material 3", false));
 

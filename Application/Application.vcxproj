@@ -95,7 +95,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Light;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Light;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\Objects\Object3d\Beziers;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -114,7 +114,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Light;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Light;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\Objects\Object3d\Beziers;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -133,7 +133,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Light;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Light;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\Objects\Object3d\Beziers;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -155,7 +155,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Light;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;src\Gui;src\Objects;src\Objects\Light;src\Objects\Object2d;src\Objects\Object2d\Cursor;src\Objects\Object2d\Primitive;src\Objects\Object3d;src\Objects\Object3d\Beziers;src\ofxGuiAddons;..\..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\emscripten;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\Win32;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs\x64;..\..\..\..\addons\ofxAssimpModelLoader\libs\assimp\license;..\..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -193,6 +193,8 @@
     <ClCompile Include="src\Objects\Object2d\Primitive\primitive.cpp" />
     <ClCompile Include="src\Objects\Object2d\Primitive\rect.cpp" />
     <ClCompile Include="src\Objects\Object3d\base3dObject.cpp" />
+    <ClCompile Include="src\Objects\Object3d\Beziers\cubic.cpp" />
+    <ClCompile Include="src\Objects\Object3d\Beziers\quadratic.cpp" />
     <ClCompile Include="src\Objects\Object3d\box.cpp" />
     <ClCompile Include="src\Objects\Object3d\modelObj.cpp" />
     <ClCompile Include="src\Objects\Object3d\octahedre.cpp" />
@@ -235,6 +237,8 @@
     <ClInclude Include="src\Objects\Object2d\Primitive\primitive.h" />
     <ClInclude Include="src\Objects\Object2d\Primitive\rect.h" />
     <ClInclude Include="src\Objects\Object3d\base3dObject.h" />
+    <ClInclude Include="src\Objects\Object3d\Beziers\cubic.h" />
+    <ClInclude Include="src\Objects\Object3d\Beziers\quadratic.h" />
     <ClInclude Include="src\Objects\Object3d\box.h" />
     <ClInclude Include="src\Objects\Object3d\modelObj.h" />
     <ClInclude Include="src\Objects\Object3d\octahedre.h" />

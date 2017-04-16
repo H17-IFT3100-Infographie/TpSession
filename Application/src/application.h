@@ -26,7 +26,7 @@ public:
   
   void update();
   void draw();
-
+  ofMaterial* getMaterial() { return material; }
   void mousePressed(int x, int y, int button);
   void mouseDragged(int x, int y, int button);
   void mouseScrolled(int x, int y, float scrollX, float scrollY);
@@ -81,7 +81,10 @@ private:
 	TransformGui* transformGui;
 	MultiTransformGui* multiTransformGui;
 	CameraGui* cameraGui;
-	ofMaterial material;
+	ofMaterial material1;
+	ofMaterial material2;
+	ofMaterial material3;
+	ofMaterial* material;
 	bool eventEnabled;
 	bool showObjectCreator;
 };
