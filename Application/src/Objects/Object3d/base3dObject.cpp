@@ -31,17 +31,14 @@ Base3DObject::~Base3DObject()
 // Fonction permettant le rendu graphique d'instances de la classe Base3DObject
 void Base3DObject::Draw()
 {
-	mat->begin();
-	mat->setAmbientColor(color);
-		// Détermination de certains paramètres et transformations
-		//ofSetColor(color);
+	// Détermination de certains paramètres et transformations
+	ofSetColor(color);
 
-		primitive->setScale(scale);
-		primitive->setPosition(pos);
-		primitive->setOrientation(rot);
-		// Rendu graphique de la primitive associée au Base3DObject
-		primitive->draw();
-	mat->end();
+	primitive->setScale(scale);
+	primitive->setPosition(pos);
+	primitive->setOrientation(rot);
+	// Rendu graphique de la primitive associée au Base3DObject
+	primitive->draw();
 
 	ofSetColor(ofColor::white);
 }
