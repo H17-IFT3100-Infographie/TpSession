@@ -19,7 +19,7 @@ public:
 private:
 	void Setup();
 	void Draw();
-
+	ofMaterial material;
 	void Load();
 	ofMesh mesh;
 	ofVbo vbo;

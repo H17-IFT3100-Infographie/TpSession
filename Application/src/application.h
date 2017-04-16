@@ -50,6 +50,10 @@ private:
 	void ShowCamOptions();
 	void ShowObjectsCreator();
 
+	void SetMaterial1(const void* sender, bool& pressed);
+	void SetMaterial2(const void* sender, bool& pressed);
+	void SetMaterial3(const void* sender, bool& pressed);
+
 	void CamToPerspective(const void* sender, bool& pressed);
 	void CamToOrtho(const void* sender, bool& pressed);
 	void SetFOV(const void* sender, float& value);
@@ -64,7 +68,7 @@ private:
 	TransformGui* transformGui;
 	MultiTransformGui* multiTransformGui;
 	CameraGui* cameraGui;
-
+	ofMaterial material;
 	bool eventEnabled;
 	bool showObjectCreator;
 };

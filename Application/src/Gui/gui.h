@@ -30,6 +30,10 @@ public:
 	ofxButton& GetCreateAmbiantLight() { return createAmbiantLight; }
 	ofxButton& GetCreateSpotLight() { return createSpotLight; }
 
+	ofxToggle& GetMaterial1Toggle() { return material1Toggle; }
+	ofxToggle& GetMaterial2Toggle() { return material2Toggle; }
+	ofxToggle& GetMaterial3Toggle() { return material3Toggle; }
+
 	ofxButton& GetShowCamOption() { return gotoCamOptions; }
 
 	ofxTextField& GetImageInputField() { return imageInputField; }
@@ -55,6 +59,12 @@ private:
 	ofxButton createPointLight;
 	ofxButton createAmbiantLight;
 	ofxButton createSpotLight;
+
+	ofxToggle material1Toggle;
+	ofxToggle material2Toggle;
+	ofxToggle material3Toggle;
+
+
 };
 
 #endif //GUI_H
