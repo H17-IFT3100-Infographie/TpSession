@@ -28,6 +28,7 @@
 
 #include "Objects/Object3d/Beziers/quadratic.h"
 #include "Objects/Object3d/Beziers/cubic.h"
+#include "Objects/Object3d/Beziers/hermite.h"
 
 // Énumération des types de shader
 enum class Shading { COLOR_FILL, LAMBERT, GOURAUD, PHONG, BLINN_PHONG };
@@ -81,6 +82,7 @@ public:
 
 	void CreateQuadratic();
 	void CreateCubic();
+	void CreateHermite();
 
 	void CreateDirectionalLight();
 	void CreateAmbiantLight();

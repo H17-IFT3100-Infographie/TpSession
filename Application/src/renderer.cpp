@@ -387,6 +387,11 @@ void Renderer::CreateCubic()
 	objectsList.push_back(new Cubic());
 }
 
+void Renderer::CreateHermite()
+{
+	objectsList.push_back(new Hermite());
+}
+
 void Renderer::CreateDirectionalLight()
 {
 	lights.push_back(new DirectionalLight());
