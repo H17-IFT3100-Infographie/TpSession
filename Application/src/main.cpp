@@ -16,7 +16,7 @@ int main() {
 	windowSettings.setGLVersion(3, 3);
 
 	// Sélection de la version de OpenGL : Option #3
-	// windowSettings.setGLVersion(1,4);
+	 //windowSettings.setGLVersion(1,4);
 
 	// Création de la fenêtre
 	ofCreateWindow(windowSettings);

@@ -119,5 +119,5 @@ void Octahedre::Setup()
 		mesh.addIndex(indices[i][1]);
 		mesh.addIndex(indices[i][2]);
 	}
-
+	
 }

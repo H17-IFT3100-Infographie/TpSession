@@ -208,6 +208,7 @@ void Application::draw()
 	}
 	// On appelle la fonction de dessin du renderer pour le rendu
 	renderer->Draw();
+
 }
 
 // Fonction appelant la méthode CreateBox du renderer
@@ -472,6 +473,52 @@ void Application::keyReleased(int key)
 	if (eventEnabled)
 	{
 		renderer->keyReleased(key);
+	}
+}
+void Application::SetMaterial1(const void* sender, bool& pressed)
+{
+// Si cliqué, Material 1
+if (pressed)
+{
+	gui->GetMaterial1Toggle() = true;
+	gui->GetMaterial2Toggle() = false;
+	gui->GetMaterial3Toggle() = false;
+	material.setDiffuseColor(ofFloatColor::green);
+	material.setAmbientColor(ofFloatColor::green);
+	material.setEmissiveColor(ofFloatColor::green);
+	material.setSpecularColor(ofFloatColor::green);
+	material.setShininess(2);
+}
+}
+void Application::SetMaterial2(const void* sender, bool& pressed)
+{
+	// Si cliqué, Material 2
+	if (pressed)
+	{
+		gui->GetMaterial2Toggle() = true;
+		gui->GetMaterial1Toggle() = false;
+		gui->GetMaterial3Toggle() = false;
+		material.setDiffuseColor(ofFloatColor::red);
+		material.setAmbientColor(ofFloatColor::red);
+		material.setEmissiveColor(ofFloatColor::red);
+		material.setSpecularColor(ofFloatColor::red);
+		material.setShininess(1);
+	}
+}
+
+void Application::SetMaterial3(const void* sender, bool& pressed) 
+{
+	// Si cliqué, Material 3
+	if (pressed)
+	{
+		gui->GetMaterial3Toggle() = true;
+		gui->GetMaterial1Toggle() = false;
+		gui->GetMaterial2Toggle() = false;
+		material.setDiffuseColor(ofFloatColor::blue);
+		material.setAmbientColor(ofFloatColor::blue);
+		material.setEmissiveColor(ofFloatColor::blue);
+		material.setSpecularColor(ofFloatColor::blue);
+		material.setShininess(5);
 	}
 }
 
