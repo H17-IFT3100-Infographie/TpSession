@@ -3,11 +3,15 @@
 #include "application.h"
 
 #include <boost/lexical_cast.hpp>
+
+Application* Application::instance = 0;
+
 // Constructeur pour l'application, présentant l'interface de création d'objets
 Application::Application()
 	: eventEnabled(true)
 	, showObjectCreator(true)
 {
+	instance = this;
 	renderer = nullptr;
 }
 // Destructeur pour la classe application
@@ -26,6 +30,9 @@ Application::~Application()
 		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
 		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
 		gui->GetCreateOctahedreButton().removeListener(this, &Application::CreateIcosahedron);
+
+		gui->GetCreateQuadratic().removeListener(this, &Application::CreateQuadratic);
+		gui->GetCreateCubic().removeListener(this, &Application::CreateCubic);
 
 		gui->GetCreateDirectionalLight().removeListener(this, &Application::CreateDirectionalLight);
 		gui->GetCreatePointLight().removeListener(this, &Application::CreatePointLight);
@@ -121,6 +128,9 @@ void Application::setup()
 	gui->GetCreateImageButton().addListener(this, &Application::CreateImage);
 	gui->GetCreateLemniscateButton().addListener(this, &Application::CreateLemniscate);
 	
+	gui->GetCreateQuadratic().addListener(this, &Application::CreateQuadratic);
+	gui->GetCreateCubic().addListener(this, &Application::CreateCubic);
+
 	gui->GetCreateDirectionalLight().addListener(this, &Application::CreateDirectionalLight);
 	gui->GetCreatePointLight().addListener(this, &Application::CreatePointLight);
 	gui->GetCreateAmbiantLight().addListener(this, &Application::CreateAmbiantLight);
@@ -265,6 +275,16 @@ void Application::CreateCercle()
 void Application::CreateFV()
 {
 	renderer->CreateFV();
+}
+
+void Application::CreateQuadratic()
+{
+	renderer->CreateQuadratic();
+}
+
+void Application::CreateCubic()
+{
+	renderer->CreateCubic();
 }
 
 void Application::CreateDirectionalLight()
@@ -413,41 +433,7 @@ void Application::keyPressed(int key)
 
 			return;
 		}
-		// Touches permettant la sélection des objets dans la scène de 1 à 7 (indexés de 0 à 6)
-		int index = -1;
-		switch (key)
-		{
-		case '1':
-			index = 0;
-			break;
-		case '2':
-			index = 1;
-			break;
-		case '3':
-			index = 2;
-			break;
-		case '4':
-			index = 3;
-			break;
-		case '5':
-			index = 4;
-			break;
-		case '6':
-			index = 5;
-			break;
-		case '7':
-			index = 6;
-			break;
-		}
-		// Si au moins 1 élément est sélectionné...
-		if (index != -1)
-		{		
-			// Affichage du gui pour la transformation d'un seul élément
-			if (renderer->SelectObject(index) && renderer->ObjectsSelectedCount() == 1)
-			{
-				transformGui->OnSelected(renderer->GetCurrentSelectedObjects()[0]);
-			}
-		}
+
 		// On retourne au renderer la touche appuyée pour gestion de contrôles.
 		renderer->KeyPressed(key);
 	}
@@ -482,6 +468,7 @@ void Application::keyReleased(int key)
 		ofLog() << "<shader: Blinn-Phong>";
 		break;
 	}
+
 	if (eventEnabled)
 	{
 		renderer->keyReleased(key);

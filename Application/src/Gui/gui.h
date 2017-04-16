@@ -25,6 +25,9 @@ public:
 	ofxButton& GetCreateLemniscateButton() { return createLemniscateButton; }
 	ofxButton& GetHSBButton() { return modeHSBButton; }
 
+	ofxButton& GetCreateQuadratic() { return createQuadratic; }
+	ofxButton& GetCreateCubic() { return createCubic; }
+
 	ofxButton& GetCreateDirectionalLight() { return createDirectionalLight; }
 	ofxButton& GetCreatePointLight() { return createPointLight; }
 	ofxButton& GetCreateAmbiantLight() { return createAmbiantLight; }
@@ -55,6 +58,9 @@ private:
 	ofxButton createPointLight;
 	ofxButton createAmbiantLight;
 	ofxButton createSpotLight;
+
+	ofxButton createQuadratic;
+	ofxButton createCubic;
 };
 
 #endif //GUI_H

@@ -25,6 +25,10 @@
 #include "Objects/Light/pointlight.h"
 #include "Objects/Light/ambiantlight.h"
 #include "Objects/Light/spotlight.h"
+
+#include "Objects/Object3d/Beziers/quadratic.h"
+#include "Objects/Object3d/Beziers/cubic.h"
+
 // Énumération des types de shader
 enum class Shading { COLOR_FILL, LAMBERT, GOURAUD, PHONG, BLINN_PHONG };
 // fonction utilitaire d'oscillation
@@ -75,6 +79,9 @@ public:
 	void CreateLemniscate();
 	void CreateIcosahedron();
 
+	void CreateQuadratic();
+	void CreateCubic();
+
 	void CreateDirectionalLight();
 	void CreateAmbiantLight();
 	void CreateSpotLight();
@@ -101,6 +108,8 @@ public:
 	void HideAllCustomCursors();
 	bool SelectObject(int aIndex);
 
+	void AddObjectInList(BaseObject* obj) { objectsList.push_back(obj); }
+
 private:
 
 	struct UndoAction
@@ -119,6 +128,7 @@ private:
 
 		}
 	};
+
 
 	const int MAX_UNDO_ACTIONS = 5;
 

@@ -13,6 +13,12 @@
 class Application : public ofBaseApp
 {
 public:
+
+	static Application& getInstance()
+	{
+		return *instance;
+	}
+
   Application();
   ~Application();
 
@@ -30,7 +36,11 @@ public:
 
   void exit();
 
+  Renderer* getRenderer() { return renderer; }
+
 private:
+	static Application* instance;
+
 	void CreateRectangle();
 	void CreateLine();
 	void CreateCercle();
@@ -41,6 +51,9 @@ private:
 	void CreateImage();
 	void CreateLemniscate();
 	void CreateIcosahedron();
+
+	void CreateQuadratic();
+	void CreateCubic();
 
 	void CreateDirectionalLight();
 	void CreateAmbiantLight();

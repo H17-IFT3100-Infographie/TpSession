@@ -30,6 +30,9 @@ void Gui::Setup()
 	// Option permettant le rendu d'une image procédurale
 	gui.add(createLemniscateButton.setup("Lemniscate"));
 
+	gui.add(createQuadratic.setup("Quadratic Bezier"));
+	gui.add(createCubic.setup("Cubic Bezier"));
+
 	gui.add(createDirectionalLight.setup("Directional Light"));
 	gui.add(createAmbiantLight.setup("Ambiant Light"));
 	gui.add(createSpotLight.setup("Spot Light"));

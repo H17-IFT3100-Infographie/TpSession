@@ -16,6 +16,7 @@ public:
 	virtual void Update();
 	virtual void Draw();
 
+	void AddPos(const ofVec3f& addingPos) { pos += addingPos; }
 	inline void SetPosition(float x, float y, float z);
 	inline void Translate(const ofVec3f& translateBy);
 

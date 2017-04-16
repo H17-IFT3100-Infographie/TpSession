@@ -153,8 +153,6 @@ void Renderer::Setup()
 	// shader actif au lancement de la scène
 	activeShader = Shading::BLINN_PHONG;
 
-
-
 	// Mise à jour des objets contenus dans la liste
 	for (int i = 0; i < objectsList.size(); i++)
 	{
@@ -377,6 +375,16 @@ void Renderer::CreateModel(const std::string& filepath)
 void Renderer::CreateLemniscate()
 {
 	objectsList.push_back(new LemniscateProceduralImage());
+}
+
+void Renderer::CreateQuadratic()
+{
+	objectsList.push_back(new Quadratic());
+}
+
+void Renderer::CreateCubic()
+{
+	objectsList.push_back(new Cubic());
 }
 
 void Renderer::CreateDirectionalLight()
@@ -608,6 +616,27 @@ void Renderer::KeyPressed(int key)
 		break;
 	default:
 		break;
+	}
+
+	if (!selectedObjects.empty())
+	{
+		ofVec3f nextPos = ofVec3f::zero();
+		if (shiftPressed)
+		{
+			if (key == OF_KEY_UP)
+				nextPos.z += 5;
+			else if (key == OF_KEY_DOWN)
+				nextPos.z -= 5;
+		}
+		else if (key == OF_KEY_UP) nextPos.y += 5;
+		else if (key == OF_KEY_DOWN) nextPos.y -= 5;
+		else if (key == OF_KEY_LEFT) nextPos.x -= 5;
+		else if (key == OF_KEY_RIGHT) nextPos.x += 5;
+
+		for (int i = 0, count = selectedObjects.size(); i < count; i++)
+		{
+			selectedObjects[i]->AddPos(nextPos);
+		}
 	}
 }
 // Fonctions appelées lorsqu'une touche clavier est relâchée
