@@ -19,6 +19,10 @@ Rect::~Rect()
 // Fonction permettant l'initialisation des paramètres du rectangle
 void Rect::Setup()
 {
+	material.setDiffuseColor(ofFloatColor::green);
+
+
+
 }
 // Fonction permettant la mise à jour des paramètres du rectangle
 void Rect::Update()
@@ -38,7 +42,9 @@ void Rect::Draw()
 	ofRotateZ(rot.z);	
 	// Rendu du rectangle
 	//ofDrawRectangle(-width * 0.5f, -height * 0.5f, width * scale.x, height * scale.y);
+	material.begin();
 	ofDrawRectangle(-width * 0.5f, -height * 0.5f, width, height);
+	material.end();
 	ofPopMatrix();
 
 	PostDraw();

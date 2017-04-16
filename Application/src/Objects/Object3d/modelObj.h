@@ -25,7 +25,7 @@ private:
 	void Setup();	 
 	void Update();
 	void Draw();
-
+	ofMaterial material;
 	ofVec3f currentRotation;
 	ofVec3f nextRotation;
 

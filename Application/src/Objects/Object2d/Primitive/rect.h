@@ -28,7 +28,7 @@ private:
 
 	float width;
 	float height;
-
+	ofMaterial material;
 	ofRectangle* rect;
 };
 

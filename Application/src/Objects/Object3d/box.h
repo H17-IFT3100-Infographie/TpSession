@@ -17,7 +17,6 @@ public:
 
 private:
 	void Load();
-
 	ofVec3f dimensions;
 };
 

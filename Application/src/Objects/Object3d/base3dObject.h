@@ -17,7 +17,6 @@ public:
 protected:
 	of3dPrimitive* primitive;
 private:
-	
 };
 
 #endif // BASE_3D_OBJECT_H

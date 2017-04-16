@@ -25,10 +25,31 @@
 #include "Objects/Light/pointlight.h"
 #include "Objects/Light/ambiantlight.h"
 #include "Objects/Light/spotlight.h"
-
+// Énumération des types de shader
+enum class Shading { COLOR_FILL, LAMBERT, GOURAUD, PHONG, BLINN_PHONG };
+// fonction utilitaire d'oscillation
+inline float oscillate(float time, float amplitude, float period, float shift, float offset)
+{
+	return amplitude * sin((time - shift) * 2 * PI / period) + offset;
+}
 class Renderer
 {
 public:
+
+	Shading activeShader;
+	ofShader * shader;
+	ofShader * shaderColorFill;
+	ofShader * shaderLambert;
+	ofShader * shaderGouraud;
+	ofShader * shaderPhong;
+	ofShader * shaderBlinnPhong;
+
+	string shaderVersion;
+	string shaderName;
+
+	int glVersionMajor;
+	int glVersionMinor;
+
 	Renderer();
 	~Renderer();
 	void Setup();

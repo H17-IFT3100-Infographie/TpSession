@@ -89,10 +89,18 @@ Renderer::~Renderer()
 		delete cam;
 		cam = nullptr;
 	}
+	delete shaderColorFill;
+	delete shaderLambert;
+	delete shaderGouraud;
+	delete shaderPhong;
+	delete shaderBlinnPhong;
+
 }
+
 // Fonction permettant l'initialisation du renderer
 void Renderer::Setup()
 {
+	ofSetLogLevel(OF_LOG_VERBOSE);
 	cam = new ofEasyCam();
 	// Détermination de la distance de la caméra pour rendu de scène
 	cam->setDistance(1500.0f);
@@ -104,6 +112,54 @@ void Renderer::Setup()
 	ofSetFrameRate(60);
 	// Set background to black
 	ofBackground(0, 0, 0);
+
+	// Instanciation des shaders
+
+	shaderColorFill = new ofShader();
+	shaderLambert = new ofShader();
+	shaderGouraud = new ofShader();
+	shaderPhong = new ofShader();
+	shaderBlinnPhong = new ofShader();
+
+	// Paramétrer la version des shaders en GLSL
+	switch(glVersionMajor)
+	{
+	case 3:
+		shaderVersion = "V330";
+		break;
+	case 4:
+		shaderVersion = "V410";
+		break;
+	default:
+		shaderVersion = "V120";
+	}
+
+	// Charger, compiler et linker les sources des shaders
+	// charger, compiler et linker les sources des shaders
+	shaderColorFill->load(
+		"shader/" + shaderVersion + "/ColorFillVS.glsl",
+		"shader/" + shaderVersion + "/ColorFillFS.glsl");
+
+	shaderLambert->load(
+		"shader/" + shaderVersion + "/LambertVS.glsl",
+		"shader/" + shaderVersion + "/LambertFS.glsl");
+
+	shaderGouraud->load(
+		"shader/" + shaderVersion + "/GouraudVS.glsl",
+		"shader/" + shaderVersion + "/GouraudFS.glsl");
+
+	shaderPhong->load(
+		"shader/" + shaderVersion + "/PhongVS.glsl",
+		"shader/" + shaderVersion + "/PhongFS.glsl");
+
+	shaderBlinnPhong->load(
+		"shader/" + shaderVersion + "/BlinnPhongVS.glsl",
+		"shader/" + shaderVersion + "/BlinnPhongFS.glsl");
+
+	// shader actif au lancement de la scène
+	activeShader = Shading::BLINN_PHONG;
+
+
 
 	// Mise à jour des objets contenus dans la liste
 	for (int i = 0; i < objectsList.size(); i++)
@@ -132,11 +188,70 @@ void Renderer::Update()
 	{
 		objectsList[i]->Update();
 	}
+
+	// passer les attributs uniformes au shader de sommets
+	switch (activeShader)
+	{
+	case Shading::COLOR_FILL:
+		shaderName = "Color Fill";
+		shader = shaderColorFill;
+		shader->begin();
+		shader->setUniform3f("color", 1.0f, 1.0f, 0.0f);
+		shader->end();
+		break;
+
+	case Shading::LAMBERT:
+		shaderName = "Lambert";
+		shader = shaderLambert;
+		shader->begin();
+		shader->setUniform3f("colorAmbient", 0.1f, 0.1f, 0.1f);
+		shader->setUniform3f("colorDiffuse", 0.6f, 0.6f, 0.6f);
+		shader->end();
+		break;
+
+	case Shading::GOURAUD:
+		shaderName = "Gouraud";
+		shader = shaderGouraud;
+		shader->begin();
+		shader->setUniform3f("colorAmbient", 0.1f, 0.1f, 0.1f);
+		shader->setUniform3f("colorDiffuse", 0.6f, 0.6f, 0.0f);
+		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
+		shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		shader->end();
+		break;
+
+	case Shading::PHONG:
+		shaderName = "Phong";
+		shader = shaderPhong;
+		shader->begin();
+		shader->setUniform3f("colorAmbient", 0.1f, 0.1f, 0.1f);
+		shader->setUniform3f("colorDiffuse", 0.6f, 0.0f, 0.6f);
+		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
+		shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		shader->end();
+		break;
+
+	case Shading::BLINN_PHONG:
+		shaderName = "BlinnPhong";
+		shader = shaderBlinnPhong;
+		shader->begin();
+		shader->setUniform3f("colorAmbient", 0.1f, 0.1f, 0.1f);
+		shader->setUniform3f("colorDiffuse", 0.0f, 0.6f, 0.6f);
+		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
+		shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		shader->end();
+		break;
+
+	default:
+		break;
+	}
+
+
 }
 // Fonction permettant le rendu du renderer
 void Renderer::Draw()
 {
-	// Configuration de paramètres de la lumière pour l'affichage
+// Configuration de paramètres de la lumière pour l'affichage
 	ofEnableDepthTest();
 
 	// Activation de la caméra
@@ -150,7 +265,8 @@ void Renderer::Draw()
 		{
 			selectedObjects[i]->DrawBoundingBox();
 		}
-
+		// Activer le shader
+		shader->begin();
 		// Affichage des lumieres
 		ofEnableLighting();
 			for (int i = 0; i < lights.size(); i++)
@@ -158,18 +274,27 @@ void Renderer::Draw()
 				lights[i]->Enable();
 			}
 
+
+
+			// Passer les attributs uniformes au shader
+			for (int i = 0; i < lights.size(); i++) {
+				shader->setUniform3f("lightPosition", lights[i]->getGlobalPosition() * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
+			}
 			// Affichage de tous les objets de la scène
 			for (int i = 0; i < objectsList.size(); i++)
 			{
 				objectsList[i]->Draw();
 			}
-
+			// Désactiver le shader
+			shader->end();
 			// Affichage des lumieres
 			for (int i = 0; i < lights.size(); i++)
 			{
 				lights[i]->Disable();
 			}
-		ofDisableLighting();
+
+
+			ofDisableLighting();
 
 		for (int i = 0; i < lights.size(); i++)
 		{
@@ -181,13 +306,15 @@ void Renderer::Draw()
 		{
 			ofDrawGrid(100.0f);
 		}
-	cam->end();
+
+		cam->end();
 
 	ofDisableDepthTest();
 
 	moveCursor->Draw();
 	rotationCursor->Draw();
 	scaleCursor->Draw();
+
 }
 // Fonction permettant de générer un rectangle
 void Renderer::CreateRectangle()

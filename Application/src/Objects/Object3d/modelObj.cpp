@@ -40,6 +40,10 @@ void ModelObj::Load()
 }
 // Fonction permettant l'initialisation de certains paramètres propres au modèle
 void ModelObj::Setup() {
+	material.setDiffuseColor(ofFloatColor::green);
+
+
+
 	// Gestion de la rotation du modèle
 	nextRotation = ofVec3f::zero();
 	currentRotation = rot;
@@ -57,9 +61,11 @@ void ModelObj::Draw() {
 	ofRotateZ(rot.z);
 	modele->setPosition(0.0f, 0.0f, 0.0f);
 	ofTranslate(0.0f, dimension.y * 0.5f, dimension.z * 0.5f);
+	material.begin();
 	// Rendu graphique du mesh du modèle
 	modele->draw(ofPolyRenderMode::OF_MESH_FILL);
-	ofPopMatrix(); 
+	material.end();
+	ofPopMatrix();
 
 	ofSetColor(ofColor::white);
 }

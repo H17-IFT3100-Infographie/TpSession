@@ -79,6 +79,21 @@ void Application::setup()
 
 	// On génère le renderer, responsable du rendu graphique de la scène
 	renderer = new Renderer();
+	if (ofIsGLProgrammableRenderer())
+	{
+
+		renderer->glVersionMajor = 3;
+		renderer->glVersionMinor = 3;
+	}
+
+
+	else
+	{
+		renderer->glVersionMajor = 2;
+		renderer->glVersionMinor = 1;
+	}
+
+
 	renderer->Setup();
 
 	// On génère le gui
@@ -123,6 +138,9 @@ void Application::setup()
 	cameraGui->GetGridActivatorToggle().addListener(this, &Application::SetGridActivated);
 	
 	cameraGui->GetObjectCreatorButton().addListener(this, &Application::ShowObjectsCreator);
+
+
+
 }
 // Fonction de mise à jour de l'application
 void Application::update()
@@ -436,6 +454,33 @@ void Application::keyPressed(int key)
 // Fonction envoyant au renderer l'information concernant les touches clavier relâchées
 void Application::keyReleased(int key)
 {
+	switch (key)
+	{
+	case 'c':  // key 1
+		renderer->activeShader = Shading::COLOR_FILL;
+		ofLog() << "<shader: Color Fill>";
+		break;
+
+	case 'l':  // key 2
+		renderer->activeShader = Shading::LAMBERT;
+		ofLog() << "<shader: Lambert>";
+		break;
+
+	case 'g':  // key 3
+		renderer->activeShader = Shading::GOURAUD;
+		ofLog() << "<shader: Gouraud>";
+		break;
+
+	case 'p':  // key 4
+		renderer->activeShader = Shading::PHONG;
+		ofLog() << "<shader: Phong>";
+		break;
+
+	case 'b':  // key 5
+		renderer->activeShader = Shading::BLINN_PHONG;
+		ofLog() << "<shader: Blinn-Phong>";
+		break;
+	}
 	if (eventEnabled)
 	{
 		renderer->keyReleased(key);

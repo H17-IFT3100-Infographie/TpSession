@@ -21,7 +21,6 @@ private:
 	void Draw();
 
 	void Load();
-
 	ofMesh mesh;
 	ofVbo vbo;
 	float ang;

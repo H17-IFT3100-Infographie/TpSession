@@ -23,7 +23,9 @@ Box::Box(const ofVec3f& position, int width, int height, int depth)
 // Fonction permettant l'instanciation et le chargement de paramètres de la boîte
 void Box::Load()
 {
+
 	primitive = new ofBoxPrimitive(dimensions.x, dimensions.y, dimensions.z);
+
 }
 // Destructeur de la classe boîte
 Box::~Box()
