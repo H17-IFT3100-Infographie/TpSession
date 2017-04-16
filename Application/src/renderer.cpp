@@ -181,57 +181,64 @@ void Renderer::Update()
 		objectsList[i]->Update();
 	}
 
+	ofVec3f colors = ofVec3f::zero();
+	// Passer les attributs uniformes au shader
+	for (int j = 0; j < lights.size(); j++)
+	{
+		colors += lights[j]->GetColorVec3() / 255.0f;
+	}
+
 	// passer les attributs uniformes au shader de sommets
 	switch (activeShader)
 	{
 	case Shading::COLOR_FILL:
 		shaderName = "Color Fill";
 		shader = shaderColorFill;
-		/*shader->begin();
-		shader->setUniform3f("color", 1.0f, 1.0f, 1.0f);
-		shader->end();*/
+		shader->begin();
+		shader->setUniform3f("color", colors.x, colors.y, colors.z);
+		shader->end();
 		break;
 
 	case Shading::LAMBERT:
 		shaderName = "Lambert";
 		shader = shaderLambert;
-		/*shader->begin();
-		shader->setUniform3f("colorAmbient", 1.0f, 1.0f, 1.0f);
-		shader->setUniform3f("colorDiffuse", 0.6f, 0.6f, 0.6f);
-		shader->end();*/
+		shader->begin();
+		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
+		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
+		shader->end();
 		break;
 
 	case Shading::GOURAUD:
 		shaderName = "Gouraud";
 		shader = shaderGouraud;
-		/*shader->begin();
-		shader->setUniform3f("colorAmbient", 1.0f, 1.0f, 1.0f);
-		shader->setUniform3f("colorDiffuse", 1.0f, 1.0f, 1.0f);
+		shader->begin();
+		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
+		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
 		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 1.0f);
 		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
-		shader->end();*/
+		shader->end();
 		break;
 
 	case Shading::PHONG:
 		shaderName = "Phong";
 		shader = shaderPhong;
-		/*shader->begin();
-		shader->setUniform3f("colorAmbient", 1.0f, 1.0f, 1.0f);
-		shader->setUniform3f("colorDiffuse", 1.0f, 1.0f, 1.0f);
-		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 1.0f);
+		shader->begin();
+		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
+		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
+		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
 		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
-		shader->end();*/
+		shader->end();
 		break;
 
 	case Shading::BLINN_PHONG:
 		shaderName = "BlinnPhong";
 		shader = shaderBlinnPhong;
-		/*shader->begin();
-		shader->setUniform3f("colorAmbient", 1.0f, 1.0f, 1.0f);
-		shader->setUniform3f("colorDiffuse", 1.0f, 1.0f, 1.0f);
+		shader->begin();
+		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
+		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
 		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
 		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
-		shader->end();*/
+		shader->end();
 		break;
 
 	default:
@@ -268,22 +275,10 @@ void Renderer::Draw()
 			// Activer le shader
 			shader->begin();
 
-				ofVec3f colors = ofVec3f::zero();
 				// Passer les attributs uniformes au shader
 				for (int j = 0; j < lights.size(); j++)
 				{
-					colors += lights[j]->GetColorVec3() / 255.0f;
 					shader->setUniform3f("lightPosition", lights[j]->pos * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
-				}
-
-				if (activeShader == Shading::COLOR_FILL)
-				{
-					shader->setUniform3f("color", colors);
-				}
-				else
-				{
-					shader->setUniform3f("colorAmbiant", colors);
-					shader->setUniform3f("colorDiffuse", colors);
 				}
 				
 				// Affichage de tous les objets de la scène
@@ -385,6 +380,11 @@ void Renderer::CreateQuadratic()
 void Renderer::CreateCubic()
 {
 	objectsList.push_back(new Cubic());
+}
+
+void Renderer::CreateHermite()
+{
+	objectsList.push_back(new Hermite());
 }
 
 void Renderer::CreateDirectionalLight()

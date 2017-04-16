@@ -33,6 +33,7 @@ Application::~Application()
 
 		gui->GetCreateQuadratic().removeListener(this, &Application::CreateQuadratic);
 		gui->GetCreateCubic().removeListener(this, &Application::CreateCubic);
+		gui->GetCreateHermite().removeListener(this, &Application::CreateHermite);
 
 		gui->GetCreateDirectionalLight().removeListener(this, &Application::CreateDirectionalLight);
 		gui->GetCreatePointLight().removeListener(this, &Application::CreatePointLight);
@@ -132,6 +133,7 @@ void Application::setup()
 	
 	gui->GetCreateQuadratic().addListener(this, &Application::CreateQuadratic);
 	gui->GetCreateCubic().addListener(this, &Application::CreateCubic);
+	gui->GetCreateHermite().addListener(this, &Application::CreateHermite);
 
 	gui->GetCreateDirectionalLight().addListener(this, &Application::CreateDirectionalLight);
 	gui->GetCreatePointLight().addListener(this, &Application::CreatePointLight);
@@ -293,6 +295,11 @@ void Application::CreateQuadratic()
 void Application::CreateCubic()
 {
 	renderer->CreateCubic();
+}
+
+void Application::CreateHermite()
+{
+	renderer->CreateHermite();
 }
 
 void Application::CreateDirectionalLight()
