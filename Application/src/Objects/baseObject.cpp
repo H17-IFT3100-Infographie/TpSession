@@ -52,3 +52,8 @@ void BaseObject::ClampRotation()
 	else if (rot.z < 0.0f)
 		rot.z = 359.0f;
 }
+
+ofVec3f BaseObject::GetColorVec3()
+{ 
+	return ofVec3f(color.r, color.g, color.b);
+}

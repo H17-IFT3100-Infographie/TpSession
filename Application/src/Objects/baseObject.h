@@ -22,6 +22,7 @@ public:
 	virtual void SetColor(int r, int g, int b, int a) { color = ofColor(r, g, b, a); }
 	void SetColor(const ofColor& color) { SetColor(color.r, color.g, color.b, color.a); }
 	virtual ofColor& GetColor() { return color;  }
+	virtual ofVec3f GetColorVec3();
 	virtual void SetAlpha(int a) { }
 
 	virtual void DrawBoundingBox() { }
@@ -31,6 +32,8 @@ public:
 	ofVec3f pos;
 	ofVec3f rot;
 	ofVec3f scale;
+
+	ofShader* shader;
 protected:
 	ofColor color;
 private:

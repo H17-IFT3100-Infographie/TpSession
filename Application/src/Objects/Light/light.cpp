@@ -56,6 +56,9 @@ void Light::Draw()
 // Fonction permettant le rendu graphique
 void Light::Enable()
 {
+	light.setAmbientColor(color);
+	light.setDiffuseColor(color);
+	
 	light.setPosition(pos);
 	light.setOrientation(rot);
 	light.enable();

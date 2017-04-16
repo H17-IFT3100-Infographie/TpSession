@@ -3,6 +3,8 @@
 
 #include "baseObject.h"
 
+#include <ofMaterial.h>
+
 class Base3DObject : public BaseObject
 {
 public:
@@ -16,6 +18,8 @@ public:
 	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos) { return false; }
 protected:
 	of3dPrimitive* primitive;
+
+	ofMaterial* mat;
 private:
 };
 

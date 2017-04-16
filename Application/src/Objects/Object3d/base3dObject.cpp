@@ -3,12 +3,14 @@
 Base3DObject::Base3DObject(float x, float y, float z)
 	: BaseObject(x, y, z)
 {
+	mat = new ofMaterial();
 }
+
 // Constructeur de la classe Base3DObject avec 1 paramètre pour la position 
 Base3DObject::Base3DObject(const ofVec3f& pos) 
 	: BaseObject(pos)
 {
-
+	mat = new ofMaterial();
 }
 // Destructeur de la classe Base3DObject
 Base3DObject::~Base3DObject()
@@ -19,18 +21,27 @@ Base3DObject::~Base3DObject()
 		delete primitive;
 		primitive = nullptr;
 	}
+
+	if (nullptr != mat)
+	{
+		delete mat;
+		mat = nullptr;
+	}
 }
 // Fonction permettant le rendu graphique d'instances de la classe Base3DObject
 void Base3DObject::Draw()
 {
-	// Détermination de certains paramètres et transformations
-	ofSetColor(color);
+	mat->begin();
+	mat->setAmbientColor(color);
+		// Détermination de certains paramètres et transformations
+		//ofSetColor(color);
 
-	primitive->setScale(scale);
-	primitive->setPosition(pos);
-	primitive->setOrientation(rot);
-	// Rendu graphique de la primitive associée au Base3DObject
-	primitive->draw();
+		primitive->setScale(scale);
+		primitive->setPosition(pos);
+		primitive->setOrientation(rot);
+		// Rendu graphique de la primitive associée au Base3DObject
+		primitive->draw();
+	mat->end();
 
 	ofSetColor(ofColor::white);
 }

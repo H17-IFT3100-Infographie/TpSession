@@ -57,7 +57,7 @@ public:
 	void Update();
 	void Draw();
 
-	void MousePressed(int x, int y, int button);
+	bool MousePressed(int x, int y, int button);
 	void MouseDragged(int x, int y, int button);
 	void MouseScrolled(int x, int y, float scrollX, float scrollY);
 	void MouseRelease(int x, int y, int button);
@@ -124,6 +124,8 @@ private:
 
 	void ClampRotation();
 
+	void UpdateShader(BaseObject* object);
+
 	std::vector<BaseObject*> objectsList;
 
 	std::vector<BaseObject*> selectedObjects;
@@ -149,8 +151,6 @@ private:
 	std::deque<std::vector<UndoAction*> > undoActions;
 
 	bool gridActivated;
-
-	ofLight* light;
 };
 
 std::vector<BaseObject*>& Renderer::GetCurrentSelectedObjects()

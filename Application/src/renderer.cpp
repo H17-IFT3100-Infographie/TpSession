@@ -78,12 +78,6 @@ Renderer::~Renderer()
 		scaleCursor = nullptr;
 	}
 
-	if (nullptr != light)
-	{
-		delete light;
-		light = nullptr;
-	}
-
 	if (nullptr != cam)
 	{
 		delete cam;
@@ -216,7 +210,7 @@ void Renderer::Update()
 		shader->setUniform3f("colorAmbient", 0.1f, 0.1f, 0.1f);
 		shader->setUniform3f("colorDiffuse", 0.6f, 0.6f, 0.0f);
 		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
-		shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
 		shader->end();
 		break;
 
@@ -227,7 +221,7 @@ void Renderer::Update()
 		shader->setUniform3f("colorAmbient", 0.1f, 0.1f, 0.1f);
 		shader->setUniform3f("colorDiffuse", 0.6f, 0.0f, 0.6f);
 		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
-		shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
 		shader->end();
 		break;
 
@@ -238,7 +232,7 @@ void Renderer::Update()
 		shader->setUniform3f("colorAmbient", 0.1f, 0.1f, 0.1f);
 		shader->setUniform3f("colorDiffuse", 0.0f, 0.6f, 0.6f);
 		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
-		shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
 		shader->end();
 		break;
 
@@ -265,8 +259,7 @@ void Renderer::Draw()
 		{
 			selectedObjects[i]->DrawBoundingBox();
 		}
-		// Activer le shader
-		shader->begin();
+		
 		// Affichage des lumieres
 		ofEnableLighting();
 			for (int i = 0; i < lights.size(); i++)
@@ -275,18 +268,22 @@ void Renderer::Draw()
 			}
 
 
+			// Activer le shader
+			shader->begin();
+				// Affichage de tous les objets de la scène
+				for (int i = 0; i < objectsList.size(); i++)
+				{
+					// Passer les attributs uniformes au shader
+					for (int i = 0; i < lights.size(); i++)
+					{
+						shader->setUniform3f("lightPosition", lights[i]->pos * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
+					}
 
-			// Passer les attributs uniformes au shader
-			for (int i = 0; i < lights.size(); i++) {
-				shader->setUniform3f("lightPosition", lights[i]->pos * ofGetCurrentMatrix(OF_MATRIX_MODELVIEW));
-			}
-			// Affichage de tous les objets de la scène
-			for (int i = 0; i < objectsList.size(); i++)
-			{
-				objectsList[i]->Draw();
-			}
+					objectsList[i]->Draw();
+				}
 			// Désactiver le shader
 			shader->end();
+
 			// Affichage des lumieres
 			for (int i = 0; i < lights.size(); i++)
 			{
@@ -396,7 +393,7 @@ void Renderer::SetGridActivated(bool& pressed)
 }
 
 // Fonctions activées lorsqu'une touche de la souris est activée
-void Renderer::MousePressed(int x, int y, int button)
+bool Renderer::MousePressed(int x, int y, int button)
 {
 	if (selectedObjects.size() > 0)
 	{
@@ -460,6 +457,8 @@ void Renderer::MousePressed(int x, int y, int button)
 
 		moveCursor->pos = ofVec2f(x, y);
 		moveCursor->Show();
+
+		return hit;
 	}
 	// Si le bouton de droite est enfoncé
 	else if (button == 2)
@@ -470,6 +469,8 @@ void Renderer::MousePressed(int x, int y, int button)
 	}
 	// Position précédente
 	previousMousePosition = ofVec2f(x, y);
+
+	return false;
 }
 // Fonctions activées lorsque la souris est déplacée alors qu'un bouton est enfoncé
 void Renderer::MouseDragged(int x, int y, int button)

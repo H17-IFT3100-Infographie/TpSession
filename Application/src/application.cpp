@@ -368,7 +368,8 @@ void Application::mousePressed(int x, int y, int button)
 {
 	if (eventEnabled)
 	{
-		renderer->MousePressed(x, y, button);
+		if (renderer->MousePressed(x, y, button))
+			transformGui->OnSelected(renderer->GetCurrentSelectedObjects()[0]);
 	}
 }
 // Fonction envoyant au renderer l'information sur le drag de la souris
