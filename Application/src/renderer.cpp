@@ -161,6 +161,8 @@ void Renderer::Setup()
 	// shader actif au lancement de la scène
 	activeShader = Shading::BLINN_PHONG;
 
+	cubemap.loadImages("cubemap/rg.jpg", "cubemap/lf.jpg", "cubemap/up.jpg", "cubemap/dw.jpg", "cubemap/fr.jpg", "cubemap/bk.jpg");
+
 	// Mise à jour des objets contenus dans la liste
 	for (int i = 0; i < objectsList.size(); i++)
 	{
@@ -291,6 +293,13 @@ void Renderer::Draw()
 				lights[i]->Enable();
 			}
 
+			if (cm == true)
+			{
+				cubemap.bind();
+					cubemap.drawSkybox(5500);
+				cubemap.unbind();
+			}
+
 			// Activer le shader
 			shader->begin();
 
@@ -328,17 +337,8 @@ void Renderer::Draw()
 		{
 			ofDrawGrid(100.0f);
 		}
-		
 	cam->end();
-	if (cm == true) {
 
-		cubemap.bind();
-		cubeMapShader.begin();
-		cubeMapShader.setUniform1i("EnvMap", 0);
-		cubemap.drawSkybox(800);
-		cubeMapShader.end();
-		cubemap.unbind();
-	}
 	ofDisableDepthTest();
 
 	moveCursor->Draw();

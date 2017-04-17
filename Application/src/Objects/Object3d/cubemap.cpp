@@ -547,8 +547,6 @@ void CubeMap::setupSkyBoxVertices()
 
 	float fExtent = 1.0f / 2.0f;
 
-
-
 	///////////////////////////////////////////////
 	//  Postive X
 	CubeMapTexCoords.push_back(ofVec3f(1.0f, -1.0f, -1.0f));
@@ -680,8 +678,8 @@ void CubeMap::Draw()
 	cubemap.loadImages("cubemap/rg.jpg", "cubemap/lf.jpg", "cubemap/up.jpg", "cubemap/dw.jpg", "cubemap/fr.jpg", "cubemap/bk.jpg");
 	cubemap.bind();
 	cubeMapShader.begin();
-	cubeMapShader.setUniform1i("EnvMap", 0);
-	cubemap.drawSkybox(800);
+		cubeMapShader.setUniform1i("EnvMap", 0);
+		cubemap.drawSkybox(800);
 	cubeMapShader.end();
 	cubemap.unbind();
 }
