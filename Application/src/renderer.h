@@ -30,7 +30,7 @@
 #include "Objects/Object3d/Beziers/cubic.h"
 #include "Objects/Object3d/Beziers/hermite.h"
 #include "Objects/Object3d/Splines/bspline.h"
-//#include "Objects/Object3d/Beziers/surface.h"
+#include "Objects/Object3d/Surfaces/surface.h"
 
 // Énumération des types de shader
 enum class Shading { COLOR_FILL, LAMBERT, GOURAUD, PHONG, BLINN_PHONG, REFLECTIVE };
