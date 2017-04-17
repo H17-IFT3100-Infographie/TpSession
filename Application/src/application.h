@@ -51,11 +51,11 @@ private:
 	void CreateImage();
 	void CreateLemniscate();
 	void CreateIcosahedron();
-
+	void CreateCubeMap();
 	void CreateQuadratic();
 	void CreateCubic();
 	void CreateHermite();
-
+	void CreateSurface();
 	void CreateDirectionalLight();
 	void CreateAmbiantLight();
 	void CreateSpotLight();
@@ -82,9 +82,7 @@ private:
 	TransformGui* transformGui;
 	MultiTransformGui* multiTransformGui;
 	CameraGui* cameraGui;
-	ofMaterial material1;
-	ofMaterial material2;
-	ofMaterial material3;
+
 	ofMaterial* material;
 	bool eventEnabled;
 	bool showObjectCreator;

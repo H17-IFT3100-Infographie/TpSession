@@ -371,7 +371,10 @@ void Renderer::CreateLemniscate()
 {
 	objectsList.push_back(new LemniscateProceduralImage());
 }
-
+/*void Renderer::CreateCubeMap()
+{
+	objectsList.push_back(new CubeMap());
+}*/
 void Renderer::CreateQuadratic()
 {
 	objectsList.push_back(new Quadratic());
@@ -385,6 +388,11 @@ void Renderer::CreateCubic()
 void Renderer::CreateHermite()
 {
 	objectsList.push_back(new Hermite());
+}
+
+void Renderer::CreateSurface()
+{
+//	objectsList.push_back(new Surface());
 }
 
 void Renderer::CreateDirectionalLight()
