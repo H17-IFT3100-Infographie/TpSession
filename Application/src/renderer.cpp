@@ -387,6 +387,11 @@ void Renderer::CreateHermite()
 	objectsList.push_back(new Hermite());
 }
 
+void Renderer::CreateBSpline()
+{
+	objectsList.push_back(new BSpline());
+}
+
 void Renderer::CreateDirectionalLight()
 {
 	lights.push_back(new DirectionalLight());

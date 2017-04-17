@@ -29,6 +29,7 @@
 #include "Objects/Object3d/Beziers/quadratic.h"
 #include "Objects/Object3d/Beziers/cubic.h"
 #include "Objects/Object3d/Beziers/hermite.h"
+#include "Objects/Object3d/Splines/bspline.h"
 
 // Énumération des types de shader
 enum class Shading { COLOR_FILL, LAMBERT, GOURAUD, PHONG, BLINN_PHONG };
@@ -83,6 +84,7 @@ public:
 	void CreateQuadratic();
 	void CreateCubic();
 	void CreateHermite();
+	void CreateBSpline();
 
 	void CreateDirectionalLight();
 	void CreateAmbiantLight();
@@ -111,6 +113,7 @@ public:
 	bool SelectObject(int aIndex);
 
 	void AddObjectInList(BaseObject* obj) { objectsList.push_back(obj); }
+	void RemoveObjectInList(BaseObject* obj) { objectsList.erase(std::find(objectsList.begin(), objectsList.end(), obj)); }
 
 private:
 

@@ -28,6 +28,7 @@ public:
 	ofxButton& GetCreateQuadratic() { return createQuadratic; }
 	ofxButton& GetCreateCubic() { return createCubic; }
 	ofxButton& GetCreateHermite() { return createHermite; }
+	ofxButton& GetCreateBSpline() { return createBSpline; }
 
 	ofxButton& GetCreateDirectionalLight() { return createDirectionalLight; }
 	ofxButton& GetCreatePointLight() { return createPointLight; }
@@ -67,6 +68,7 @@ private:
 	ofxButton createQuadratic;
 	ofxButton createCubic;
 	ofxButton createHermite;
+	ofxButton createBSpline;
 
 	ofxToggle material1Toggle;
 	ofxToggle material2Toggle;
