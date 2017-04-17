@@ -1,6 +1,4 @@
-﻿#version 120
-
-uniform samplerCube envMap;
+﻿uniform samplerCube envMap;
 uniform float reflectivity;
 
 varying vec3 reflectVec;

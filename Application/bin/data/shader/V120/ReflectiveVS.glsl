@@ -1,6 +1,4 @@
-﻿#version 120
-
-varying vec3 reflectVec;
+﻿varying vec3 reflectVec;
 
 void main() 
 {
@@ -10,3 +8,4 @@ void main()
 	reflectVec = reflect(V, N);
 
 	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+}
