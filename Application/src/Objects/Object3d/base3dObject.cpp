@@ -19,8 +19,8 @@ Base3DObject::~Base3DObject()
 	if (nullptr != primitive)
 	{
 		// On détruit la primitive associée au Base3DObject
-		delete primitive;
-		primitive = nullptr;
+		//delete primitive;
+		//primitive = nullptr;
 	}
 
 	if (nullptr != mat)

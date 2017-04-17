@@ -6,14 +6,14 @@
 #include "ofMain.h"
 #include "Objects/baseObject.h"
 
-
+#include "Objects/Object3d/cubemap.h"
 #include "Objects/Object3d/Box.h"
 #include "Objects/Object3d/Sphere.h"
 #include "Objects/Object3d/ModelObj.h"
 #include "Objects/Object3d/Octahedre.h"
+
 #include "Objects/Object2d/Image.h"
 #include "Objects/Object2d/lemniscateProceduralImage.h"
-
 #include "Objects/Object2d/Cursor/cursor.h"
 #include "Objects/Object2d/primitive/primitive.h"
 #include "Objects/Object2d/primitive/line.h"
@@ -25,7 +25,7 @@
 #include "Objects/Light/pointlight.h"
 #include "Objects/Light/ambiantlight.h"
 #include "Objects/Light/spotlight.h"
-#include "Objects/Object3d/cubemap.h"
+
 #include "Objects/Object3d/Beziers/quadratic.h"
 #include "Objects/Object3d/Beziers/cubic.h"
 #include "Objects/Object3d/Beziers/hermite.h"
@@ -33,7 +33,7 @@
 //#include "Objects/Object3d/Beziers/surface.h"
 
 // Énumération des types de shader
-enum class Shading { COLOR_FILL, LAMBERT, GOURAUD, PHONG, BLINN_PHONG };
+enum class Shading { COLOR_FILL, LAMBERT, GOURAUD, PHONG, BLINN_PHONG, REFLECTIVE };
 // fonction utilitaire d'oscillation
 inline float oscillate(float time, float amplitude, float period, float shift, float offset)
 {
@@ -50,10 +50,10 @@ public:
 	ofShader * shaderGouraud;
 	ofShader * shaderPhong;
 	ofShader * shaderBlinnPhong;
-
+	ofShader * shaderReflective;
 	string shaderVersion;
 	string shaderName;
-
+	CubeMap cubemap;
 	int glVersionMajor;
 	int glVersionMinor;
 
@@ -81,7 +81,7 @@ public:
 	void CreateModel(const std::string& filepath);
 	void CreateLemniscate();
 	void CreateIcosahedron();
-	//void CreateCubeMap();
+	void CreateCubeMap();
 	void CreateQuadratic();
 	void CreateCubic();
 	void CreateHermite();

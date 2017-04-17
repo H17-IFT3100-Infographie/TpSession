@@ -299,7 +299,7 @@ void Application::CreateQuadratic()
 }
 void Application::CreateCubeMap()
 {
-//	renderer->CreateCubeMap();
+renderer->CreateCubeMap();
 }
 void Application::CreateCubic()
 {
@@ -477,29 +477,34 @@ void Application::keyReleased(int key)
 {
 	switch (key)
 	{
-	case 'c':  // key 1
+	case 'c':  // key c
 		renderer->activeShader = Shading::COLOR_FILL;
 		ofLog() << "<shader: Color Fill>";
 		break;
 
-	case 'l':  // key 2
+	case 'l':  // key l
 		renderer->activeShader = Shading::LAMBERT;
 		ofLog() << "<shader: Lambert>";
 		break;
 
-	case 'g':  // key 3
+	case 'g':  // key g
 		renderer->activeShader = Shading::GOURAUD;
 		ofLog() << "<shader: Gouraud>";
 		break;
 
-	case 'p':  // key 4
+	case 'p':  // key p
 		renderer->activeShader = Shading::PHONG;
 		ofLog() << "<shader: Phong>";
 		break;
 
-	case 'b':  // key 5
+	case 'b':  // key b
 		renderer->activeShader = Shading::BLINN_PHONG;
 		ofLog() << "<shader: Blinn-Phong>";
+		break;
+
+	case 'r':  // key r
+		renderer->activeShader = Shading::REFLECTIVE;
+		ofLog() << "<shader: Reflective>";
 		break;
 	}
 

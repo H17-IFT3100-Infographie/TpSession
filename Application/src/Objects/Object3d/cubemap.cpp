@@ -1,7 +1,7 @@
 #include "CubeMap.h"
 
 //--------------------------------------------------------------
-CubeMap::CubeMap()
+CubeMap::CubeMap() : Base3DObject(ofVec3f::zero())
 {
 	fov = 90.0f;
 	nearZ = 0.01f;
@@ -671,5 +671,18 @@ void CubeMap::setupSkyBoxVertices()
 
 	CubeMapTexCoords.push_back(ofVec3f(1.0f, 1.0f, -1.0f));
 	CubeMapVertices.push_back(ofVec3f(fExtent, fExtent, -fExtent));
-
 }
+
+void CubeMap::Draw()
+{
+	CubeMap cubemap;
+	ofShader cubeMapShader;
+	cubemap.loadImages("cubemap/rg.jpg", "cubemap/lf.jpg", "cubemap/up.jpg", "cubemap/dw.jpg", "cubemap/fr.jpg", "cubemap/bk.jpg");
+	cubemap.bind();
+	cubeMapShader.begin();
+	cubeMapShader.setUniform1i("EnvMap", 0);
+	cubemap.drawSkybox(800);
+	cubeMapShader.end();
+	cubemap.unbind();
+}
+
