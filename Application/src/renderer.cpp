@@ -153,6 +153,11 @@ void Renderer::Setup()
 	shaderReflective->load(
 		"shader/" + shaderVersion + "/ReflectiveVS.glsl",
 		"shader/" + shaderVersion + "/ReflectiveFS.glsl");
+
+	cubeMapShader.load(
+		"shader/" + shaderVersion + "/ReflectiveVS.glsl",
+		"shader/" + shaderVersion + "/ReflectiveFS.glsl");
+
 	// shader actif au lancement de la scène
 	activeShader = Shading::BLINN_PHONG;
 
@@ -326,9 +331,7 @@ void Renderer::Draw()
 		
 	cam->end();
 	if (cm == true) {
-		cubeMapShader.load(
-			"shader/" + shaderVersion + "/ReflectiveVS.glsl",
-			"shader/" + shaderVersion + "/ReflectiveFS.glsl");
+
 		cubemap.bind();
 		cubeMapShader.begin();
 		cubeMapShader.setUniform1i("EnvMap", 0);

@@ -100,6 +100,9 @@
     <ClCompile Include="src\Objects\Object3d\Splines\bspline.cpp">
       <Filter>src\Objects\Object3d\Splines</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\Surfaces\surface.cpp">
+      <Filter>src\Objects\Object3d\Surfaces</Filter>
+    </ClCompile>
     <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp">
       <Filter>src\ofxGuiAddons</Filter>
     </ClCompile>
@@ -176,6 +179,9 @@
     </Filter>
     <Filter Include="src\Objects\Object3d\Splines">
       <UniqueIdentifier>{6AB219F5-3FFD-2F83-FBFF-7180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Objects\Object3d\Surfaces">
+      <UniqueIdentifier>{E0FF485E-6820-C441-F51A-23F5}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\ofxGuiAddons">
       <UniqueIdentifier>{314AE252-C9F8-F1D9-E192-E287}</UniqueIdentifier>
@@ -310,6 +316,9 @@
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\Splines\bspline.h">
       <Filter>src\Objects\Object3d\Splines</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\Surfaces\surface.h">
+      <Filter>src\Objects\Object3d\Surfaces</Filter>
     </ClInclude>
     <ClInclude Include="src\ofxGuiAddons\ofxInputField.h">
       <Filter>src\ofxGuiAddons</Filter>

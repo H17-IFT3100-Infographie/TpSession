@@ -10,10 +10,10 @@ int main() {
 	windowSettings.height = 768;
 
 	// Sélection de la version de OpenGL : Option #1
-	// windowSettings.setGLVersion(2,1);
+	windowSettings.setGLVersion(2,1);
 
 	// Sélection de la version de OpenGL : Option #2
-	windowSettings.setGLVersion(3, 3);
+	//windowSettings.setGLVersion(3, 3);
 
 	// Sélection de la version de OpenGL : Option #3
 	 //windowSettings.setGLVersion(1,4);
