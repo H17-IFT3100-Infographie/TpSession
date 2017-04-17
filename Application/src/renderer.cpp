@@ -11,7 +11,7 @@ Renderer::Renderer()
 	, selectedObjects(std::vector<BaseObject*>())
 	, undoActions(std::deque<std::vector<UndoAction*> >())
 	, leftMousePressed(false)
-	, shiftPressed(false)
+	, shiftPressed(false), cm(false)
 	, gridActivated(true)
 {
 
@@ -323,9 +323,19 @@ void Renderer::Draw()
 		{
 			ofDrawGrid(100.0f);
 		}
-
-		cam->end();
-
+		
+	cam->end();
+	if (cm == true) {
+		cubeMapShader.load(
+			"shader/" + shaderVersion + "/ReflectiveVS.glsl",
+			"shader/" + shaderVersion + "/ReflectiveFS.glsl");
+		cubemap.bind();
+		cubeMapShader.begin();
+		cubeMapShader.setUniform1i("EnvMap", 0);
+		cubemap.drawSkybox(800);
+		cubeMapShader.end();
+		cubemap.unbind();
+	}
 	ofDisableDepthTest();
 
 	moveCursor->Draw();
@@ -387,7 +397,8 @@ void Renderer::CreateLemniscate()
 }
 void Renderer::CreateCubeMap()
 {
-	objectsList.push_back(new CubeMap());
+	if (cm != true) { cm = true; }
+	else {cm = false;}
 }
 void Renderer::CreateQuadratic()
 {

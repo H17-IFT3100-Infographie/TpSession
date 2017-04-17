@@ -5,8 +5,8 @@
 
 #include "ofMain.h"
 #include "Objects/baseObject.h"
-
-#include "Objects/Object3d/cubemap.h"
+#include "ofxCubeMap.h"
+//#include "Objects/Object3d/cubemap.h"
 #include "Objects/Object3d/Box.h"
 #include "Objects/Object3d/Sphere.h"
 #include "Objects/Object3d/ModelObj.h"
@@ -53,7 +53,8 @@ public:
 	ofShader * shaderReflective;
 	string shaderVersion;
 	string shaderName;
-	CubeMap cubemap;
+	ofxCubeMap cubemap;
+	ofShader cubeMapShader;
 	int glVersionMajor;
 	int glVersionMinor;
 
@@ -159,7 +160,7 @@ private:
 	Cursor* moveCursor;
 	Cursor* rotationCursor;
 	Cursor* scaleCursor;
-
+	bool cm;
 	bool shiftPressed;
 	bool leftMousePressed;
 
