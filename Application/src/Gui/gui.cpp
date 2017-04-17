@@ -34,7 +34,7 @@ void Gui::Setup()
 	gui.add(createCubic.setup("Cubic Bezier"));
 	gui.add(createHermite.setup("Hermite Bezier"));
 	gui.add(createBSpline.setup("B-Spline"));
-
+	gui.add(createGeometryShader.setup("Geometry Shader"));
 	gui.add(createSurface.setup("Surface parametrique"));
 
 	gui.add(createDirectionalLight.setup("Directional Light"));

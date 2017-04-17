@@ -37,7 +37,7 @@ Application::~Application()
 		gui->GetCreateBSpline().removeListener(this, &Application::CreateBSpline);
 
 		gui->GetCreateSurface().removeListener(this, &Application::CreateSurface);
-
+		gui->GetGeometryShader().removeListener(this, &Application::CreateGeometryShader);
 		gui->GetCreateDirectionalLight().removeListener(this, &Application::CreateDirectionalLight);
 		gui->GetCreatePointLight().removeListener(this, &Application::CreatePointLight);
 		gui->GetCreateAmbiantLight().removeListener(this, &Application::CreateAmbiantLight);
@@ -140,7 +140,7 @@ void Application::setup()
 	gui->GetCreateBSpline().addListener(this, &Application::CreateBSpline);
 
 	gui->GetCreateSurface().addListener(this, &Application::CreateSurface);
-
+	gui->GetGeometryShader().addListener(this, &Application::CreateGeometryShader);
 	gui->GetCreateDirectionalLight().addListener(this, &Application::CreateDirectionalLight);
 	gui->GetCreatePointLight().addListener(this, &Application::CreatePointLight);
 	gui->GetCreateAmbiantLight().addListener(this, &Application::CreateAmbiantLight);
@@ -559,7 +559,10 @@ void Application::SetMaterial3(const void* sender, bool& pressed)
 		material->setShininess(5);
 	}
 }
-
+void Application::CreateGeometryShader()
+{
+	renderer->CreateGeometryShader();
+}
 void Application::exit()
 {
 

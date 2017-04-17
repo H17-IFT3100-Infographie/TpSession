@@ -271,12 +271,12 @@ void Renderer::Update()
 // Fonction permettant le rendu du renderer
 void Renderer::Draw()
 {
-// Configuration de paramètres de la lumière pour l'affichage
 	ofEnableDepthTest();
+	
 
 	// Activation de la caméra
 	cam->begin();
-		cam->setDistance(1500.0f * screenScale);
+	cam->setDistance(1500.0f * screenScale);
 		cam->setPosition(ofVec3f(-screenPosition.x, -screenPosition.y, cam->getDistance()));
 		camParent.setOrientation(screenRotation);
 
@@ -427,7 +427,10 @@ void Renderer::CreateSurface()
 {
 	objectsList.push_back(new Surface());
 }
-
+void Renderer::CreateGeometryShader()
+{
+	//objectsList.push_back(new Surface());
+}
 void Renderer::CreateDirectionalLight()
 {
 	lights.push_back(new DirectionalLight());

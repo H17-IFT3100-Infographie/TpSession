@@ -20,7 +20,7 @@
 #include "Objects/Object2d/primitive/circle.h"
 #include "Objects/Object2d/primitive/rect.h"
 #include "Objects/Object2d/primitive/FormeVectorielle.h"
-
+#include "Objects/Object2d/primitive/geometryShader.h"
 #include "Objects/Light/directionallight.h"
 #include "Objects/Light/pointlight.h"
 #include "Objects/Light/ambiantlight.h"
@@ -89,7 +89,7 @@ public:
 	void CreateBSpline();
 
 	void CreateSurface();
-
+	void CreateGeometryShader();
 	void CreateDirectionalLight();
 	void CreateAmbiantLight();
 	void CreateSpotLight();

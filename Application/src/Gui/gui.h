@@ -24,7 +24,7 @@ public:
 	ofxButton& GetCreateImageButton() { return createImageButton; }
 	ofxButton& GetCreateLemniscateButton() { return createLemniscateButton; }
 	ofxButton& GetHSBButton() { return modeHSBButton; }
-
+	ofxButton& GetGeometryShader() { return createGeometryShader; }
 	ofxButton& GetCreateQuadratic() { return createQuadratic; }
 	ofxButton& GetCreateCubic() { return createCubic; }
 	ofxButton& GetCreateHermite() { return createHermite; }
@@ -67,7 +67,7 @@ private:
 	ofxButton createPointLight;
 	ofxButton createAmbiantLight;
 	ofxButton createSpotLight;
-	
+	ofxButton createGeometryShader;
 	ofxButton createQuadratic;
 	ofxButton createCubic;
 	ofxButton createHermite;
