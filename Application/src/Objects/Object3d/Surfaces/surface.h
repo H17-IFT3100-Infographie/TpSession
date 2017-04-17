@@ -1,12 +1,12 @@
-#ifndef CUBIC_H
-#define CUBIC_H
+#ifndef SURFACE_H
+#define SURFACE_H
 
 #include "baseObject.h"
 #include "../sphere.h"
 
 #include <ofPolyline.h>
 
-class Cubic : public BaseObject
+class Surface : public BaseObject
 {
 public:
 
@@ -29,9 +29,9 @@ public:
 		z = uuu * p1z + 3 * uu * t * p2z + 3 * u * tt * p3z + ttt * p4z;
 	}
 
-	Cubic();
-	Cubic(float x, float y, float z);
-	~Cubic();
+	Surface();
+	Surface(float x, float y, float z);
+	~Surface();
 	
 	void Load();
 	virtual void Setup();
@@ -47,6 +47,8 @@ public:
 
 	Sphere* GetFirstNode() { return listCrtlPoints[0]; }
 	void ReplaceLastNodeBy(Sphere* byNode);
+
+	void UpdateSurfaces();
 
 protected:
 
@@ -65,6 +67,7 @@ private:
 	ofVec3f position;
 
 	std::vector<Sphere*> listCrtlPoints;
+	std::vector<ofMesh> triangles;
 
 	float lineWidthOutline;
 	float lineWidthCurve;
