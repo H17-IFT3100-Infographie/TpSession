@@ -1,4 +1,6 @@
-﻿varying vec3 reflectVec;
+#version 120
+
+varying vec3 reflectVec;
 
 void main() 
 {
