@@ -30,17 +30,21 @@ Application::~Application()
 		gui->GetCreateImageButton().removeListener(this, &Application::CreateImage);
 		gui->GetCreateLemniscateButton().removeListener(this, &Application::CreateLemniscate);
 		gui->GetCreateOctahedreButton().removeListener(this, &Application::CreateIcosahedron);
-
+		gui->GetCreateCubeMap().removeListener(this, &Application::CreateCubeMap);
 		gui->GetCreateQuadratic().removeListener(this, &Application::CreateQuadratic);
 		gui->GetCreateCubic().removeListener(this, &Application::CreateCubic);
 		gui->GetCreateHermite().removeListener(this, &Application::CreateHermite);
 		gui->GetCreateBSpline().removeListener(this, &Application::CreateBSpline);
 
+		gui->GetCreateSurface().removeListener(this, &Application::CreateSurface);
+
 		gui->GetCreateDirectionalLight().removeListener(this, &Application::CreateDirectionalLight);
 		gui->GetCreatePointLight().removeListener(this, &Application::CreatePointLight);
 		gui->GetCreateAmbiantLight().removeListener(this, &Application::CreateAmbiantLight);
 		gui->GetCreateSpotLight().removeListener(this, &Application::CreateSpotLight);
-
+		gui->GetMaterial1Toggle().removeListener(this, &Application::SetMaterial1);
+		gui->GetMaterial2Toggle().removeListener(this, &Application::SetMaterial2);
+		gui->GetMaterial3Toggle().removeListener(this, &Application::SetMaterial3);
 		gui->GetShowCamOption().removeListener(this, &Application::ShowCamOptions);
 
 		delete gui;
@@ -102,7 +106,7 @@ void Application::setup()
 		renderer->glVersionMinor = 1;
 	}
 
-
+	material = new ofMaterial();
 	renderer->Setup();
 
 	// On génère le gui
@@ -129,16 +133,23 @@ void Application::setup()
 	gui->GetCreateModelButton().addListener(this, &Application::CreateModel);
 	gui->GetCreateImageButton().addListener(this, &Application::CreateImage);
 	gui->GetCreateLemniscateButton().addListener(this, &Application::CreateLemniscate);
-	
+	gui->GetCreateCubeMap().addListener(this, &Application::CreateCubeMap);
 	gui->GetCreateQuadratic().addListener(this, &Application::CreateQuadratic);
 	gui->GetCreateCubic().addListener(this, &Application::CreateCubic);
 	gui->GetCreateHermite().addListener(this, &Application::CreateHermite);
 	gui->GetCreateBSpline().addListener(this, &Application::CreateBSpline);
 
+	gui->GetCreateSurface().addListener(this, &Application::CreateSurface);
+
 	gui->GetCreateDirectionalLight().addListener(this, &Application::CreateDirectionalLight);
 	gui->GetCreatePointLight().addListener(this, &Application::CreatePointLight);
 	gui->GetCreateAmbiantLight().addListener(this, &Application::CreateAmbiantLight);
 	gui->GetCreateSpotLight().addListener(this, &Application::CreateSpotLight);
+
+	gui->GetMaterial1Toggle().addListener(this, &Application::SetMaterial1);
+	gui->GetMaterial2Toggle().addListener(this, &Application::SetMaterial2);
+	gui->GetMaterial3Toggle().addListener(this, &Application::SetMaterial3);
+
 
 	gui->GetShowCamOption().addListener(this, &Application::ShowCamOptions);
 
@@ -286,7 +297,10 @@ void Application::CreateQuadratic()
 {
 	renderer->CreateQuadratic();
 }
-
+void Application::CreateCubeMap()
+{
+//	renderer->CreateCubeMap();
+}
 void Application::CreateCubic()
 {
 	renderer->CreateCubic();
@@ -300,6 +314,11 @@ void Application::CreateHermite()
 void Application::CreateBSpline()
 {
 	renderer->CreateBSpline();
+}
+
+void Application::CreateSurface()
+{
+	renderer->CreateSurface();
 }
 
 void Application::CreateDirectionalLight()
@@ -497,11 +516,11 @@ if (pressed)
 	gui->GetMaterial1Toggle() = true;
 	gui->GetMaterial2Toggle() = false;
 	gui->GetMaterial3Toggle() = false;
-	material.setDiffuseColor(ofFloatColor::green);
-	material.setAmbientColor(ofFloatColor::green);
-	material.setEmissiveColor(ofFloatColor::green);
-	material.setSpecularColor(ofFloatColor::green);
-	material.setShininess(2);
+	material->setDiffuseColor(0.5f);
+	material->setAmbientColor(0.1f);
+	material->setEmissiveColor(0.0f);
+	material->setSpecularColor(0.0f);
+	material->setShininess(2);
 }
 }
 void Application::SetMaterial2(const void* sender, bool& pressed)
@@ -512,11 +531,11 @@ void Application::SetMaterial2(const void* sender, bool& pressed)
 		gui->GetMaterial2Toggle() = true;
 		gui->GetMaterial1Toggle() = false;
 		gui->GetMaterial3Toggle() = false;
-		material.setDiffuseColor(ofFloatColor::red);
-		material.setAmbientColor(ofFloatColor::red);
-		material.setEmissiveColor(ofFloatColor::red);
-		material.setSpecularColor(ofFloatColor::red);
-		material.setShininess(1);
+		material->setDiffuseColor(ofFloatColor::magenta);
+		material->setAmbientColor(0.5f);
+		material->setEmissiveColor(0.7f);
+		material->setSpecularColor(0.7f);
+		material->setShininess(1);
 	}
 }
 
@@ -528,11 +547,11 @@ void Application::SetMaterial3(const void* sender, bool& pressed)
 		gui->GetMaterial3Toggle() = true;
 		gui->GetMaterial1Toggle() = false;
 		gui->GetMaterial2Toggle() = false;
-		material.setDiffuseColor(ofFloatColor::blue);
-		material.setAmbientColor(ofFloatColor::blue);
-		material.setEmissiveColor(ofFloatColor::blue);
-		material.setSpecularColor(ofFloatColor::blue);
-		material.setShininess(5);
+		material->setDiffuseColor(0.1f);
+		material->setAmbientColor(0.4f);
+		material->setEmissiveColor(ofFloatColor::blue);
+		material->setSpecularColor(0.9f);
+		material->setShininess(5);
 	}
 }
 

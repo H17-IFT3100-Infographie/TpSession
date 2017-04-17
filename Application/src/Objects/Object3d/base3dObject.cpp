@@ -1,4 +1,5 @@
 #include "Base3DObject.h"
+#include "application.h"
 // Constructeur de la classe Base3DObject avec 3 paramètres pour la position
 Base3DObject::Base3DObject(float x, float y, float z)
 	: BaseObject(x, y, z)
@@ -31,15 +32,19 @@ Base3DObject::~Base3DObject()
 // Fonction permettant le rendu graphique d'instances de la classe Base3DObject
 void Base3DObject::Draw()
 {
+	mat = Application::getInstance().getMaterial();
+
 	// Détermination de certains paramètres et transformations
 	ofSetColor(color);
 
 	primitive->setScale(scale);
 	primitive->setPosition(pos);
 	primitive->setOrientation(rot);
-	// Rendu graphique de la primitive associée au Base3DObject
-	primitive->draw();
 
+// Rendu graphique de la primitive associée au Base3DObject
+	mat->begin();
+	primitive->draw();
+	mat->end();
 	ofSetColor(ofColor::white);
 }
 // Fonction permettant de déterminer les limites d'un Base3DObject

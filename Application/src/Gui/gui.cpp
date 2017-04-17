@@ -29,18 +29,20 @@ void Gui::Setup()
 	gui.add(imageInputField.setup("Filepath:", ""));
 	// Option permettant le rendu d'une image procédurale
 	gui.add(createLemniscateButton.setup("Lemniscate"));
-
+	gui.add(createCubeMap.setup("CubeMap Reflection"));
 	gui.add(createQuadratic.setup("Quadratic Bezier"));
 	gui.add(createCubic.setup("Cubic Bezier"));
 	gui.add(createHermite.setup("Hermite Bezier"));
 	gui.add(createBSpline.setup("B-Spline"));
+
+	gui.add(createSurface.setup("Surface parametrique"));
 
 	gui.add(createDirectionalLight.setup("Directional Light"));
 	gui.add(createAmbiantLight.setup("Ambiant Light"));
 	gui.add(createSpotLight.setup("Spot Light"));
 	gui.add(createPointLight.setup("Point Light"));
 
-	gui.add(material1Toggle.setup("Material 1", false));
+	gui.add(material1Toggle.setup("Material 1", true));
 	gui.add(material2Toggle.setup("Material 2", false));
 	gui.add(material3Toggle.setup("Material 3", false));
 

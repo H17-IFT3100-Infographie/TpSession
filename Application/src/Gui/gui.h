@@ -29,11 +29,14 @@ public:
 	ofxButton& GetCreateCubic() { return createCubic; }
 	ofxButton& GetCreateHermite() { return createHermite; }
 	ofxButton& GetCreateBSpline() { return createBSpline; }
+	
+	ofxButton& GetCreateSurface() { return createSurface; }
 
 	ofxButton& GetCreateDirectionalLight() { return createDirectionalLight; }
 	ofxButton& GetCreatePointLight() { return createPointLight; }
 	ofxButton& GetCreateAmbiantLight() { return createAmbiantLight; }
 	ofxButton& GetCreateSpotLight() { return createSpotLight; }
+	ofxButton& GetCreateCubeMap() { return createCubeMap; }
 
 	ofxToggle& GetMaterial1Toggle() { return material1Toggle; }
 	ofxToggle& GetMaterial2Toggle() { return material2Toggle; }
@@ -59,7 +62,7 @@ private:
 	ofxTextField imageInputField;
 	ofxButton createOctahedreButton;
 	ofxButton gotoCamOptions;
-
+	ofxButton createCubeMap;
 	ofxButton createDirectionalLight;
 	ofxButton createPointLight;
 	ofxButton createAmbiantLight;
@@ -69,6 +72,8 @@ private:
 	ofxButton createCubic;
 	ofxButton createHermite;
 	ofxButton createBSpline;
+
+	ofxButton createSurface;
 
 	ofxToggle material1Toggle;
 	ofxToggle material2Toggle;

@@ -26,7 +26,7 @@ public:
   
   void update();
   void draw();
-
+  ofMaterial* getMaterial() { return material; }
   void mousePressed(int x, int y, int button);
   void mouseDragged(int x, int y, int button);
   void mouseScrolled(int x, int y, float scrollX, float scrollY);
@@ -51,11 +51,13 @@ private:
 	void CreateImage();
 	void CreateLemniscate();
 	void CreateIcosahedron();
-
+	void CreateCubeMap();
 	void CreateQuadratic();
 	void CreateCubic();
 	void CreateHermite();
 	void CreateBSpline();
+
+	void CreateSurface();
 
 	void CreateDirectionalLight();
 	void CreateAmbiantLight();
@@ -83,7 +85,8 @@ private:
 	TransformGui* transformGui;
 	MultiTransformGui* multiTransformGui;
 	CameraGui* cameraGui;
-	ofMaterial material;
+
+	ofMaterial* material;
 	bool eventEnabled;
 	bool showObjectCreator;
 };

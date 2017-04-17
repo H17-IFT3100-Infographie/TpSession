@@ -73,10 +73,16 @@
     <ClCompile Include="src\Objects\Object3d\Beziers\cubic.cpp">
       <Filter>src\Objects\Object3d\Beziers</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\Beziers\hermite.cpp">
+      <Filter>src\Objects\Object3d\Beziers</Filter>
+    </ClCompile>
     <ClCompile Include="src\Objects\Object3d\Beziers\quadratic.cpp">
       <Filter>src\Objects\Object3d\Beziers</Filter>
     </ClCompile>
     <ClCompile Include="src\Objects\Object3d\box.cpp">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\cubemap.cpp">
       <Filter>src\Objects\Object3d</Filter>
     </ClCompile>
     <ClCompile Include="src\Objects\Object3d\modelObj.cpp">
@@ -90,6 +96,9 @@
     </ClCompile>
     <ClCompile Include="src\Objects\Object3d\sphere.cpp">
       <Filter>src\Objects\Object3d</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Object3d\Splines\bspline.cpp">
+      <Filter>src\Objects\Object3d\Splines</Filter>
     </ClCompile>
     <ClCompile Include="src\ofxGuiAddons\ofxInputField.cpp">
       <Filter>src\ofxGuiAddons</Filter>
@@ -133,9 +142,6 @@
     <ClCompile Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.cpp">
       <Filter>addons\ofxGui\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Objects\Object3d\Beziers\hermite.cpp">
-      <Filter>src\Objects\Object3d\Beziers</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -164,6 +170,9 @@
     </Filter>
     <Filter Include="src\Objects\Object3d\Beziers">
       <UniqueIdentifier>{1B076637-6F45-9429-5F63-56C7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Objects\Object3d\Splines">
+      <UniqueIdentifier>{6AB219F5-3FFD-2F83-FBFF-7180}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\ofxGuiAddons">
       <UniqueIdentifier>{314AE252-C9F8-F1D9-E192-E287}</UniqueIdentifier>
@@ -266,10 +275,16 @@
     <ClInclude Include="src\Objects\Object3d\Beziers\cubic.h">
       <Filter>src\Objects\Object3d\Beziers</Filter>
     </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\Beziers\hermite.h">
+      <Filter>src\Objects\Object3d\Beziers</Filter>
+    </ClInclude>
     <ClInclude Include="src\Objects\Object3d\Beziers\quadratic.h">
       <Filter>src\Objects\Object3d\Beziers</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\box.h">
+      <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\cubemap.h">
       <Filter>src\Objects\Object3d</Filter>
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\modelObj.h">
@@ -283,6 +298,9 @@
     </ClInclude>
     <ClInclude Include="src\Objects\Object3d\sphere.h">
       <Filter>src\Objects\Object3d</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Object3d\Splines\bspline.h">
+      <Filter>src\Objects\Object3d\Splines</Filter>
     </ClInclude>
     <ClInclude Include="src\ofxGuiAddons\ofxInputField.h">
       <Filter>src\ofxGuiAddons</Filter>
@@ -439,9 +457,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\frameworks\of_v0.9.8_vs_release\addons\ofxGui\src\ofxToggle.h">
       <Filter>addons\ofxGui\src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Objects\Object3d\Beziers\hermite.h">
-      <Filter>src\Objects\Object3d\Beziers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

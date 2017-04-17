@@ -1,8 +1,6 @@
 #ifndef BASE_3D_OBJECT_H
 #define BASE_3D_OBJECT_H
-
 #include "baseObject.h"
-
 #include <ofMaterial.h>
 
 class Base3DObject : public BaseObject
