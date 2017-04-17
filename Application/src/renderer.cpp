@@ -397,7 +397,7 @@ void Renderer::CreateBSpline()
 
 void Renderer::CreateSurface()
 {
-//	objectsList.push_back(new Surface());
+	objectsList.push_back(new Cubic(0.0f, 0.0f, 0.0f, true));
 }
 
 void Renderer::CreateDirectionalLight()

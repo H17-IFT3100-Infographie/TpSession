@@ -29,8 +29,8 @@ public:
 		z = uuu * p1z + 3 * uu * t * p2z + 3 * u * tt * p3z + ttt * p4z;
 	}
 
-	Cubic();
-	Cubic(float x, float y, float z);
+	Cubic(bool drawSurface = false);
+	Cubic(float x, float y, float z, bool drawSurface = false);
 	~Cubic();
 	
 	void Load();
@@ -47,6 +47,8 @@ public:
 
 	Sphere* GetFirstNode() { return listCrtlPoints[0]; }
 	void ReplaceLastNodeBy(Sphere* byNode);
+
+	void CreateSurfaces();
 
 protected:
 
@@ -65,6 +67,8 @@ private:
 	ofVec3f position;
 
 	std::vector<Sphere*> listCrtlPoints;
+	ofMesh triangle1;
+	ofMesh triangle2;
 
 	float lineWidthOutline;
 	float lineWidthCurve;
@@ -85,6 +89,8 @@ private:
 	int lineResolution;
 
 	int index;
+
+	bool drawSurface;
 };
 
 #endif // IMAGE_H

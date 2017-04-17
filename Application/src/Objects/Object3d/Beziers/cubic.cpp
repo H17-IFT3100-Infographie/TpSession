@@ -3,15 +3,17 @@
 #include "../../application.h"
 
 // Constructeur de la classe Image avec chemin de fichier en paramètre
-Cubic::Cubic()
+Cubic::Cubic(bool drawSurface)
 	: BaseObject(0.0f, 0.0f, 0.0f)
+	, drawSurface(drawSurface)
 {
 	Load();
 	
 }
 // Constructeur de la classe Image avec 3 positions et un chemin de fichier en paramètres
-Cubic::Cubic(float x, float y, float z)
+Cubic::Cubic(float x, float y, float z, bool drawSurface)
 	: BaseObject(x, y, z)
+	, drawSurface(drawSurface)
 {
 	Load();
 }
@@ -138,6 +140,13 @@ void Cubic::Draw()
 		listCrtlPoints[2]->Draw();
 		listCrtlPoints[3]->Draw();
 
+		if (drawSurface)
+		{
+			CreateSurfaces();
+			triangle1.draw();
+			triangle2.draw();
+		}
+		
 	ofPopMatrix();
 }
 // Fonction permettant de déterminer les frontières d'une image
@@ -174,4 +183,31 @@ void Cubic::ReplaceLastNodeBy(Sphere* byNode)
 	Application::getInstance().getRenderer()->AddObjectInList(byNode);
 	listCrtlPoints[listCrtlPoints.size() - 1] = byNode;
 	listCrtlPoints[listCrtlPoints.size() - 1]->pos = ofVec3f::zero();
+}
+
+void Cubic::CreateSurfaces()
+{
+	triangle1.clear();
+
+	triangle1.setMode(OF_PRIMITIVE_TRIANGLES);
+
+	ofVec3f top(listCrtlPoints[0]->pos.x, listCrtlPoints[0]->pos.y, listCrtlPoints[0]->pos.z);
+	ofVec3f left(listCrtlPoints[2]->pos.x, listCrtlPoints[2]->pos.y, listCrtlPoints[2]->pos.z);
+	ofVec3f right(listCrtlPoints[1]->pos.x, listCrtlPoints[1]->pos.y, listCrtlPoints[1]->pos.z);
+	
+	triangle1.addVertex(top);
+	triangle1.addVertex(left);
+	triangle1.addVertex(right);
+
+	triangle2.clear();
+
+	triangle2.setMode(OF_PRIMITIVE_TRIANGLES);
+
+	top = ofVec3f(listCrtlPoints[3]->pos.x, listCrtlPoints[3]->pos.y, listCrtlPoints[3]->pos.z);
+	left = ofVec3f(listCrtlPoints[2]->pos.x, listCrtlPoints[2]->pos.y, listCrtlPoints[2]->pos.z);
+	right = ofVec3f(listCrtlPoints[0]->pos.x, listCrtlPoints[0]->pos.y, listCrtlPoints[0]->pos.z);
+
+	triangle2.addVertex(top);
+	triangle2.addVertex(left);
+	triangle2.addVertex(right);
 }
