@@ -39,10 +39,10 @@
 #ifndef	OFX_CUBE_MAP_H
 #define OFX_CUBE_MAP_H
 #include "base3DObject.h"
-
+#include "baseobject.h"
 #include "ofMain.h"
 
-class CubeMap
+class CubeMap : public Base3DObject
 {
 public:
 
@@ -60,7 +60,7 @@ public:
 		ofImage pos_z, ofImage neg_z);
 
 	// Drawing ------------------
-
+	void Draw();
 	void initEmptyTextures(int _size, GLuint _channels = GL_RGB, GLuint _storageFormat = GL_UNSIGNED_BYTE);				// Initialize empty textures to draw on later.
 
 	void bind();
@@ -127,7 +127,6 @@ private:
 	float farZ;
 
 	ofVec3f		CubeMapCamerasRenderPosition;
-
 	int boundToTextureUnit;
 };
 

@@ -88,7 +88,7 @@ Renderer::~Renderer()
 	delete shaderGouraud;
 	delete shaderPhong;
 	delete shaderBlinnPhong;
-
+	delete shaderReflective;
 }
 
 // Fonction permettant l'initialisation du renderer
@@ -114,7 +114,7 @@ void Renderer::Setup()
 	shaderGouraud = new ofShader();
 	shaderPhong = new ofShader();
 	shaderBlinnPhong = new ofShader();
-
+	shaderReflective = new ofShader();
 	// Paramétrer la version des shaders en GLSL
 	switch(glVersionMajor)
 	{
@@ -150,6 +150,9 @@ void Renderer::Setup()
 		"shader/" + shaderVersion + "/BlinnPhongVS.glsl",
 		"shader/" + shaderVersion + "/BlinnPhongFS.glsl");
 
+	shaderReflective->load(
+		"shader/" + shaderVersion + "/ReflectiveVS.glsl",
+		"shader/" + shaderVersion + "/ReflectiveFS.glsl");
 	// shader actif au lancement de la scène
 	activeShader = Shading::BLINN_PHONG;
 
@@ -233,6 +236,17 @@ void Renderer::Update()
 	case Shading::BLINN_PHONG:
 		shaderName = "BlinnPhong";
 		shader = shaderBlinnPhong;
+		shader->begin();
+		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
+		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
+		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
+		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		shader->end();
+		break;
+
+	case Shading::REFLECTIVE:
+		shaderName = "Reflective";
+		shader = shaderReflective;
 		shader->begin();
 		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
 		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
@@ -371,10 +385,10 @@ void Renderer::CreateLemniscate()
 {
 	objectsList.push_back(new LemniscateProceduralImage());
 }
-/*void Renderer::CreateCubeMap()
+void Renderer::CreateCubeMap()
 {
 	objectsList.push_back(new CubeMap());
-}*/
+}
 void Renderer::CreateQuadratic()
 {
 	objectsList.push_back(new Quadratic());
