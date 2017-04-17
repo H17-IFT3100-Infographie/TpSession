@@ -296,7 +296,8 @@ void Renderer::Draw()
 			if (cm == true)
 			{
 				cubemap.bind();
-					cubemap.drawSkybox(5500);
+					cubemap.setPosition(cam->getPosition());
+					cubemap.drawSkybox(3500);
 				cubemap.unbind();
 			}
 
@@ -475,10 +476,12 @@ bool Renderer::MousePressed(int x, int y, int button)
 	}
 
 	ofHideCursor();
+
+	bool hit = false;
 	// Si le bouton de gauche est enfoncé
 	if (button == 0)
 	{
-		bool hit = false;
+		
 		for (int i = 0, count = objectsList.size(); i < count; i++)
 		{
 			ofVec3f sPos = cam->worldToScreen(objectsList[i]->pos);
@@ -519,8 +522,6 @@ bool Renderer::MousePressed(int x, int y, int button)
 
 		moveCursor->pos = ofVec2f(x, y);
 		moveCursor->Show();
-
-		return hit;
 	}
 	// Si le bouton de droite est enfoncé
 	else if (button == 2)
@@ -532,7 +533,7 @@ bool Renderer::MousePressed(int x, int y, int button)
 	// Position précédente
 	previousMousePosition = ofVec2f(x, y);
 
-	return false;
+	return hit;
 }
 // Fonctions activées lorsque la souris est déplacée alors qu'un bouton est enfoncé
 void Renderer::MouseDragged(int x, int y, int button)
