@@ -29,6 +29,7 @@
 #include "Objects/Object3d/Beziers/quadratic.h"
 #include "Objects/Object3d/Beziers/cubic.h"
 #include "Objects/Object3d/Beziers/hermite.h"
+#include "Objects/Object3d/Splines/bspline.h"
 //#include "Objects/Object3d/Beziers/surface.h"
 
 // Énumération des types de shader
@@ -84,7 +85,10 @@ public:
 	void CreateQuadratic();
 	void CreateCubic();
 	void CreateHermite();
+	void CreateBSpline();
+
 	void CreateSurface();
+
 	void CreateDirectionalLight();
 	void CreateAmbiantLight();
 	void CreateSpotLight();
@@ -112,6 +116,7 @@ public:
 	bool SelectObject(int aIndex);
 
 	void AddObjectInList(BaseObject* obj) { objectsList.push_back(obj); }
+	void RemoveObjectInList(BaseObject* obj) { objectsList.erase(std::find(objectsList.begin(), objectsList.end(), obj)); }
 
 private:
 

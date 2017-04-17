@@ -60,14 +60,14 @@ void Cubic::reset()
 	framebufferHeight = ofGetHeight();
 
 	// ratios de positionnement dans la fenêtre
-	float w_1_8 = framebufferWidth / 8.0f - framebufferWidth * 0.5f;
-	float w_1_4 = framebufferWidth / 4.0f - framebufferWidth * 0.5f;
-	float w_1_2 = framebufferWidth / 2.0f - framebufferWidth * 0.5f;
-	float w_3_4 = framebufferWidth * 3.0f / 4.0f - framebufferWidth * 0.5f;
-	float w_7_8 = framebufferWidth * 7.0f / 8.0f - framebufferWidth * 0.5f;
-	float h_1_5 = framebufferHeight / 5.0f - framebufferHeight * 0.5f;
-	float h_1_3 = framebufferHeight / 3.0f - framebufferHeight * 0.5f;
-	float h_4_5 = framebufferHeight * 4.0f / 5.0f - framebufferHeight * 0.5f;
+	float w_1_8 = pos.x + framebufferWidth / 8.0f - framebufferWidth * 0.5f;
+	float w_1_4 = pos.x + framebufferWidth / 4.0f - framebufferWidth * 0.5f;
+	float w_1_2 = pos.x + framebufferWidth / 2.0f - framebufferWidth * 0.5f;
+	float w_3_4 = pos.x + framebufferWidth * 3.0f / 4.0f - framebufferWidth * 0.5f;
+	float w_7_8 = pos.x + framebufferWidth * 7.0f / 8.0f - framebufferWidth * 0.5f;
+	float h_1_5 = pos.y + framebufferHeight / 5.0f - framebufferHeight * 0.5f;
+	float h_1_3 = pos.y + framebufferHeight / 3.0f - framebufferHeight * 0.5f;
+	float h_4_5 = pos.y + framebufferHeight * 4.0f / 5.0f - framebufferHeight * 0.5f;
 
 	initialPosition1 = { w_1_8, h_4_5, 0 };
 	initialPosition2 = { w_1_4, h_1_3, 0 };
@@ -146,6 +146,7 @@ void Cubic::DrawBoundingBox()
 	listCrtlPoints[0]->DrawBoundingBox();
 	listCrtlPoints[1]->DrawBoundingBox();
 	listCrtlPoints[2]->DrawBoundingBox();
+	listCrtlPoints[3]->DrawBoundingBox();
 }
 // Fonction permettant d'ajuster la teinte des pixels de l'image
 void Cubic::SetColor(int r, int g, int b, int a)
@@ -163,3 +164,14 @@ bool Cubic::CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPo
 	return false;
 }
 
+void Cubic::ReplaceLastNodeBy(Sphere* byNode)
+{
+	if (nullptr != listCrtlPoints[listCrtlPoints.size() - 1])
+	{
+		Application::getInstance().getRenderer()->RemoveObjectInList(listCrtlPoints[listCrtlPoints.size() - 1]);
+	}
+
+	Application::getInstance().getRenderer()->AddObjectInList(byNode);
+	listCrtlPoints[listCrtlPoints.size() - 1] = byNode;
+	listCrtlPoints[listCrtlPoints.size() - 1]->pos = ofVec3f::zero();
+}

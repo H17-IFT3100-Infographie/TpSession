@@ -55,7 +55,10 @@ private:
 	void CreateQuadratic();
 	void CreateCubic();
 	void CreateHermite();
+	void CreateBSpline();
+
 	void CreateSurface();
+
 	void CreateDirectionalLight();
 	void CreateAmbiantLight();
 	void CreateSpotLight();

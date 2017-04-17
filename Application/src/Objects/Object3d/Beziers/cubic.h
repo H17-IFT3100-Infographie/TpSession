@@ -45,6 +45,9 @@ public:
 
 	virtual bool CheckPointCollision(const ofVec3f& mouse, const ofVec3f& objScreenPos);
 
+	Sphere* GetFirstNode() { return listCrtlPoints[0]; }
+	void ReplaceLastNodeBy(Sphere* byNode);
+
 protected:
 
 private:

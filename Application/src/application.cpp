@@ -34,7 +34,10 @@ Application::~Application()
 		gui->GetCreateQuadratic().removeListener(this, &Application::CreateQuadratic);
 		gui->GetCreateCubic().removeListener(this, &Application::CreateCubic);
 		gui->GetCreateHermite().removeListener(this, &Application::CreateHermite);
+		gui->GetCreateBSpline().removeListener(this, &Application::CreateBSpline);
+
 		gui->GetCreateSurface().removeListener(this, &Application::CreateSurface);
+
 		gui->GetCreateDirectionalLight().removeListener(this, &Application::CreateDirectionalLight);
 		gui->GetCreatePointLight().removeListener(this, &Application::CreatePointLight);
 		gui->GetCreateAmbiantLight().removeListener(this, &Application::CreateAmbiantLight);
@@ -134,7 +137,10 @@ void Application::setup()
 	gui->GetCreateQuadratic().addListener(this, &Application::CreateQuadratic);
 	gui->GetCreateCubic().addListener(this, &Application::CreateCubic);
 	gui->GetCreateHermite().addListener(this, &Application::CreateHermite);
+	gui->GetCreateBSpline().addListener(this, &Application::CreateBSpline);
+
 	gui->GetCreateSurface().addListener(this, &Application::CreateSurface);
+
 	gui->GetCreateDirectionalLight().addListener(this, &Application::CreateDirectionalLight);
 	gui->GetCreatePointLight().addListener(this, &Application::CreatePointLight);
 	gui->GetCreateAmbiantLight().addListener(this, &Application::CreateAmbiantLight);
@@ -304,10 +310,17 @@ void Application::CreateHermite()
 {
 	renderer->CreateHermite();
 }
+
+void Application::CreateBSpline()
+{
+	renderer->CreateBSpline();
+}
+
 void Application::CreateSurface()
 {
 	renderer->CreateSurface();
 }
+
 void Application::CreateDirectionalLight()
 {
 	renderer->CreateDirectionalLight();
