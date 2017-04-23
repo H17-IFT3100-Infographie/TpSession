@@ -2,6 +2,7 @@
 
 #include "renderer.h"
 
+#include "Application.h"
 // Constructeur de la classe Renderer avec initialisation des paramètres
 Renderer::Renderer()
 	: screenPosition(ofVec2f(0.0f, 0.0f))
@@ -196,6 +197,10 @@ void Renderer::Update()
 		colors += lights[j]->GetColorVec3() / 255.0f;
 	}
 
+	ofColor matDiffuseColor = Application::getInstance().getMaterial()->getDiffuseColor() / 255.0f;
+	ofColor matAmbiantColor = Application::getInstance().getMaterial()->getAmbientColor() / 255.0f;
+	ofColor matSpecColor = Application::getInstance().getMaterial()->getSpecularColor() / 255.0f;
+
 	// passer les attributs uniformes au shader de sommets
 	switch (activeShader)
 	{
@@ -203,7 +208,7 @@ void Renderer::Update()
 		shaderName = "Color Fill";
 		shader = shaderColorFill;
 		shader->begin();
-		shader->setUniform3f("color", colors.x, colors.y, colors.z);
+		shader->setUniform3f("color", matDiffuseColor.r, matDiffuseColor.g, matDiffuseColor.b);
 		shader->end();
 		break;
 
@@ -211,8 +216,8 @@ void Renderer::Update()
 		shaderName = "Lambert";
 		shader = shaderLambert;
 		shader->begin();
-		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
-		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
+		shader->setUniform3f("colorAmbient", matAmbiantColor.r, matAmbiantColor.g, matAmbiantColor.b);
+		shader->setUniform3f("colorDiffuse", matDiffuseColor.r, matDiffuseColor.g, matDiffuseColor.b);
 		shader->end();
 		break;
 
@@ -220,10 +225,10 @@ void Renderer::Update()
 		shaderName = "Gouraud";
 		shader = shaderGouraud;
 		shader->begin();
-		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
-		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
-		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 1.0f);
-		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		shader->setUniform3f("colorAmbient", matAmbiantColor.r, matAmbiantColor.g, matAmbiantColor.b);
+		shader->setUniform3f("colorDiffuse", matDiffuseColor.r, matDiffuseColor.g, matDiffuseColor.b);
+		shader->setUniform3f("colorSpecular", matSpecColor.r, matSpecColor.g, matSpecColor.b);
+		shader->setUniform1f("brightness", Application::getInstance().getMaterial()->getShininess());
 		shader->end();
 		break;
 
@@ -231,10 +236,10 @@ void Renderer::Update()
 		shaderName = "Phong";
 		shader = shaderPhong;
 		shader->begin();
-		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
-		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
-		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
-		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		shader->setUniform3f("colorAmbient", matAmbiantColor.r, matAmbiantColor.g, matAmbiantColor.b);
+		shader->setUniform3f("colorDiffuse", matDiffuseColor.r, matDiffuseColor.g, matDiffuseColor.b);
+		shader->setUniform3f("colorSpecular", matSpecColor.r, matSpecColor.g, matSpecColor.b);
+		shader->setUniform1f("brightness", Application::getInstance().getMaterial()->getShininess());
 		shader->end();
 		break;
 
@@ -242,10 +247,10 @@ void Renderer::Update()
 		shaderName = "BlinnPhong";
 		shader = shaderBlinnPhong;
 		shader->begin();
-		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
-		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
-		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
-		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		shader->setUniform3f("colorAmbient", matAmbiantColor.r, matAmbiantColor.g, matAmbiantColor.b);
+		shader->setUniform3f("colorDiffuse", matDiffuseColor.r, matDiffuseColor.g, matDiffuseColor.b);
+		shader->setUniform3f("colorSpecular", matSpecColor.r, matSpecColor.g, matSpecColor.b);
+		shader->setUniform1f("brightness", Application::getInstance().getMaterial()->getShininess());
 		shader->end();
 		break;
 
@@ -253,10 +258,10 @@ void Renderer::Update()
 		shaderName = "Reflective";
 		shader = shaderReflective;
 		shader->begin();
-		shader->setUniform3f("colorAmbient", colors.x, colors.y, colors.z);
-		shader->setUniform3f("colorDiffuse", colors.x, colors.y, colors.z);
-		shader->setUniform3f("colorSpecular", 1.0f, 1.0f, 0.0f);
-		//shader->setUniform1f("brightness", oscillate(ofGetElapsedTimeMillis(), 32, 5000, 0, 32));
+		shader->setUniform3f("colorAmbient", matAmbiantColor.r, matAmbiantColor.g, matAmbiantColor.b);
+		shader->setUniform3f("colorDiffuse", matDiffuseColor.r, matDiffuseColor.g, matDiffuseColor.b);
+		shader->setUniform3f("colorSpecular", matSpecColor.r, matSpecColor.g, matSpecColor.b);
+		shader->setUniform1f("brightness", Application::getInstance().getMaterial()->getShininess());
 		shader->end();
 		break;
 
@@ -427,10 +432,6 @@ void Renderer::CreateBSpline()
 void Renderer::CreateSurface()
 {
 	objectsList.push_back(new Surface());
-}
-void Renderer::CreateGeometryShader()
-{
-	//objectsList.push_back(new Surface());
 }
 // Fonction permettant la création d'une lumière directionnelle
 void Renderer::CreateDirectionalLight()

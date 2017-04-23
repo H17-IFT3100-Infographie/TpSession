@@ -37,7 +37,6 @@ Application::~Application()
 		gui->GetCreateBSpline().removeListener(this, &Application::CreateBSpline);
 
 		gui->GetCreateSurface().removeListener(this, &Application::CreateSurface);
-		gui->GetGeometryShader().removeListener(this, &Application::CreateGeometryShader);
 		gui->GetCreateDirectionalLight().removeListener(this, &Application::CreateDirectionalLight);
 		gui->GetCreatePointLight().removeListener(this, &Application::CreatePointLight);
 		gui->GetCreateAmbiantLight().removeListener(this, &Application::CreateAmbiantLight);
@@ -107,6 +106,12 @@ void Application::setup()
 	}
 
 	material = new ofMaterial();
+	material->setDiffuseColor(ofFloatColor::red);
+	material->setAmbientColor(0.1f);
+	material->setEmissiveColor(0.1f);
+	material->setSpecularColor(0.1f);
+	material->setShininess(2);
+
 	renderer->Setup();
 
 	// On génère le gui
@@ -140,7 +145,6 @@ void Application::setup()
 	gui->GetCreateBSpline().addListener(this, &Application::CreateBSpline);
 
 	gui->GetCreateSurface().addListener(this, &Application::CreateSurface);
-	gui->GetGeometryShader().addListener(this, &Application::CreateGeometryShader);
 	gui->GetCreateDirectionalLight().addListener(this, &Application::CreateDirectionalLight);
 	gui->GetCreatePointLight().addListener(this, &Application::CreatePointLight);
 	gui->GetCreateAmbiantLight().addListener(this, &Application::CreateAmbiantLight);
@@ -519,18 +523,18 @@ void Application::keyReleased(int key)
 // Fonction permettant d'appliquer le matériau 1 sur les modèles dans la scène
 void Application::SetMaterial1(const void* sender, bool& pressed)
 {
-// Si cliqué, Material 1
-if (pressed)
-{
-	gui->GetMaterial1Toggle() = true;
-	gui->GetMaterial2Toggle() = false;
-	gui->GetMaterial3Toggle() = false;
-	material->setDiffuseColor(0.5f);
-	material->setAmbientColor(0.1f);
-	material->setEmissiveColor(0.0f);
-	material->setSpecularColor(0.0f);
-	material->setShininess(2);
-}
+	// Si cliqué, Material 1
+	if (pressed)
+	{
+		gui->GetMaterial1Toggle() = true;
+		gui->GetMaterial2Toggle() = false;
+		gui->GetMaterial3Toggle() = false;
+		material->setDiffuseColor(ofFloatColor::red);
+		material->setAmbientColor(0.1f);
+		material->setEmissiveColor(0.1f);
+		material->setSpecularColor(0.1f);
+		material->setShininess(2);
+	}
 }
 // Fonction permettant d'appliquer le matériau 2 sur les modèles dans la scène
 void Application::SetMaterial2(const void* sender, bool& pressed)
@@ -544,7 +548,7 @@ void Application::SetMaterial2(const void* sender, bool& pressed)
 		material->setDiffuseColor(ofFloatColor::magenta);
 		material->setAmbientColor(0.5f);
 		material->setEmissiveColor(0.7f);
-		material->setSpecularColor(0.7f);
+		material->setSpecularColor(0.5f);
 		material->setShininess(1);
 	}
 }
@@ -557,17 +561,14 @@ void Application::SetMaterial3(const void* sender, bool& pressed)
 		gui->GetMaterial3Toggle() = true;
 		gui->GetMaterial1Toggle() = false;
 		gui->GetMaterial2Toggle() = false;
-		material->setDiffuseColor(0.1f);
+		material->setDiffuseColor(ofFloatColor::aqua);
 		material->setAmbientColor(0.4f);
 		material->setEmissiveColor(ofFloatColor::blue);
 		material->setSpecularColor(0.9f);
 		material->setShininess(5);
 	}
 }
-void Application::CreateGeometryShader()
-{
-	renderer->CreateGeometryShader();
-}
+
 void Application::exit()
 {
 

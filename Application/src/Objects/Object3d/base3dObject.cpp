@@ -32,7 +32,7 @@ Base3DObject::~Base3DObject()
 // Fonction permettant le rendu graphique d'instances de la classe Base3DObject
 void Base3DObject::Draw()
 {
-	mat = Application::getInstance().getMaterial();
+	//mat = Application::getInstance().getMaterial();
 
 	// Détermination de certains paramètres et transformations
 	ofSetColor(color);
@@ -42,9 +42,9 @@ void Base3DObject::Draw()
 	primitive->setOrientation(rot);
 
 // Rendu graphique de la primitive associée au Base3DObject
-	mat->begin();
+	//mat->begin();
 	primitive->draw();
-	mat->end();
+	//mat->end();
 	ofSetColor(ofColor::white);
 }
 // Fonction permettant de déterminer les limites d'un Base3DObject

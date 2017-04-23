@@ -56,7 +56,6 @@ private:
 	void CreateCubic();
 	void CreateHermite();
 	void CreateBSpline();
-	void CreateGeometryShader();
 	void CreateSurface();
 
 	void CreateDirectionalLight();
