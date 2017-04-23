@@ -292,50 +292,52 @@ void Application::CreateFV()
 {
 	renderer->CreateFV();
 }
-
+// Fonction permettant la création d'une courbe quadratique
 void Application::CreateQuadratic()
 {
 	renderer->CreateQuadratic();
 }
+// Fonction permettant la création d'un cube map
 void Application::CreateCubeMap()
 {
 renderer->CreateCubeMap();
 }
+// Fonction permettant la création d'une courbe cubique
 void Application::CreateCubic()
 {
 	renderer->CreateCubic();
 }
-
+// Fonction permettant la création d'une courbe hermite
 void Application::CreateHermite()
 {
 	renderer->CreateHermite();
 }
-
+// Fonction permettant la création d'une B-Spline
 void Application::CreateBSpline()
 {
 	renderer->CreateBSpline();
 }
-
+// Fonction permettant la création d'une surface paramétrique
 void Application::CreateSurface()
 {
 	renderer->CreateSurface();
 }
-
+// Fonction permettant la création d'une lumière directionnelle
 void Application::CreateDirectionalLight()
 {
 	renderer->CreateDirectionalLight();
 }
-
+// Fonction permettant la création d'une lumière ambiante
 void Application::CreateAmbiantLight()
 {
 	renderer->CreateAmbiantLight();
 }
-
+// Fonction permettant la création d'une lumière projecteur
 void Application::CreateSpotLight()
 {
 	renderer->CreateSpotLight();
 }
-
+// Fonction permettant la création d'une lumière ponctuelle
 void Application::CreatePointLight()
 {
 	renderer->CreatePointLight();
@@ -475,6 +477,7 @@ void Application::keyPressed(int key)
 // Fonction envoyant au renderer l'information concernant les touches clavier relâchées
 void Application::keyReleased(int key)
 {
+	// Switch permettant la sélection du modèle d'illumination
 	switch (key)
 	{
 	case 'c':  // key c
@@ -513,6 +516,7 @@ void Application::keyReleased(int key)
 		renderer->keyReleased(key);
 	}
 }
+// Fonction permettant d'appliquer le matériau 1 sur les modèles dans la scène
 void Application::SetMaterial1(const void* sender, bool& pressed)
 {
 // Si cliqué, Material 1
@@ -528,6 +532,7 @@ if (pressed)
 	material->setShininess(2);
 }
 }
+// Fonction permettant d'appliquer le matériau 2 sur les modèles dans la scène
 void Application::SetMaterial2(const void* sender, bool& pressed)
 {
 	// Si cliqué, Material 2
@@ -543,7 +548,7 @@ void Application::SetMaterial2(const void* sender, bool& pressed)
 		material->setShininess(1);
 	}
 }
-
+// Fonction permettant d'appliquer le matériau 3 sur les modèles dans la scène
 void Application::SetMaterial3(const void* sender, bool& pressed) 
 {
 	// Si cliqué, Material 3

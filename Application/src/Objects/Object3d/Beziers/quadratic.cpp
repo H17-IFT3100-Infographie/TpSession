@@ -74,7 +74,7 @@ void Quadratic::reset()
 	initialPosition3 = { w_1_2, h_1_5, 0 };
 	initialPosition4 = { w_3_4, h_1_3, 0 };
 	initialPosition5 = { w_7_8, h_4_5, 0 };
-
+	// Ajout de points de contrôles
 	listCrtlPoints.push_back(new Sphere(initialPosition1.x, initialPosition1.y, initialPosition1.z, radius));
 	listCrtlPoints.push_back(new Sphere(initialPosition2.x, initialPosition2.y, initialPosition2.z, radius));
 	listCrtlPoints.push_back(new Sphere(initialPosition5.x, initialPosition5.y, initialPosition5.z, radius));
@@ -94,6 +94,7 @@ void Quadratic::Update()
 {
 	for (index = 0; index <= lineResolution; ++index)
 	{
+		// Création d'une bézier quadratique avec les nouveaux paramètres
 		bezierQuadratic(
 			index / (float)lineResolution,
 			listCrtlPoints[0]->pos.x, listCrtlPoints[0]->pos.y, listCrtlPoints[0]->pos.z,

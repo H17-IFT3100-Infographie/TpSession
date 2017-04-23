@@ -108,7 +108,6 @@ void Renderer::Setup()
 	ofBackground(0, 0, 0);
 
 	// Instanciation des shaders
-
 	shaderColorFill = new ofShader();
 	shaderLambert = new ofShader();
 	shaderGouraud = new ofShader();
@@ -129,7 +128,6 @@ void Renderer::Setup()
 	}
 
 	// Charger, compiler et linker les sources des shaders
-	// charger, compiler et linker les sources des shaders
 	shaderColorFill->load(
 		"shader/" + shaderVersion + "/ColorFillVS.glsl",
 		"shader/" + shaderVersion + "/ColorFillFS.glsl");
@@ -399,31 +397,33 @@ void Renderer::CreateLemniscate()
 {
 	objectsList.push_back(new LemniscateProceduralImage());
 }
+// Fonction permettant la création d'un cube map
 void Renderer::CreateCubeMap()
 {
 	if (cm != true) { cm = true; }
 	else {cm = false;}
 }
+// Fonction permettant la création d'une courbe bézier quadratique
 void Renderer::CreateQuadratic()
 {
 	objectsList.push_back(new Quadratic());
 }
-
+// Fonction permettant la création d'une courbe bézier cubique
 void Renderer::CreateCubic()
 {
 	objectsList.push_back(new Cubic());
 }
-
+// Fonction permettant la création d'une courbe hermite
 void Renderer::CreateHermite()
 {
 	objectsList.push_back(new Hermite());
 }
-
+// Fonction permettant la création d'une B-Spline
 void Renderer::CreateBSpline()
 {
 	objectsList.push_back(new BSpline());
 }
-
+// Fonction permettant la création d'une surface paramétrique
 void Renderer::CreateSurface()
 {
 	objectsList.push_back(new Surface());
@@ -432,21 +432,22 @@ void Renderer::CreateGeometryShader()
 {
 	//objectsList.push_back(new Surface());
 }
+// Fonction permettant la création d'une lumière directionnelle
 void Renderer::CreateDirectionalLight()
 {
 	lights.push_back(new DirectionalLight());
 }
-
+// Fonction permettant la création d'une lumière ambiante
 void Renderer::CreateAmbiantLight()
 {
 	lights.push_back(new AmbiantLight());
 }
-
+// Fonction permettant la création d'une lumière projecteur
 void Renderer::CreateSpotLight()
 {
 	lights.push_back(new SpotLight());
 }
-
+// Fonction permettant la création d'une lumière ponctuelle
 void Renderer::CreatePointLight()
 {
 	lights.push_back(new PointLight());
